@@ -47,6 +47,7 @@
 		B59A0C792A64D149009C7F18 /* MyKeynoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyKeynoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C7D2A64D149009C7F18 /* MyKeynoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteUITests.swift; sourceTree = "<group>"; };
 		B59A0C7F2A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B59A0C8E2A64D635009C7F18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "../../../../../문서 - MacBook Pro 16 SM/Workspace/Softeer/ios-keynote/README.md"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 		B59A0C502A64D146009C7F18 = {
 			isa = PBXGroup;
 			children = (
+				B59A0C8E2A64D635009C7F18 /* README.md */,
 				B59A0C5B2A64D146009C7F18 /* MyKeynote */,
 				B59A0C722A64D149009C7F18 /* MyKeynoteTests */,
 				B59A0C7C2A64D149009C7F18 /* MyKeynoteUITests */,
