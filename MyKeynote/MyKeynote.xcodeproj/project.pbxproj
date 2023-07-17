@@ -20,6 +20,7 @@
 		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
 		B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */; };
 		B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
+		B5D7D3A52A65FF880073B882 /* RectangleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
 		B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSlide.swift; sourceTree = "<group>"; };
 		B5D7D3A22A6500B40073B882 /* SMSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSize.swift; sourceTree = "<group>"; };
+		B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleSlide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				B5D7D39D2A64F7AB0073B882 /* DataModel */,
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
 				B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */,
+				B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */,
+				B5D7D3A52A65FF880073B882 /* RectangleSlide.swift in Sources */,
 				B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */,
 				B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */,
 				B59A0C932A64DECF009C7F18 /* SMColor.swift in Sources */,
