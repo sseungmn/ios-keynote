@@ -21,7 +21,7 @@ struct SMSize {
     }
 
     init(ratio: CGFloat, using generator: inout RandomNumberGenerator) {
-        self.width = Int.random(in: 0..<300, using: &generator)
+        self.width = Int.random(in: 1..<300, using: &generator)
         self.ratio = ratio
     }
 }
