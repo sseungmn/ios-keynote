@@ -12,32 +12,27 @@ final class Slide {
         static let ratio: CGFloat = 3/4 // height / width
     }
 
-    enum Alpha: Int {
-        case one = 1
-        case two
-        case three
-        case four
-        case five
-        case six
-        case seven
-        case eight
-        case nine
-        case ten
-    }
-
     private let identifier: String = UUID().uuidString
     private let name: String
     private let width: Int
     private let height: Int
     private let color: SMColor
-    private let alpha: Alpha
+    private let alpha: SMAlpha
 
-    init(name: String, width: Int, color: SMColor, alpha: Alpha) {
+    init(name: String, width: Int, color: SMColor, alpha: SMAlpha) {
         self.name = name
         self.width = width
         self.height = Int(CGFloat(width) * Constant.ratio)
         self.color = color
         self.alpha = alpha
+    }
+
+    init(name: String, using generator: inout RandomNumberGenerator) {
+        self.name = name
+        self.width = Int.random(in: 0..<300, using: &generator)
+        self.height = Int(CGFloat(width) * Constant.ratio)
+        self.color = SMColor(using: &generator)
+        self.alpha = SMAlpha(using: &generator)
     }
 }
 

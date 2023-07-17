@@ -12,10 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let rectA = Slide(name: "rectA", width: 245, color: SMColor(red: 10, green: 50, blue: 80), alpha: .five)
-        let rectB = Slide(name: "rectB", width: 245, color: SMColor(red: 10, green: 50, blue: 80), alpha: .five)
-        let rectC = Slide(name: "rectC", width: 245, color: SMColor(red: 10, green: 50, blue: 80), alpha: .five)
-        let rectD = Slide(name: "rectD", width: 245, color: SMColor(red: 10, green: 50, blue: 80), alpha: .five)
+        var generator: RandomNumberGenerator = MockRandomNumberGenerator()
+        let rectA = Slide(name: "rectA", using: &generator)
+        let rectB = Slide(name: "rectB", using: &generator)
+        let rectC = Slide(name: "rectC", using: &generator)
+        let rectD = Slide(name: "rectD", using: &generator)
         print(rectA)
         print(rectB)
         print(rectC)
@@ -23,3 +24,8 @@ class ViewController: UIViewController {
     }
 }
 
+struct MockRandomNumberGenerator: RandomNumberGenerator {
+    func next() -> UInt64 {
+        return UInt64(1)
+    }
+}

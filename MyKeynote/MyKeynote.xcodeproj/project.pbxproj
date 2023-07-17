@@ -17,6 +17,7 @@
 		B59A0C802A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C7F2A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift */; };
 		B59A0C912A64D9DA009C7F18 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C902A64D9DA009C7F18 /* Slide.swift */; };
 		B59A0C932A64DECF009C7F18 /* SMColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C922A64DECF009C7F18 /* SMColor.swift */; };
+		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		B59A0C8E2A64D635009C7F18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "../../../../../문서 - MacBook Pro 16 SM/Workspace/Softeer/ios-keynote/README.md"; sourceTree = "<group>"; };
 		B59A0C902A64D9DA009C7F18 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		B59A0C922A64DECF009C7F18 /* SMColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMColor.swift; sourceTree = "<group>"; };
+		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,10 +152,19 @@
 		B59A0C8F2A64D9AD009C7F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5D7D39D2A64F7AB0073B882 /* New Group */,
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
-				B59A0C922A64DECF009C7F18 /* SMColor.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B5D7D39D2A64F7AB0073B882 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0C922A64DECF009C7F18 /* SMColor.swift */,
+				B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 				B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */,
 				B59A0C932A64DECF009C7F18 /* SMColor.swift in Sources */,
 				B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */,
+				B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */,
 				B59A0C912A64D9DA009C7F18 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

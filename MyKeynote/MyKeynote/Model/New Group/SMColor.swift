@@ -17,6 +17,12 @@ struct SMColor {
         self.green = green
         self.blue = blue
     }
+
+    init(using generator: inout RandomNumberGenerator) {
+        self.red = UInt8.random(in: 0..<UInt8.max, using: &generator)
+        self.green = UInt8.random(in: 0..<UInt8.max, using: &generator)
+        self.blue = UInt8.random(in: 0..<UInt8.max, using: &generator)
+    }
 }
 
 extension SMColor: CustomStringConvertible {
