@@ -29,15 +29,47 @@ enum SMAlpha: Int, CaseIterable {
         self = Self(rawValue: Int.random(in: 1...count, using: &generator)) ?? .one
     }
 
-    static func random(using generator: inout RandomNumberGenerator) -> Self {
-        let count = Self.allCases.count
-        let rawValue = Int.random(in: 1...count, using: &generator)
-        return Self(rawValue: rawValue) ?? .one
+    static var min: Self {
+        return .one
     }
+
+    static var max: Self {
+        return .ten
+    }
+
+    static func random(in range: Range<SMAlpha>, using generator: inout RandomNumberGenerator) -> Self {
+        return Array(range).randomElement(using: &generator) ?? .one
+    }
+}
+
+extension SMAlpha: Comparable {
+    static func < (lhs: SMAlpha, rhs: SMAlpha) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+}
+
+extension SMAlpha: Strideable {
+    func distance(to other: SMAlpha) -> Int {
+        return Stride(other.rawValue) - Stride(rawValue)
+    }
+    
+    func advanced(by n: Int) -> SMAlpha {
+        let index = Stride(rawValue) + n
+        if let result = Self(rawValue: index) {
+            return result
+        } else if index < 0 {
+            return .one
+        } else {
+            return .ten
+        }
+    }
+    
+    typealias Stride = Int
+
 }
 
 extension SMAlpha: CustomStringConvertible {
     var description: String {
-        return "Alpha: \(rawValue)"
+        return "\(rawValue)"
     }
 }

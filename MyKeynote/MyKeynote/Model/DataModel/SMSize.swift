@@ -11,7 +11,7 @@ struct SMSize {
     
     private var ratio: CGFloat
 
-    var width: Int
+    private(set) var width: Int
     var height: Int {
         return Int(CGFloat(width) * ratio)
     }
