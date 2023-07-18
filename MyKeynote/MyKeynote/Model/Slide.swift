@@ -11,7 +11,7 @@ class Slide {
 
     class var ratio: CGFloat { return 0 }
 
-    private let identifier: String = SMUUID().uuidString
+    private let identifier = SMUUID()
     private let name: String
     private let size: SMSize
     private let color: SMColor
@@ -27,6 +27,6 @@ class Slide {
 
 extension Slide: CustomStringConvertible {
     var description: String {
-        return "\(name) (\(identifier)), Side:\(size.width), \(color.description), Alpha: \(alpha.rawValue)"
+        return "\(name) (\(identifier)), \(size.width), \(color), \(alpha)"
     }
 }

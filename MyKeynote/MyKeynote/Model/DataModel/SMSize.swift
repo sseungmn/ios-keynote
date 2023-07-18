@@ -26,3 +26,9 @@ struct SMSize {
         return SMSize(width: width, ratio: ratio)
     }
 }
+
+extension SMSize: CustomStringConvertible {
+    var description: String {
+        return "Side: \(width)"
+    }
+}

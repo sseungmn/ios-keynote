@@ -36,4 +36,8 @@ enum SMAlpha: Int, CaseIterable {
     }
 }
 
-
+extension SMAlpha: CustomStringConvertible {
+    var description: String {
+        return "Alpha: \(rawValue)"
+    }
+}
