@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol SlideFactorable {
+protocol SlideFactoryProtocol {
     
     func create<T: Slide>(name: String, of Type: T.Type) -> T
 }
 
-final class SlideFactory: SlideFactorable {
+final class SlideFactory: SlideFactoryProtocol {
 
     private var generator: RandomNumberGenerator
     private let maxWidth = 300
