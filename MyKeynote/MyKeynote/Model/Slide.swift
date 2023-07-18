@@ -10,7 +10,7 @@ import Foundation
 class Slide {
     class var ratio: CGFloat { return 0 }
 
-    private let identifier: String = UUID().uuidString
+    private let identifier: String = SMUUID().uuidString
     private let name: String
     private let size: SMSize
     private let color: SMColor
