@@ -13,20 +13,18 @@ class Slide {
 
     private let identifier = SMUUID()
     private let name: String
-    private let size: SMSize
-    private let color: SMColor
-    private let alpha: SMAlpha
+    private(set) var size: SMSize
+    private(set) var color: SMColor
 
-    required init(name: String, width: Int, color: SMColor, alpha: SMAlpha) {
+    required init(name: String, width: Int, color: SMColor) {
         self.name = name
         self.size = SMSize(width: width, ratio: Self.ratio)
         self.color = color
-        self.alpha = alpha
     }
 }
 
 extension Slide: CustomStringConvertible {
     var description: String {
-        return "\(name) (\(identifier)), \(size), \(color), \(alpha)"
+        return "\(name) (\(identifier)), \(size), \(color)"
     }
 }
