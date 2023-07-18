@@ -8,6 +8,7 @@
 import Foundation
 
 class Slide {
+
     class var ratio: CGFloat { return 0 }
 
     private let identifier: String = SMUUID().uuidString

@@ -8,6 +8,7 @@
 import Foundation
 
 struct SMUUID {
+    
     private(set) var uuidString: String
 
     init() {

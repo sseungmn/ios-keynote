@@ -8,6 +8,7 @@
 import Foundation
 
 struct SMColor {
+    
     private let red: UInt8
     private let green: UInt8
     private let blue: UInt8

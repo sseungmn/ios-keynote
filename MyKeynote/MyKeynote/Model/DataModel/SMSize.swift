@@ -8,6 +8,7 @@
 import Foundation
 
 struct SMSize {
+    
     private var ratio: CGFloat
 
     var width: Int

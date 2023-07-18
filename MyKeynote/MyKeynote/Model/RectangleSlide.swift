@@ -8,5 +8,6 @@
 import Foundation
 
 final class RectangleSlide: Slide {
+    
     override class var ratio: CGFloat { return 3/4 } // 세로/가로
 }

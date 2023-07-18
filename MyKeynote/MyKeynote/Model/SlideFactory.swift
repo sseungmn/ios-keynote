@@ -8,10 +8,12 @@
 import Foundation
 
 protocol SlideFactorable {
+    
     func create<T: Slide>(name: String, of Type: T.Type) -> T
 }
 
 final class SlideFactory: SlideFactorable {
+
     private var generator: RandomNumberGenerator
     private let maxWidth = 300
 
