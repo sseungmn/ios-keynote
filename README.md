@@ -12,9 +12,22 @@
 
 - [x] system log 함수에 대해 공부하기 - (20m -> 10m)
 - [x] 모델의 디버그 출력을 system log로 리펙토링하기. - (20m -> 10m)
-- [x] 9자리 고유값 만들기 - (?? -> 3hr)
+
 
 <details>
     <summary>스크린샷</summary>
     <img width="800" alt="image" src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/888491e8-4afa-4e29-a97e-f7e00364746b">
+    
+</details>
+
+### 07월 17일 (화)
+
+- [x] 9자리 고유값 만들기 - (?? -> 3hr)
+- [x] SMDataModel과 UIKit의 연동
+- [x] Slide 객체를 기반으로 View 그려보기
+
+<details>
+    <summary>스크린샷</summary>
+
+    <img width="500" alt="image" src="https://user-images.githubusercontent.com/46219689/254361875-6c05f37c-6079-4a0a-a0e3-9c50510962bf.png">
 </details>

@@ -15,13 +15,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = .white
+
         let rectA = factory.create(name: "rectA", of: SquareSlide.self)
-        let rectB = factory.create(name: "rectB", of: SquareSlide.self)
-        let rectC = factory.create(name: "rectC", of: SquareSlide.self)
-        let rectD = factory.create(name: "rectD", of: SquareSlide.self)
         Logger.main.log("\(rectA.description)")
-        Logger.main.log("\(rectB.description)")
-        Logger.main.log("\(rectC.description)")
-        Logger.main.log("\(rectD.description)")
+
+        let rectView = UIView()
+        rectView.frame.size = rectA.size.cgSize
+        rectView.center = view.center
+        rectView.backgroundColor = rectA.color.uiColor
+        view.addSubview(rectView)
     }
 }
