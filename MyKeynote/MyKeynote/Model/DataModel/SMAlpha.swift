@@ -23,8 +23,16 @@ enum SMAlpha: Int, CaseIterable {
         return Self.allCases.count
     }
 
+    static func random(using generator: inout RandomNumberGenerator) -> Self {
+        let count = Self.allCases.count
+        let rawValue = Int.random(in: 1...count, using: &generator)
+        return Self(rawValue: rawValue) ?? .one
+    }
+
     init(using generator: inout RandomNumberGenerator) {
         let count = Self.allCases.count
         self = Self(rawValue: Int.random(in: 1...count, using: &generator)) ?? .one
     }
 }
+
+

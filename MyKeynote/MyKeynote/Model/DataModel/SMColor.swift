@@ -18,10 +18,12 @@ struct SMColor {
         self.blue = blue
     }
 
-    init(using generator: inout RandomNumberGenerator) {
-        self.red = UInt8.random(in: 0..<UInt8.max, using: &generator)
-        self.green = UInt8.random(in: 0..<UInt8.max, using: &generator)
-        self.blue = UInt8.random(in: 0..<UInt8.max, using: &generator)
+    static func random(using generator: inout RandomNumberGenerator) -> Self {
+        return SMColor(
+            red: UInt8.random(in: 0..<UInt8.max, using: &generator),
+            green: UInt8.random(in: 0..<UInt8.max, using: &generator),
+            blue: UInt8.random(in: 0..<UInt8.max, using: &generator)
+        )
     }
 }
 

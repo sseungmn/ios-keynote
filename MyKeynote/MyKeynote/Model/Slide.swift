@@ -16,18 +16,11 @@ class Slide {
     private let color: SMColor
     private let alpha: SMAlpha
 
-    init(name: String, width: Int, color: SMColor, alpha: SMAlpha) {
+    required init(name: String, width: Int, color: SMColor, alpha: SMAlpha) {
         self.name = name
         self.size = SMSize(width: width, ratio: Self.ratio)
         self.color = color
         self.alpha = alpha
-    }
-
-    init(name: String, using generator: inout RandomNumberGenerator) {
-        self.name = name
-        self.size = SMSize(ratio: Self.ratio, using: &generator)
-        self.color = SMColor(using: &generator)
-        self.alpha = SMAlpha(using: &generator)
     }
 }
 

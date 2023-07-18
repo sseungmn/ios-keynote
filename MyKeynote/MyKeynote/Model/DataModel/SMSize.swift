@@ -20,8 +20,8 @@ struct SMSize {
         self.ratio = ratio
     }
 
-    init(ratio: CGFloat, using generator: inout RandomNumberGenerator) {
-        self.width = Int.random(in: 1..<300, using: &generator)
-        self.ratio = ratio
+    static func random(in range: ClosedRange<Int>, using generator: inout RandomNumberGenerator, ratio: CGFloat) -> Self {
+        let width = Int.random(in: range, using: &generator)
+        return SMSize(width: width, ratio: ratio)
     }
 }
