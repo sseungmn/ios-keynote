@@ -117,8 +117,10 @@
 			children = (
 				B59A0C8C2A64D579009C7F18 /* App */,
 				B59A0C8D2A64D58C009C7F18 /* Resource */,
+				B59A0CB52A66FE30009C7F18 /* Util */,
 				B59A0C8F2A64D9AD009C7F18 /* Model */,
-				B59A0C602A64D146009C7F18 /* ViewController.swift */,
+				B59A0CB62A66FE51009C7F18 /* View */,
+				B59A0CB72A66FE63009C7F18 /* Controller */,
 			);
 			path = MyKeynote;
 			sourceTree = "<group>";
@@ -163,12 +165,42 @@
 			isa = PBXGroup;
 			children = (
 				B5D7D39D2A64F7AB0073B882 /* DataModel */,
+				B59A0CB42A66FE18009C7F18 /* Slide */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B59A0CB42A66FE18009C7F18 /* Slide */ = {
+			isa = PBXGroup;
+			children = (
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
 				B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */,
 				B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */,
 				B5D7D3A62A66043E0073B882 /* SlideFactory.swift */,
 			);
-			path = Model;
+			path = Slide;
+			sourceTree = "<group>";
+		};
+		B59A0CB52A66FE30009C7F18 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		B59A0CB62A66FE51009C7F18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B59A0CB72A66FE63009C7F18 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0C602A64D146009C7F18 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B5D7D39D2A64F7AB0073B882 /* DataModel */ = {
