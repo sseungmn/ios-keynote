@@ -27,6 +27,6 @@ class Slide {
 
 extension Slide: CustomStringConvertible {
     var description: String {
-        return "\(name) (\(identifier)), \(size.width), \(color), \(alpha)"
+        return "\(name) (\(identifier)), \(size), \(color), \(alpha)"
     }
 }
