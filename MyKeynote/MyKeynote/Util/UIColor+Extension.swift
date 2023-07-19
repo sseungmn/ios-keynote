@@ -22,4 +22,13 @@ extension UIColor {
 
         return UIColor(red: compRed, green: compGreen, blue: compBlue, alpha: alpha)
     }
+
+    // https://stackoverflow.com/a/58158413/19782341
+    var hexString: String {
+        guard let components = cgColor.components else { return "" }
+        return components[0..<3]
+            .map { String(format: "%02lX", Int($0 * 255)) }
+            .reduce("#", +)
+
+    }
 }
