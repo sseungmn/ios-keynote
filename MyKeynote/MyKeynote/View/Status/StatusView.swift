@@ -6,6 +6,13 @@
 //
 
 import UIKit
+import OSLog
+
+protocol StatusDelegate {
+
+    func colorPickerButtonDidTap(_ sender: UIButton)
+    func alphaStepperValueDidChange(_ sender: UIStepper)
+}
 
 final class StatusView: UIView {
 
@@ -17,14 +24,7 @@ final class StatusView: UIView {
         return label
     }()
 
-    private let colorPickerButton: UIButton = {
-        var button = UIButton()
-        button.setTitle("0xFFCC00", for: .normal)
-        button.setTitleColor(.systemYellow.complementaryColor(), for: .normal)
-        button.backgroundColor = .systemYellow
-        button.layer.cornerRadius = 5.0
-        return button
-    }()
+    private let colorPickerButton = BackgroundColorChangeableButton()
 
     private let alphaTitleLabel: UILabel = {
         var label = UILabel()
@@ -33,11 +33,13 @@ final class StatusView: UIView {
         return label
     }()
 
-    private let alphaValuePresentableStepper = ValuePresentableStepper(
+    private let alphaStepper = ValuePresentableStepper(
         minValue: Double(SMAlpha.min.rawValue),
         maxValue: Double(SMAlpha.max.rawValue),
         stepValue: Double(SMAlpha.stepValue)
     )
+
+    var delegate: StatusDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -55,14 +57,22 @@ final class StatusView: UIView {
         addSubview(backgroundColorTitleLabel)
         addSubview(colorPickerButton)
         addSubview(alphaTitleLabel)
-        addSubview(alphaValuePresentableStepper)
+        addSubview(alphaStepper)
 
         colorPickerButton.addTarget(self, action: #selector(colorPickerButtonDidTap(_:)), for: .touchUpInside)
+        alphaStepper.addTarget(self, action: #selector(alphaStepperValueDidChange(_:)), for: .valueChanged)
     }
 
     @objc
     private func colorPickerButtonDidTap(_ sender: UIButton) {
-        print("Hello")
+        Logger.track()
+        delegate?.colorPickerButtonDidTap(sender)
+    }
+
+    @objc
+    private func alphaStepperValueDidChange(_ sender: UIStepper) {
+        Logger.track()
+        delegate?.alphaStepperValueDidChange(sender)
     }
 }
 
@@ -81,8 +91,20 @@ extension StatusView: LayoutConfigurable {
         alphaTitleLabel.sizeToFit()
 
         let minY = alphaTitleLabel.frame.maxY + spacing
-        alphaValuePresentableStepper.frame.origin = CGPoint(x: inset, y: minY)
-        alphaValuePresentableStepper.frame.size.width = frame.width - inset
-        alphaValuePresentableStepper.configureLayout()
+        alphaStepper.frame.origin = CGPoint(x: inset, y: minY)
+        alphaStepper.frame.size.width = frame.width - inset
+        alphaStepper.configureLayout()
+    }
+}
+
+extension StatusView {
+    func configureDelegate<T: StatusDelegate>(_ delegator: T) {
+        delegate = delegator
+    }
+}
+
+extension UIButton: UIColorPickerViewControllerDelegate {
+    public func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        backgroundColor = color
     }
 }

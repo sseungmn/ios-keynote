@@ -8,10 +8,6 @@
 import UIKit
 import OSLog
 
-protocol ValuePresentableStepperDelegate {
-    func stepperValueDidChange(_ sender: UIStepper)
-}
-
 final class ValuePresentableStepper: UIView {
     private let valueLabel: UILabel = {
         var label = UILabel()
@@ -79,5 +75,11 @@ extension ValuePresentableStepper: LayoutConfigurable {
         valueLabel.frame.size.height = stepper.frame.height
 
         frame.size.height = stepper.frame.height
+    }
+}
+
+extension ValuePresentableStepper {
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
+        stepper.addTarget(target, action: action, for: controlEvents)
     }
 }

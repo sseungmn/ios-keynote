@@ -58,3 +58,9 @@ extension MainView: LayoutConfigurable {
         statusView.configureLayout()
     }
 }
+
+extension MainView {
+    func configureDelegate<T: StatusDelegate>(_ delegator: T) {
+        statusView.configureDelegate(delegator)
+    }
+}

@@ -12,15 +12,21 @@ class ViewController: UIViewController {
 
     let factory = SlideFactory()
 
+    private var slides = [Slide]()
+    private var selectedSlide: Slide?
+
     private var mainView: MainView {
         return view as? MainView ?? MainView()
     }
+
+    private let colorPickerView = UIColorPickerViewController()
 
     override func loadView() {
         super.loadView()
 
         let mainView = MainView()
         mainView.frame = view.frame
+        mainView.configureDelegate(self)
         view = mainView
     }
 
@@ -49,3 +55,17 @@ class ViewController: UIViewController {
     func viewDidTap() {
     }
 }
+
+// MARK: - View -> Controller -> Model
+extension ViewController: StatusDelegate {
+    func alphaStepperValueDidChange(_ sender: UIStepper) {
+        print(sender.value)
+    }
+    
+    func colorPickerButtonDidTap(_ sender: UIButton) {
+        present(colorPickerView, animated: true)
+        colorPickerView.delegate = sender
+    }
+}
+
+// MARK: - Model -> Controller -> View
