@@ -14,4 +14,12 @@ extension Logger {
         subsystem: Bundle.main.bundleIdentifier ?? "com.minios.MyKeynote",
         category: "main"
     )
+
+    @inline(__always) static func track(
+        fileID: String = #fileID,
+        function: String = #function,
+        line: Int = #line
+    ) {
+        main.info("\(fileID) - \(function):\(line)")
+    }
 }
