@@ -10,6 +10,11 @@ import OSLog
 
 final class MainView: UIView {
 
+    private let statusBarAreaCoverView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .darkGray
+        return view
+    }()
     private let navigationView = NavigatorView()
     private let canvasView = CanvasView()
     private let statusView = StatusView()
@@ -27,6 +32,7 @@ final class MainView: UIView {
     private func configureUI() {
         backgroundColor = .systemGray2
 
+        addSubview(statusBarAreaCoverView)
         addSubview(navigationView)
         addSubview(canvasView)
         addSubview(statusView)
@@ -35,8 +41,10 @@ final class MainView: UIView {
 
 extension MainView: LayoutConfigurable {
     func configureLayout() {
+        statusBarAreaCoverView.frame = CGRect(origin: .zero,
+                                              size: CGSize(width: bounds.width, height: safeAreaInsets.top))
         let sideBarWidth = bounds.width / 7
-        navigationView.frame = CGRect(origin: .zero,
+        navigationView.frame = CGRect(origin: CGPoint(x: safeAreaInsets.left, y: safeAreaInsets.top),
                                       size: CGSize(width: sideBarWidth, height: bounds.height))
         navigationView.configureLayout()
 
@@ -45,7 +53,7 @@ extension MainView: LayoutConfigurable {
                                   size: CGSize(width: bounds.width - 2 * sideBarWidth, height: bounds.height - 2 * canvasViewMinY))
         canvasView.configureLayout()
 
-        statusView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: 0),
+        statusView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: safeAreaInsets.top),
                                   size: CGSize(width: sideBarWidth, height: bounds.height))
         statusView.configureLayout()
     }

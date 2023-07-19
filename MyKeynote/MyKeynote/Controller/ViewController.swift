@@ -24,18 +24,21 @@ class ViewController: UIViewController {
         view = mainView
     }
 
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        mainView.configureLayout()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let rectA = factory.create(name: "rectA", of: SquareSlide.self)
-        Logger.main.log("\(rectA.description)")
 
         let rectView = UIView()
         rectView.frame.size = rectA.size.cgSize
         rectView.center = mainView.center
         rectView.backgroundColor = rectA.color.uiColor
         mainView.addSubview(rectView)
-        mainView.configureLayout()
 
         let tap = UITapGestureRecognizer()
         view.addGestureRecognizer(tap)
