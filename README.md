@@ -34,12 +34,12 @@
 
 ### 07월 18일 (수)
 
-- [ ] 왼쪽 네비게이터, 중앙 작업화면, 오른쪽 정보화면을 나눠서 구현.
-  - [ ] 정보 화면에 배경색 버튼, 투명도 Stepper 구현.
+- [x] 왼쪽 네비게이터, 중앙 작업화면, 오른쪽 정보화면을 나눠서 구현.
+  - [x] 정보 화면에 배경색 버튼, 투명도 Stepper 구현.
 - [ ] View를 Tap했을 때 해당 Model의 정보가 보여지는 것
     - [ ] Model의 정보가 StatusView에 전달되는 클로저/델리게이트 설계
-    - [ ] View의 Tap Gesture와 Model 정보 전달 기능과 연결
+    - [x] View의 Tap Gesture와 Model 정보 전달 기능과 연결
 - [ ] 배경 색을 지정하면, View의 색상이 바뀜
     - [ ] 배경 색 버튼을 누를 때 마다, Model의 color값이 바뀜
     - [ ] Model의 color값이 바뀔 때 마다, View의 backgroundColor가 바뀜
-    - [ ] 배경 색 버튼을 누르면, ColorPicker로 색 선택.
+    - [x] 배경 색 버튼을 누르면, ColorPicker로 색 선택.
