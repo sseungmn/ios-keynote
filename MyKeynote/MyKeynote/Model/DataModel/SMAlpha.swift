@@ -49,6 +49,10 @@ extension SMAlpha: Comparable {
 }
 
 extension SMAlpha: Strideable {
+    static var stepValue: Int {
+        return Stride(1)
+    }
+
     func distance(to other: SMAlpha) -> Int {
         return Stride(other.rawValue) - Stride(rawValue)
     }

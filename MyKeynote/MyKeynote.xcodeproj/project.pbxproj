@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510FED32A68201600649E1B /* ValuePresentableStepper.swift */; };
 		B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */; };
 		B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */; };
 		B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C602A64D146009C7F18 /* ViewController.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B510FED32A68201600649E1B /* ValuePresentableStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePresentableStepper.swift; sourceTree = "<group>"; };
 		B59A0C592A64D146009C7F18 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B510FED22A681FDA00649E1B /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				B510FED32A68201600649E1B /* ValuePresentableStepper.swift */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
 		B59A0C502A64D146009C7F18 = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +387,7 @@
 				B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */,
 				B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */,
 				B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */,
+				B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */,
 				B59A0CCB2A679FB4009C7F18 /* CanvasView.swift in Sources */,
 				B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */,
 				B59A0CC72A677CFB009C7F18 /* StatusView.swift in Sources */,
