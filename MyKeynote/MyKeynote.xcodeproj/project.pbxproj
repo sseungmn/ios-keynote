@@ -22,6 +22,11 @@
 		B59A0CBB2A670203009C7F18 /* SMColor+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CBA2A670203009C7F18 /* SMColor+UIColor.swift */; };
 		B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CBE2A670A6B009C7F18 /* SMAlpha+CGFloat.swift */; };
 		B59A0CC12A670AF2009C7F18 /* SMSize+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC02A670AF2009C7F18 /* SMSize+CGSize.swift */; };
+		B59A0CC32A677928009C7F18 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC22A677928009C7F18 /* MainView.swift */; };
+		B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */; };
+		B59A0CC72A677CFB009C7F18 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC62A677CFB009C7F18 /* StatusView.swift */; };
+		B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */; };
+		B59A0CCB2A679FB4009C7F18 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */; };
 		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
 		B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */; };
 		B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
@@ -67,6 +72,11 @@
 		B59A0CBA2A670203009C7F18 /* SMColor+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMColor+UIColor.swift"; sourceTree = "<group>"; };
 		B59A0CBE2A670A6B009C7F18 /* SMAlpha+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMAlpha+CGFloat.swift"; sourceTree = "<group>"; };
 		B59A0CC02A670AF2009C7F18 /* SMSize+CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMSize+CGSize.swift"; sourceTree = "<group>"; };
+		B59A0CC22A677928009C7F18 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConfigurable.swift; sourceTree = "<group>"; };
+		B59A0CC62A677CFB009C7F18 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
+		B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
 		B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSlide.swift; sourceTree = "<group>"; };
 		B5D7D3A22A6500B40073B882 /* SMSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSize.swift; sourceTree = "<group>"; };
@@ -203,6 +213,11 @@
 		B59A0CB62A66FE51009C7F18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */,
+				B59A0CC22A677928009C7F18 /* MainView.swift */,
+				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
+				B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */,
+				B59A0CC62A677CFB009C7F18 /* StatusView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,7 +371,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */,
 				B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */,
+				B59A0CCB2A679FB4009C7F18 /* CanvasView.swift in Sources */,
+				B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */,
+				B59A0CC72A677CFB009C7F18 /* StatusView.swift in Sources */,
 				B59A0CB92A66FEB6009C7F18 /* Logger+Extension.swift in Sources */,
 				B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */,
 				B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */,
@@ -365,6 +384,7 @@
 				B59A0CBB2A670203009C7F18 /* SMColor+UIColor.swift in Sources */,
 				B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */,
 				B59A0C932A64DECF009C7F18 /* SMColor.swift in Sources */,
+				B59A0CC32A677928009C7F18 /* MainView.swift in Sources */,
 				B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */,
 				B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */,
 				B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */,
