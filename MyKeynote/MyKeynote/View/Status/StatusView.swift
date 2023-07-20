@@ -103,8 +103,9 @@ extension StatusView {
     }
 }
 
-extension UIButton: UIColorPickerViewControllerDelegate {
-    public func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
-        backgroundColor = color
+// MARK: - API
+extension StatusView {
+    func configureColorStatus(_ color: UIColor) {
+        colorPickerButton.backgroundColor = color
     }
 }

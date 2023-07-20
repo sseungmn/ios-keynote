@@ -7,6 +7,12 @@
 
 import Foundation
 
+protocol SlideDelegate {
+
+    func colorDidChange()
+    func alphaDidChange()
+}
+
 class Slide {
 
     class var ratio: Double { return 0 }

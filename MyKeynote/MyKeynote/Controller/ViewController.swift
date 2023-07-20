@@ -8,6 +8,11 @@
 import UIKit
 import OSLog
 
+//protocol SelectedSlide {
+//    func selectedSlideAlphaDidChange()
+//    func selectedSlideColorDidChange()
+//}
+
 class ViewController: UIViewController {
 
     let factory = SlideFactory()
@@ -38,6 +43,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        colorPickerView.delegate = self
+        colorPickerView.supportsAlpha = false
+        
         let rectA = factory.create(name: "rectA", of: SquareSlide.self)
 
         let rectView = UIView()
@@ -45,6 +53,7 @@ class ViewController: UIViewController {
         rectView.center = mainView.center
         rectView.backgroundColor = rectA.color.uiColor
         mainView.addSubview(rectView)
+        selectedSlide = rectA
 
         let tap = UITapGestureRecognizer()
         view.addGestureRecognizer(tap)
@@ -59,12 +68,24 @@ class ViewController: UIViewController {
 // MARK: - View -> Controller -> Model
 extension ViewController: StatusDelegate {
     func alphaStepperValueDidChange(_ sender: UIStepper) {
-        print(sender.value)
+        guard let alpha = SMAlpha(sender.value) else {
+            Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
+            return
+        }
+        selectedSlide?.setAlpha(alpha)
     }
     
     func colorPickerButtonDidTap(_ sender: UIButton) {
         present(colorPickerView, animated: true)
-        colorPickerView.delegate = sender
+    }
+}
+
+extension ViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
+        if !continuously {
+            mainView.configureColorStatus(color)
+            selectedSlide?.setColor(SMColor(color) ?? .white)
+        }
     }
 }
 

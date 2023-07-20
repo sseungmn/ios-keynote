@@ -64,3 +64,10 @@ extension MainView {
         statusView.configureDelegate(delegator)
     }
 }
+
+// MARK: - API
+extension MainView {
+    func configureColorStatus(_ color: UIColor) {
+        statusView.configureColorStatus(color)
+    }
+}
