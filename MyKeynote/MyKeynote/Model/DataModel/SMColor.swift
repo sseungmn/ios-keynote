@@ -14,7 +14,7 @@ struct SMColor {
     var blue: UInt8
     var alpha: SMAlpha
 
-    init(red: UInt8, green: UInt8, blue: UInt8, alpha: SMAlpha) {
+    init(red: UInt8, green: UInt8, blue: UInt8, alpha: SMAlpha = .ten) {
         self.red = red
         self.green = green
         self.blue = blue
@@ -26,8 +26,18 @@ struct SMColor {
             red: UInt8.random(in: 0..<UInt8.max, using: &generator),
             green: UInt8.random(in: 0..<UInt8.max, using: &generator),
             blue: UInt8.random(in: 0..<UInt8.max, using: &generator),
-            alpha: SMAlpha.random(in: SMAlpha.min..<SMAlpha.max, using: &generator)
+            alpha: SMAlpha.random(in: SMAlpha.min...SMAlpha.max, using: &generator)
         )
+    }
+}
+
+extension SMColor {
+    static var white: SMColor {
+        return SMColor(red: .max, green: .max, blue: .max)
+    }
+
+    static var black: SMColor {
+        return SMColor(red: .min, green: .min, blue: .min)
     }
 }
 
