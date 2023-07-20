@@ -30,9 +30,7 @@
 		B59A0CCB2A679FB4009C7F18 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */; };
 		B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */; };
 		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
-		B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */; };
 		B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
-		B5D7D3A52A65FF880073B882 /* RectangleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */; };
 		B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A62A66043E0073B882 /* SlideFactory.swift */; };
 		B5F4CD692A68472200CD226F /* BackgroundColorChangeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */; };
 /* End PBXBuildFile section */
@@ -83,9 +81,7 @@
 		B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
-		B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSlide.swift; sourceTree = "<group>"; };
 		B5D7D3A22A6500B40073B882 /* SMSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSize.swift; sourceTree = "<group>"; };
-		B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleSlide.swift; sourceTree = "<group>"; };
 		B5D7D3A62A66043E0073B882 /* SlideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideFactory.swift; sourceTree = "<group>"; };
 		B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorChangeableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,8 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
-				B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */,
-				B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */,
 				B5D7D3A62A66043E0073B882 /* SlideFactory.swift */,
 			);
 			path = Slide;
@@ -398,7 +392,6 @@
 				B59A0CB92A66FEB6009C7F18 /* Logger+Extension.swift in Sources */,
 				B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */,
 				B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */,
-				B5D7D3A52A65FF880073B882 /* RectangleSlide.swift in Sources */,
 				B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */,
 				B59A0CBB2A670203009C7F18 /* SMColor+UIColor.swift in Sources */,
 				B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */,
@@ -406,7 +399,6 @@
 				B59A0CC32A677928009C7F18 /* MainView.swift in Sources */,
 				B5F4CD692A68472200CD226F /* BackgroundColorChangeableButton.swift in Sources */,
 				B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */,
-				B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */,
 				B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */,
 				B59A0C952A668B74009C7F18 /* SMUUID.swift in Sources */,
 				B59A0CC12A670AF2009C7F18 /* SMSize+CGSize.swift in Sources */,

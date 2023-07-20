@@ -9,13 +9,12 @@ import Foundation
 
 protocol SlideFactoryProtocol {
     
-    func create<T: Slide>(name: String, of Type: T.Type) -> T
+    func create<T: SlideContentFactory>(of ContentFactory: T.Type) -> Slide<T.Content>
 }
 
 final class SlideFactory: SlideFactoryProtocol {
 
     private var generator: RandomNumberGenerator
-    private let maxWidth = 300
 
     init(using generator: RandomNumberGenerator) {
         self.generator = generator
@@ -25,12 +24,27 @@ final class SlideFactory: SlideFactoryProtocol {
         self.init(using: SystemRandomNumberGenerator())
     }
 
-    func create<T: Slide>(name: String, of Type: T.Type) -> T {
-        return Type.init(
-            name: name,
-            width: Int.random(in: 1..<maxWidth, using: &generator),
+    func create<T: SlideContentFactory>(of ContentFactory: T.Type) -> Slide<T.Content> {
+        return Slide<T.Content>.init(content: ContentFactory.create(generator: &generator))
+    }
+}
+
+protocol SlideContentFactory {
+    associatedtype Content: SlideContent
+
+    static func create(generator: inout RandomNumberGenerator) -> Content
+}
+
+final class SquareContentFactory: SlideContentFactory {
+    typealias Content = SquareContent
+
+    private static let maxWidth = 300
+
+    static func create(generator: inout RandomNumberGenerator) -> Content {
+        return Content(
+            side: Int.random(in: 0..<maxWidth, using: &generator),
             color: SMColor.random(using: &generator),
-            alpha: SMAlpha.random(in: SMAlpha.min...SMAlpha.max, using: &generator)
+            alpha: SMAlpha.random(using: &generator)
         )
     }
 }

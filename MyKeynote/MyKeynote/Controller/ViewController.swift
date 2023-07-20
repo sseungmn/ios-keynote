@@ -17,8 +17,8 @@ class ViewController: UIViewController {
 
     let factory = SlideFactory()
 
-    private var slides = [Slide]()
-    private var selectedSlide: Slide?
+    private var slides = [any Slidable]()
+    private var selectedSlide: (any Slidable)?
 
     private var mainView: MainView {
         return view as? MainView ?? MainView()
@@ -46,12 +46,12 @@ class ViewController: UIViewController {
         colorPickerView.delegate = self
         colorPickerView.supportsAlpha = false
         
-        let rectA = factory.create(name: "rectA", of: SquareSlide.self)
+        let rectA = factory.create(of: SquareContentFactory.self)
 
         let rectView = UIView()
-        rectView.frame.size = rectA.size.cgSize
+        rectView.frame.size = CGSize(width: rectA.content.side, height: rectA.content.side)
         rectView.center = mainView.center
-        rectView.backgroundColor = rectA.color.uiColor
+        rectView.backgroundColor = rectA.content.color.uiColor
         mainView.addSubview(rectView)
         selectedSlide = rectA
 
@@ -72,7 +72,9 @@ extension ViewController: StatusDelegate {
             Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
             return
         }
-        selectedSlide?.setAlpha(alpha)
+        if let content = selectedSlide?.content as? AlphaChangeable {
+            content.alpha = alpha
+        }
     }
     
     func colorPickerButtonDidTap(_ sender: UIButton) {
@@ -84,7 +86,9 @@ extension ViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         if !continuously {
             mainView.configureColorStatus(color)
-            selectedSlide?.setColor(SMColor(color) ?? .white)
+            if let content = selectedSlide?.content as? ColorChangeable {
+                content.color = SMColor(color) ?? .white
+            }
         }
     }
 }
