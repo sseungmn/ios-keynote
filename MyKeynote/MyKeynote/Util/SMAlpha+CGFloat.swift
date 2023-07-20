@@ -13,3 +13,11 @@ extension CGFloat {
         self.init(smAlpha.rawValue)
     }
 }
+
+extension SMAlpha {
+
+    init?(_ rawValue: CGFloat) {
+        guard let alpha = SMAlpha(rawValue: Int(rawValue)) else { return nil }
+        self = alpha
+    }
+}

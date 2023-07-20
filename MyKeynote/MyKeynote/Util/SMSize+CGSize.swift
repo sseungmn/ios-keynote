@@ -12,4 +12,8 @@ extension SMSize {
     var cgSize: CGSize {
         return CGSize(width: width, height: height)
     }
+
+    init(_ cgSize: CGSize) {
+        self.init(width: Int(cgSize.width), height: Int(cgSize.height))
+    }
 }
