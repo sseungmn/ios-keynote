@@ -9,10 +9,10 @@ import Foundation
 
 struct SMColor {
     
-    private(set) var red: UInt8
-    private(set) var green: UInt8
-    private(set) var blue: UInt8
-    private(set) var alpha: SMAlpha
+    var red: UInt8
+    var green: UInt8
+    var blue: UInt8
+    var alpha: SMAlpha
 
     init(red: UInt8, green: UInt8, blue: UInt8, alpha: SMAlpha) {
         self.red = red

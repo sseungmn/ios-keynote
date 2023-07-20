@@ -9,16 +9,16 @@ import Foundation
 
 struct SMSize {
     
-    private var ratio: Double?
+    var ratio: Double?
 
-    private(set) var width: Int {
+    var width: Int {
         didSet {
             guard let ratio else { return }
             self.height = Int(Double(width) * ratio)
         }
     }
 
-    private(set) var height: Int
+    var height: Int
 
     init(width: Int, ratio: Double) {
         self.width = width
