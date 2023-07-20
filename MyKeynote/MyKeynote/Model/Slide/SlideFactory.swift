@@ -29,7 +29,8 @@ final class SlideFactory: SlideFactoryProtocol {
         return Type.init(
             name: name,
             width: Int.random(in: 1..<maxWidth, using: &generator),
-            color: SMColor.random(using: &generator)
+            color: SMColor.random(using: &generator),
+            alpha: SMAlpha.random(in: SMAlpha.min...SMAlpha.max, using: &generator)
         )
     }
 }
