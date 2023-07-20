@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import OSLog
 
 extension SMColor {
 
@@ -18,20 +19,19 @@ extension SMColor {
         )
     }
 
-    init(_ uiColor: UIColor) {
-        var red: CGFloat = 0.0
-        var green: CGFloat = 0.0
-        var blue: CGFloat = 0.0
-        var alpha: CGFloat = 0.0
-
-        uiColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+    init?(_ uiColor: UIColor) {
+//        guard let rgba = uiColor.rgba else {
+//            Logger.track(message: "rgba convert caused Error", type: .error)
+//            return nil
+//        }
+        let rgba = uiColor.rgba
 
         // UIColor의 Alpha값은 0.0...1.0 이기 때문에 범위에서 벗어나지 않음.
         self.init(
-            red:UInt8(red * 255.0),
-            green: UInt8(green * 255.0),
-            blue: UInt8(blue * 255.0),
-            alpha: SMAlpha(alpha * 10)!
+            red: UInt8(rgba.red * 255.0),
+            green: UInt8(rgba.green * 255.0),
+            blue: UInt8(rgba.blue * 255.0),
+            alpha: SMAlpha(rgba.alpha * 10)!
         )
     }
 }
