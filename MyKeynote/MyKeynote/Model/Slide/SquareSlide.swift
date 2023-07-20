@@ -9,5 +9,5 @@ import Foundation
 
 final class SquareSlide: Slide {
     
-    override class var ratio: CGFloat { return 1.0 }
+    override class var ratio: Double { return 1.0 }
 }
