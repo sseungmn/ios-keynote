@@ -37,8 +37,8 @@ enum SMAlpha: Int, CaseIterable {
         return .ten
     }
 
-    static func random(in closedRange: ClosedRange<SMAlpha>, using generator: inout RandomNumberGenerator) -> Self {
-        return Array(closedRange).randomElement(using: &generator) ?? .one
+    static func random(using generator: inout RandomNumberGenerator) -> Self {
+        return Self.allCases.randomElement(using: &generator) ?? .one
     }
 }
 

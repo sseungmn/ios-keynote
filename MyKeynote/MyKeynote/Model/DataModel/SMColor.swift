@@ -26,7 +26,7 @@ struct SMColor {
             red: UInt8.random(in: 0..<UInt8.max, using: &generator),
             green: UInt8.random(in: 0..<UInt8.max, using: &generator),
             blue: UInt8.random(in: 0..<UInt8.max, using: &generator),
-            alpha: SMAlpha.random(in: SMAlpha.min...SMAlpha.max, using: &generator)
+            alpha: SMAlpha.random(using: &generator)
         )
     }
 }
