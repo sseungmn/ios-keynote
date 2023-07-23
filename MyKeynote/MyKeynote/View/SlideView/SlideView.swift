@@ -9,7 +9,7 @@ import UIKit
 
 final class SlideView: UIView {
 
-    private var contentView: UIView?
+    private var contentView: ContentViewProtocol?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,12 +33,18 @@ extension SlideView: LayoutConfigurable {
 }
 
 extension SlideView {
-    func setContentView(_ contentView: UIView) {
+    func setContentView(_ contentView: ContentViewProtocol) {
         self.contentView = contentView
         addSubview(contentView)
     }
 
     func updateContentView(color: UIColor) {
-        contentView?.backgroundColor = color
+        if let contentView = contentView as? ViewColorChangeable {
+            contentView.updateColor(color)
+        }
+    }
+
+    func updateContentView(alpha: Double) {
+        contentView?.updateAlpha(alpha)
     }
 }

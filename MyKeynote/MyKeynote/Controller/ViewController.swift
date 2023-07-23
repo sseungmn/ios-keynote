@@ -59,11 +59,11 @@ class ViewController: UIViewController {
         let slideView = SlideView(frame: .zero)
         mainView.addSlideView(slideView)
 
-        let rectView = UIView()
+        let rectView = SquareContentView()
         slideView.setContentView(rectView)
         rectView.frame.size = CGSize(width: rectA.content.side, height: rectA.content.side)
         rectView.center = CGPoint(x: slideView.frame.width / 2 , y: slideView.frame.height / 2)
-        rectView.backgroundColor = rectA.content.color.uiColor
+        rectView.select()
         selectedSlide = rectA
         selectedContent = rectA.content
     }
@@ -72,12 +72,12 @@ class ViewController: UIViewController {
 // MARK: - View -> Controller -> Model
 extension ViewController: StatusDelegate {
     func alphaStepperValueDidChange(_ sender: UIStepper) {
-        guard let alpha = SMAlpha(sender.value) else {
+        guard let smAlpha = SMAlpha(sender.value) else {
             Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
             return
         }
         if let content = selectedContent as? AlphaChangeable {
-            content.alpha = alpha
+            content.alpha = smAlpha
         }
     }
     
@@ -103,6 +103,7 @@ extension ViewController: UIColorPickerViewControllerDelegate {
 extension ViewController {
     func addObserverForSlideContent() {
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .ContentColorDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .ContentAlphaDidChange, object: nil)
     }
 
     @objc
@@ -111,7 +112,18 @@ extension ViewController {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
-        mainView.configureColorStatus(color)
-        mainView.updateSelectedSlideContentView(with: color)
+        mainView.updateSelectedSlideStatus(color: color)
+        mainView.updateSelectedSlideContentView(color: color)
+    }
+
+    @objc
+    func slideContentAlphaDidChange(_ notification: Notification) {
+        guard let smAlpha = (notification.object as? AlphaChangeable)?.alpha else {
+            Logger.track(message: "Notification Object conversion Error", type: .error)
+            return
+        }
+        let alpha = Double(smAlpha.rawValue) / 10.0
+        mainView.updateSelectedSlideStatus(alpha: alpha)
+        mainView.updateSelectedSlideContentView(alpha: alpha)
     }
 }

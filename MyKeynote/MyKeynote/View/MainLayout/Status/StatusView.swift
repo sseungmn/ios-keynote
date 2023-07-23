@@ -33,11 +33,7 @@ final class StatusView: UIView {
         return label
     }()
 
-    private let alphaStepper = ValuePresentableStepper(
-        minValue: Double(SMAlpha.min.rawValue),
-        maxValue: Double(SMAlpha.max.rawValue),
-        stepValue: Double(SMAlpha.stepValue)
-    )
+    private let alphaStepper = ValuePresentableStepper()
 
     var delegate: StatusDelegate?
 
@@ -97,15 +93,26 @@ extension StatusView: LayoutConfigurable {
     }
 }
 
+// MARK: - API
+
+// MARK: Setting
 extension StatusView {
     func configureDelegate<T: StatusDelegate>(_ delegator: T) {
         delegate = delegator
     }
+
+    func settingStepperValueRange(min: Double, max: Double, step: Double) {
+        alphaStepper.settingValueRange(min: min, max: max, step: step)
+    }
 }
 
-// MARK: - API
+// MARK: Update
 extension StatusView {
-    func configureColorStatus(_ color: UIColor) {
+    func updateStatus(color: UIColor) {
         colorPickerButton.backgroundColor = color
+    }
+
+    func updateStatus(alpha: Double) {
+        alphaStepper.updateValue(alpha)
     }
 }

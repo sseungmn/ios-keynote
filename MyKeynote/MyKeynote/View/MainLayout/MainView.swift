@@ -70,9 +70,6 @@ extension MainView {
 
 // MARK: - API
 extension MainView {
-    func configureColorStatus(_ color: UIColor) {
-        statusView.configureColorStatus(color)
-    }
 
     func addSlideView(_ slideView: SlideView) {
         slideViews.append(slideView)
@@ -83,7 +80,17 @@ extension MainView {
         slideView.configureLayout()
     }
 
-    func updateSelectedSlideContentView(with color: UIColor) {
+    func updateSelectedSlideStatus(color: UIColor) {
+        statusView.updateStatus(color: color)
+    }
+    func updateSelectedSlideContentView(color: UIColor) {
         selectedSlideView?.updateContentView(color: color)
+    }
+
+    func updateSelectedSlideStatus(alpha: Double) {
+        statusView.updateStatus(alpha: alpha)
+    }
+    func updateSelectedSlideContentView(alpha: Double) {
+        selectedSlideView?.updateContentView(alpha: alpha)
     }
 }

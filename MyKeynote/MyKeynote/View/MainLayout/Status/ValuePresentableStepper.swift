@@ -9,6 +9,7 @@ import UIKit
 import OSLog
 
 final class ValuePresentableStepper: UIView {
+
     private let valueLabel: UILabel = {
         var label = UILabel()
         label.textAlignment = .right
@@ -22,15 +23,6 @@ final class ValuePresentableStepper: UIView {
     private let spacing: CGFloat = 5
     private let labelInset: CGFloat = 5
 
-    init(minValue: Double, maxValue: Double, stepValue: Double) {
-        super.init(frame: .zero)
-        stepper.minimumValue = minValue
-        stepper.maximumValue = maxValue
-        stepper.stepValue = stepValue
-        stepper.value = (minValue + maxValue) / 2
-        setValueLabelText("\(stepper.value)")
-        configureUI()
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,13 +37,6 @@ final class ValuePresentableStepper: UIView {
     private func configureUI() {
         addSubview(valueLabel)
         addSubview(stepper)
-
-        stepper.addTarget(self, action: #selector(stepperValueChanged(_:)), for: .valueChanged)
-    }
-
-    @objc private func stepperValueChanged(_ sender: UIStepper) {
-        Logger.track()
-        setValueLabelText("\(sender.value)")
     }
 
     private func setValueLabelText(_ text: String) {
@@ -78,8 +63,24 @@ extension ValuePresentableStepper: LayoutConfigurable {
     }
 }
 
+// MARK: - API
+
+// MARK: Setting
 extension ValuePresentableStepper {
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         stepper.addTarget(target, action: action, for: controlEvents)
+    }
+    
+    func settingValueRange(min: Double, max: Double, step: Double) {
+        stepper.minimumValue = min
+        stepper.maximumValue = max
+        stepper.stepValue = step
+    }
+}
+
+// MARK: Update
+extension ValuePresentableStepper {
+    func updateValue(_ value: Double) {
+        setValueLabelText("\(value)")
     }
 }

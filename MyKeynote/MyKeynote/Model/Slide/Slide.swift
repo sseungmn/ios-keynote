@@ -7,13 +7,6 @@
 
 import Foundation
 
-protocol SlideContentDelegate {
-
-    func alphaDidChange(_ alpha: SMAlpha)
-    func colorDidChange(_ color: SMColor)
-    func imageDidChange(_ image: Data)
-}
-
 protocol Slidable {
     associatedtype Content: SlideContent
 
