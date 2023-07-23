@@ -47,14 +47,14 @@ protocol ViewColorChangeable: ContentViewProtocol {
 extension ViewColorChangeable {
 
     func updateColor(_ color: UIColor) {
-        contentColor = color.withAlphaComponent(contentAlpha)
-        backgroundColor = contentColor
+        contentColor = color
+        backgroundColor = contentColor.withAlphaComponent(contentAlpha)
         layer.borderColor = (contentColor.isDark ? UIColor.systemTeal : UIColor.black).cgColor
 
     }
 
     func updateAlpha(_ alpha: CGFloat) {
         contentAlpha = alpha
-        updateColor(contentColor.withAlphaComponent(contentAlpha))
+        backgroundColor = contentColor.withAlphaComponent(contentAlpha)
     }
 }
