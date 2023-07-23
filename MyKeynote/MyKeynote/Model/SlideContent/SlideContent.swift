@@ -27,4 +27,3 @@ extension Notification.Name {
     static let ContentColorDidChange = Notification.Name("ContentAlphaDidChange")
 }
 
-// MARK: - SlideContent Concrete
