@@ -12,7 +12,7 @@ class BackgroundColorChangeableButton: UIButton {
     override var backgroundColor: UIColor? {
         willSet {
             guard let newValue else { return }
-            setTitleColor(newValue.complementaryColor(), for: .normal)
+            setTitleColor(newValue.isDark ? .white : .black, for: .normal)
             setTitle(newValue.hexString, for: .normal)
         }
     }

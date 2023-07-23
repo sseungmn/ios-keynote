@@ -20,10 +20,6 @@ extension SMColor {
     }
 
     init?(_ uiColor: UIColor) {
-//        guard let rgba = uiColor.rgba else {
-//            Logger.track(message: "rgba convert caused Error", type: .error)
-//            return nil
-//        }
         let rgba = uiColor.rgba
 
         // UIColor의 Alpha값은 0.0...1.0 이기 때문에 범위에서 벗어나지 않음.
