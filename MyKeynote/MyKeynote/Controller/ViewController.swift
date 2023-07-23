@@ -112,8 +112,6 @@ extension ViewController {
             return
         }
         mainView.configureColorStatus(color)
-        if let selectedContentView = mainView.selectedSlideView {
-            selectedContentView.updateContentView(color: color)
-        }
+        mainView.updateSelectedSlideContentView(with: color)
     }
 }

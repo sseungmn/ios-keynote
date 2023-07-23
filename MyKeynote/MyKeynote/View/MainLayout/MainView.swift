@@ -82,4 +82,8 @@ extension MainView {
         slideView.frame = slideViewFrame
         slideView.configureLayout()
     }
+
+    func updateSelectedSlideContentView(with color: UIColor) {
+        selectedSlideView?.updateContentView(color: color)
+    }
 }
