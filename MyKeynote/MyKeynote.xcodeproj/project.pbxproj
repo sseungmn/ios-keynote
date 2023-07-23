@@ -30,6 +30,7 @@
 		B59A0CCB2A679FB4009C7F18 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCA2A679FB4009C7F18 /* SlideView.swift */; };
 		B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */; };
 		B5CCB6CC2A6D0978009771DC /* SlideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CB2A6D0978009771DC /* SlideContent.swift */; };
+		B5CCB6D02A6D24B2009771DC /* SlideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */; };
 		B5CCB6D32A6D83FF009771DC /* SquareContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D22A6D83FF009771DC /* SquareContent.swift */; };
 		B5CCB6D72A6D8447009771DC /* SlideContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */; };
 		B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D82A6D860E009771DC /* SquareContentView.swift */; };
@@ -86,6 +87,7 @@
 		B59A0CCA2A679FB4009C7F18 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
 		B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		B5CCB6CB2A6D0978009771DC /* SlideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContent.swift; sourceTree = "<group>"; };
+		B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideManager.swift; sourceTree = "<group>"; };
 		B5CCB6D22A6D83FF009771DC /* SquareContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareContent.swift; sourceTree = "<group>"; };
 		B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContentFactory.swift; sourceTree = "<group>"; };
 		B5CCB6D82A6D860E009771DC /* SquareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			children = (
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
 				B5D7D3A62A66043E0073B882 /* SlideFactory.swift */,
+				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
 			);
 			path = Slide;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 				B5CCB6CC2A6D0978009771DC /* SlideContent.swift in Sources */,
 				B5CCB6D32A6D83FF009771DC /* SquareContent.swift in Sources */,
 				B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */,
+				B5CCB6D02A6D24B2009771DC /* SlideManager.swift in Sources */,
 				B59A0C952A668B74009C7F18 /* SMUUID.swift in Sources */,
 				B59A0CC12A670AF2009C7F18 /* SMSize+CGSize.swift in Sources */,
 				B59A0C912A64D9DA009C7F18 /* Slide.swift in Sources */,

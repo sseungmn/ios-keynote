@@ -15,11 +15,7 @@ import OSLog
 
 class ViewController: UIViewController {
 
-    let factory = SlideFactory()
-
-    private var slides = [any Slidable]()
-    private var selectedSlide: (any Slidable)?
-    private var selectedContent: SlideContent?
+    let slideManager: SlideManager
 
     private var mainView: MainView {
         return view as? MainView ?? MainView()
@@ -27,12 +23,22 @@ class ViewController: UIViewController {
 
     private let colorPickerView = UIColorPickerViewController()
 
+    init(factory: SlideFactoryProtocol = SlideFactory()) {
+        self.slideManager = SlideManager(factory: factory)
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         super.loadView()
 
         let mainView = MainView()
         mainView.frame = view.frame
         mainView.configureDelegate(self)
+        mainView.settingStepperValueRange(min: Double(SMAlpha.min.rawValue), max: Double(SMAlpha.max.rawValue) , step: 1.0)
         view = mainView
     }
 
@@ -54,18 +60,16 @@ class ViewController: UIViewController {
 
     @objc
     func viewDidTap() {
-        let rectA = factory.create(of: SquareContentFactory.self)
-
         let slideView = SlideView(frame: .zero)
         mainView.addSlideView(slideView)
 
         let rectView = SquareContentView()
         slideView.setContentView(rectView)
-        rectView.frame.size = CGSize(width: rectA.content.side, height: rectA.content.side)
+        rectView.frame.size = CGSize(width: 100, height: 100)
         rectView.center = CGPoint(x: slideView.frame.width / 2 , y: slideView.frame.height / 2)
         rectView.select()
-        selectedSlide = rectA
-        selectedContent = rectA.content
+
+        let rectA = slideManager.createSlide(of: .square)
     }
 }
 
@@ -76,9 +80,7 @@ extension ViewController: StatusDelegate {
             Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
             return
         }
-        if let content = selectedContent as? AlphaChangeable {
-            content.alpha = smAlpha
-        }
+        slideManager.updateSelectedContent(alpha: smAlpha)
     }
     
     func colorPickerButtonDidTap(_ sender: UIButton) {
@@ -92,9 +94,7 @@ extension ViewController: StatusDelegate {
 extension ViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         if !continuously {
-            if let content = selectedContent as? ColorChangeable {
-                content.color = SMColor(color) ?? .white
-            }
+            slideManager.updateSelectedContent(color: SMColor(color) ?? .white)
         }
     }
 }
@@ -108,10 +108,17 @@ extension ViewController {
 
     @objc
     func slideContentColorDidChange(_ notification: Notification) {
-        guard let color = (notification.object as? ColorChangeable)?.color.uiColor else {
+        guard let rawColor = (notification.object as? ColorChangeable)?.color.uiColor else {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
+        guard let smAlpha = (notification.object as? AlphaChangeable)?.alpha else {
+            Logger.track(message: "Notification Object conversion Error", type: .error)
+            return
+        }
+        let alpha = Double(smAlpha.rawValue) / 10.0
+        let color = rawColor.withAlphaComponent(alpha)
+        colorPickerView.selectedColor = color
         mainView.updateSelectedSlideStatus(color: color)
         mainView.updateSelectedSlideContentView(color: color)
     }
@@ -122,8 +129,8 @@ extension ViewController {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
-        let alpha = Double(smAlpha.rawValue) / 10.0
+        let alpha = Double(smAlpha.rawValue)
         mainView.updateSelectedSlideStatus(alpha: alpha)
-        mainView.updateSelectedSlideContentView(alpha: alpha)
+        mainView.updateSelectedSlideContentView(alpha: alpha / 10.0)
     }
 }
