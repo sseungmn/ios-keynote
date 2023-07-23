@@ -29,6 +29,7 @@
 		B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */; };
 		B59A0CCB2A679FB4009C7F18 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */; };
 		B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */; };
+		B5CCB6CC2A6D0978009771DC /* SlideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CB2A6D0978009771DC /* SlideContent.swift */; };
 		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
 		B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
 		B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A62A66043E0073B882 /* SlideFactory.swift */; };
@@ -80,6 +81,7 @@
 		B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		B59A0CCA2A679FB4009C7F18 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
 		B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B5CCB6CB2A6D0978009771DC /* SlideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContent.swift; sourceTree = "<group>"; };
 		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
 		B5D7D3A22A6500B40073B882 /* SMSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSize.swift; sourceTree = "<group>"; };
 		B5D7D3A62A66043E0073B882 /* SlideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideFactory.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
+				B5CCB6CB2A6D0978009771DC /* SlideContent.swift */,
 				B5D7D3A62A66043E0073B882 /* SlideFactory.swift */,
 			);
 			path = Slide;
@@ -399,6 +402,7 @@
 				B59A0CC32A677928009C7F18 /* MainView.swift in Sources */,
 				B5F4CD692A68472200CD226F /* BackgroundColorChangeableButton.swift in Sources */,
 				B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */,
+				B5CCB6CC2A6D0978009771DC /* SlideContent.swift in Sources */,
 				B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */,
 				B59A0C952A668B74009C7F18 /* SMUUID.swift in Sources */,
 				B59A0CC12A670AF2009C7F18 /* SMSize+CGSize.swift in Sources */,
