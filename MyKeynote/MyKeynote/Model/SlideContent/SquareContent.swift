@@ -30,5 +30,7 @@ final class SquareContent: SlideContent, ColorChangeable {
         self.side = side
         self.color = color
         self.alpha = alpha
+        NotificationCenter.default.post(name: .ContentAlphaDidChange, object: self)
+        NotificationCenter.default.post(name: .ContentColorDidChange, object: self)
     }
 }
