@@ -16,8 +16,11 @@ final class MainView: UIView {
         return view
     }()
     private let navigationView = NavigatorView()
-    private let canvasView = CanvasView()
     private let statusView = StatusView()
+
+    private var slideViews = [SlideView]()
+    private var selectedSlideView: SlideView?
+    private var slideViewFrame = CGRect.zero
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +37,6 @@ final class MainView: UIView {
 
         addSubview(statusBarAreaCoverView)
         addSubview(navigationView)
-        addSubview(canvasView)
         addSubview(statusView)
     }
 }
@@ -50,9 +52,9 @@ extension MainView: LayoutConfigurable {
 
         let canvasViewHeight = (bounds.width - 2 * sideBarWidth) * (3/4)
         let canvasViewMinY = (bounds.height - canvasViewHeight) / 2
-        canvasView.frame = CGRect(origin: CGPoint(x: sideBarWidth, y: canvasViewMinY),
+        slideViewFrame = CGRect(origin: CGPoint(x: sideBarWidth, y: canvasViewMinY),
                                   size: CGSize(width: bounds.width - 2 * sideBarWidth, height: bounds.height - 2 * canvasViewMinY))
-        canvasView.configureLayout()
+        selectedSlideView?.configureLayout()
 
         statusView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: safeAreaInsets.top),
                                   size: CGSize(width: sideBarWidth, height: bounds.height))
@@ -70,5 +72,14 @@ extension MainView {
 extension MainView {
     func configureColorStatus(_ color: UIColor) {
         statusView.configureColorStatus(color)
+    }
+
+    func addSlideView(_ slideView: SlideView) {
+        slideViews.append(slideView)
+        addSubview(slideView)
+
+        selectedSlideView = slideView
+        slideView.frame = slideViewFrame
+        slideView.configureLayout()
     }
 }

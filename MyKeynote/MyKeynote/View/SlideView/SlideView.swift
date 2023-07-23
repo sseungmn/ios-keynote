@@ -1,5 +1,5 @@
 //
-//  CanvasView.swift
+//  SlideView.swift
 //  MyKeynote
 //
 //  Created by SEUNGMIN OH on 2023/07/19.
@@ -7,7 +7,9 @@
 
 import UIKit
 
-final class CanvasView: UIView {
+final class SlideView: UIView {
+
+    private var contentView: UIView?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,8 +26,15 @@ final class CanvasView: UIView {
     }
 }
 
-extension CanvasView: LayoutConfigurable {
+extension SlideView: LayoutConfigurable {
     func configureLayout() {
 
+    }
+}
+
+extension SlideView {
+    func setContentView(_ contentView: UIView) {
+        self.contentView = contentView
+        addSubview(contentView)
     }
 }

@@ -19,6 +19,7 @@ class ViewController: UIViewController {
 
     private var slides = [any Slidable]()
     private var selectedSlide: (any Slidable)?
+    private var selectedContent: SlideContent?
 
     private var mainView: MainView {
         return view as? MainView ?? MainView()
@@ -45,23 +46,25 @@ class ViewController: UIViewController {
 
         colorPickerView.delegate = self
         colorPickerView.supportsAlpha = false
-        
-        let rectA = factory.create(of: SquareContentFactory.self)
 
-        let rectView = UIView()
-        rectView.frame.size = CGSize(width: rectA.content.side, height: rectA.content.side)
-        rectView.center = mainView.center
-        rectView.backgroundColor = rectA.content.color.uiColor
-        mainView.addSubview(rectView)
-        selectedSlide = rectA
-
-        let tap = UITapGestureRecognizer()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
         view.addGestureRecognizer(tap)
-        tap.addTarget(self, action: #selector(viewDidTap))
     }
 
     @objc
     func viewDidTap() {
+        let rectA = factory.create(of: SquareContentFactory.self)
+
+        let slideView = SlideView(frame: .zero)
+        mainView.addSlideView(slideView)
+
+        let rectView = UIView()
+        slideView.setContentView(rectView)
+        rectView.frame.size = CGSize(width: rectA.content.side, height: rectA.content.side)
+        rectView.center = CGPoint(x: slideView.frame.width / 2 , y: slideView.frame.height / 2)
+        rectView.backgroundColor = rectA.content.color.uiColor
+        selectedSlide = rectA
+        selectedContent = rectA.content
     }
 }
 
@@ -72,7 +75,7 @@ extension ViewController: StatusDelegate {
             Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
             return
         }
-        if let content = selectedSlide?.content as? AlphaChangeable {
+        if let content = selectedContent as? AlphaChangeable {
             content.alpha = alpha
         }
     }
@@ -86,7 +89,7 @@ extension ViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         if !continuously {
             mainView.configureColorStatus(color)
-            if let content = selectedSlide?.content as? ColorChangeable {
+            if let content = selectedContent as? ColorChangeable {
                 content.color = SMColor(color) ?? .white
             }
         }
