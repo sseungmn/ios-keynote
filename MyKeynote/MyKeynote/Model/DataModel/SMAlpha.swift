@@ -9,7 +9,8 @@ import Foundation
 
 enum SMAlpha: Int, CaseIterable {
     
-    case one = 1
+    case zero = 0
+    case one
     case two
     case three
     case four
@@ -30,7 +31,7 @@ enum SMAlpha: Int, CaseIterable {
     }
 
     static var min: Self {
-        return .one
+        return .zero
     }
 
     static var max: Self {
@@ -38,7 +39,7 @@ enum SMAlpha: Int, CaseIterable {
     }
 
     static func random(using generator: inout RandomNumberGenerator) -> Self {
-        return Self.allCases.randomElement(using: &generator) ?? .one
+        return Self.allCases.randomElement(using: &generator) ?? .zero
     }
 }
 
@@ -62,7 +63,7 @@ extension SMAlpha: Strideable {
         if let result = Self(rawValue: index) {
             return result
         } else if index < 0 {
-            return .one
+            return .zero
         } else {
             return .ten
         }

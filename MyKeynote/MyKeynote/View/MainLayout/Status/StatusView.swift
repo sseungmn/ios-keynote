@@ -28,7 +28,7 @@ final class StatusView: UIView {
 
     private let alphaTitleLabel: UILabel = {
         var label = UILabel()
-        label.text = "투명도"
+        label.text = "불투명도"
         label.font = .preferredFont(forTextStyle: .title3)
         return label
     }()
@@ -67,7 +67,7 @@ final class StatusView: UIView {
 
     @objc
     private func alphaStepperValueDidChange(_ sender: UIStepper) {
-        Logger.track()
+        Logger.track(message: "\(sender.value)")
         delegate?.alphaStepperValueDidChange(sender)
     }
 }

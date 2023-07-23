@@ -69,6 +69,16 @@ extension MainView {
 }
 
 // MARK: - API
+
+// MARK: Setting
+extension MainView {
+
+    func settingStepperValueRange(min: Double, max: Double, step: Double) {
+        statusView.settingStepperValueRange(min: min, max: max, step: step)
+    }
+}
+
+// MARK: Update
 extension MainView {
 
     func addSlideView(_ slideView: SlideView) {

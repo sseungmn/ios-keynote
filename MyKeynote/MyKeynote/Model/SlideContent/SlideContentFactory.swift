@@ -20,9 +20,9 @@ final class SquareContentFactory: SlideContentFactory {
 
     static func create(generator: inout RandomNumberGenerator) -> Content {
         return Content(
-            side: Int.random(in: 0..<maxWidth, using: &generator),
+            side: Int.random(in: 100..<maxWidth, using: &generator),
             color: SMColor.random(using: &generator),
-            alpha: SMAlpha.random(using: &generator)
+            alpha: SMAlpha.max
         )
     }
 }

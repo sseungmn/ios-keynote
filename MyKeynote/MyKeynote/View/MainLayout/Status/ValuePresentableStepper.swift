@@ -82,5 +82,6 @@ extension ValuePresentableStepper {
 extension ValuePresentableStepper {
     func updateValue(_ value: Double) {
         setValueLabelText("\(value)")
+        stepper.value = value
     }
 }
