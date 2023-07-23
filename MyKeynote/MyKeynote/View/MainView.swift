@@ -48,7 +48,8 @@ extension MainView: LayoutConfigurable {
                                       size: CGSize(width: sideBarWidth, height: bounds.height))
         navigationView.configureLayout()
 
-        let canvasViewMinY = bounds.height / 10
+        let canvasViewHeight = (bounds.width - 2 * sideBarWidth) * (3/4)
+        let canvasViewMinY = (bounds.height - canvasViewHeight) / 2
         canvasView.frame = CGRect(origin: CGPoint(x: sideBarWidth, y: canvasViewMinY),
                                   size: CGSize(width: bounds.width - 2 * sideBarWidth, height: bounds.height - 2 * canvasViewMinY))
         canvasView.configureLayout()
