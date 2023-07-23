@@ -39,7 +39,10 @@
 - [ ] View를 Tap했을 때 해당 Model의 정보가 보여지는 것
     - [ ] Model의 정보가 StatusView에 전달되는 클로저/델리게이트 설계
     - [x] View의 Tap Gesture와 Model 정보 전달 기능과 연결
-- [ ] 배경 색을 지정하면, View의 색상이 바뀜
-    - [ ] 배경 색 버튼을 누를 때 마다, Model의 color값이 바뀜
-    - [ ] Model의 color값이 바뀔 때 마다, View의 backgroundColor가 바뀜
+    
+### 07월 23일 (일)
+- [x] 배경 색을 지정하면, View의 색상이 바뀜
+    - [x] 배경 색 버튼을 누를 때 마다, Model의 color값이 바뀜
+    - [x] Model의 color값이 바뀔 때 마다, View의 backgroundColor가 바뀜
     - [x] 배경 색 버튼을 누르면, ColorPicker로 색 선택.
+<img width=500; src="https://github.com/sseungmn/ios-keynote/assets/46219689/1308ef3f-2295-4de6-830f-90e93c53d055">

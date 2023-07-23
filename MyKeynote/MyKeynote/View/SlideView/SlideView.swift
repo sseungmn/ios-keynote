@@ -37,4 +37,8 @@ extension SlideView {
         self.contentView = contentView
         addSubview(contentView)
     }
+
+    func updateContentView(color: UIColor) {
+        contentView?.backgroundColor = color
+    }
 }

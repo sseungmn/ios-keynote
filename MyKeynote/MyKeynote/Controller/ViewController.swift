@@ -47,6 +47,7 @@ class ViewController: UIViewController {
         colorPickerView.delegate = self
         colorPickerView.supportsAlpha = false
 
+        addObserverForSlideContent()
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
         view.addGestureRecognizer(tap)
     }
@@ -81,6 +82,9 @@ extension ViewController: StatusDelegate {
     }
     
     func colorPickerButtonDidTap(_ sender: UIButton) {
+        colorPickerView.modalPresentationStyle = .popover
+        colorPickerView.modalTransitionStyle = .crossDissolve
+        colorPickerView.popoverPresentationController?.sourceView = sender
         present(colorPickerView, animated: true)
     }
 }
@@ -88,7 +92,6 @@ extension ViewController: StatusDelegate {
 extension ViewController: UIColorPickerViewControllerDelegate {
     func colorPickerViewController(_ viewController: UIColorPickerViewController, didSelect color: UIColor, continuously: Bool) {
         if !continuously {
-            mainView.configureColorStatus(color)
             if let content = selectedContent as? ColorChangeable {
                 content.color = SMColor(color) ?? .white
             }
@@ -97,3 +100,20 @@ extension ViewController: UIColorPickerViewControllerDelegate {
 }
 
 // MARK: - Model -> Controller -> View
+extension ViewController {
+    func addObserverForSlideContent() {
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .ContentColorDidChange, object: nil)
+    }
+
+    @objc
+    func slideContentColorDidChange(_ notification: Notification) {
+        guard let color = (notification.object as? ColorChangeable)?.color.uiColor else {
+            Logger.track(message: "Notification Object conversion Error", type: .error)
+            return
+        }
+        mainView.configureColorStatus(color)
+        if let selectedContentView = mainView.selectedSlideView {
+            selectedContentView.updateContentView(color: color)
+        }
+    }
+}

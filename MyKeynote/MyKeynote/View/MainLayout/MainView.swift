@@ -19,7 +19,7 @@ final class MainView: UIView {
     private let statusView = StatusView()
 
     private var slideViews = [SlideView]()
-    private var selectedSlideView: SlideView?
+    var selectedSlideView: SlideView?
     private var slideViewFrame = CGRect.zero
 
     override init(frame: CGRect) {
