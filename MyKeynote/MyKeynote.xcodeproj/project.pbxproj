@@ -35,9 +35,13 @@
 		B5CCB6D72A6D8447009771DC /* SlideContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */; };
 		B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D82A6D860E009771DC /* SquareContentView.swift */; };
 		B5CCB6DB2A6D862F009771DC /* ContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */; };
+		B5CCB6DD2A6E0F24009771DC /* SlideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */; };
+		B5CCB6DE2A6E1063009771DC /* SlideContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */; };
+		B5CCB6DF2A6E1076009771DC /* SquareContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D22A6D83FF009771DC /* SquareContent.swift */; };
+		B5CCB6E02A6E10C5009771DC /* SMColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C922A64DECF009C7F18 /* SMColor.swift */; };
+		B5CCB6E12A6E10DA009771DC /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
 		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
 		B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
-		B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A62A66043E0073B882 /* SlideFactory.swift */; };
 		B5F4CD692A68472200CD226F /* BackgroundColorChangeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +98,6 @@
 		B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewProtocol.swift; sourceTree = "<group>"; };
 		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
 		B5D7D3A22A6500B40073B882 /* SMSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSize.swift; sourceTree = "<group>"; };
-		B5D7D3A62A66043E0073B882 /* SlideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideFactory.swift; sourceTree = "<group>"; };
 		B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorChangeableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
-				B5D7D3A62A66043E0073B882 /* SlideFactory.swift */,
 				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
 			);
 			path = Slide;
@@ -426,7 +428,6 @@
 			files = (
 				B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */,
 				B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */,
-				B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */,
 				B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */,
 				B59A0CCB2A679FB4009C7F18 /* SlideView.swift in Sources */,
 				B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */,
@@ -458,7 +459,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59A0C742A64D149009C7F18 /* MyKeynoteTests.swift in Sources */,
+				B5CCB6DE2A6E1063009771DC /* SlideContentFactory.swift in Sources */,
+				B5CCB6E02A6E10C5009771DC /* SMColor.swift in Sources */,
+				B5CCB6DF2A6E1076009771DC /* SquareContent.swift in Sources */,
+				B5CCB6E12A6E10DA009771DC /* SMAlpha.swift in Sources */,
+				B5CCB6DD2A6E0F24009771DC /* SlideManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

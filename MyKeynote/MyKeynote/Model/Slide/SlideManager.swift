@@ -12,19 +12,22 @@ final class SlideManager {
     enum SlideContentType {
         case square
         case image
-
-        var factoryType: any SlideContentFactory.Type {
-            switch self {
-            case .square: return SquareContentFactory.self
-            case .image: fatalError("Not implemented")
-            }
-        }
     }
 
-    private let factory: SlideFactoryProtocol
+    private var generator: RandomNumberGenerator
+    private let squareContentFactory: any SlideContentFactory
+
     private var slides: [any Slidable] = []
     private var selectedSlide: (any Slidable)?
     private(set) var selectedContent: SlideContent?
+
+    init(
+        generator: RandomNumberGenerator,
+        squareContentFactory: any SlideContentFactory
+    ) {
+        self.generator = generator
+        self.squareContentFactory = squareContentFactory
+    }
 
     var slideCount: Int {
         return slides.count
@@ -34,25 +37,24 @@ final class SlideManager {
         assert(0 <= index && index < slideCount)
         return slides[index]
     }
-
-    init(factory: SlideFactoryProtocol) {
-        self.factory = factory
-    }
 }
 
 // MARK: - API
 extension SlideManager {
-    func createSlide(of contentType: SlideContentType) -> any Slidable {
+    func createSlide(of contentType: SlideContentType) -> Slidable {
+        var slideContent: SlideContent
         switch contentType {
         case .square:
-            let slide = factory.create(of: SquareContentFactory.self)
-            slides.append(slide)
-            selectedSlide = slide
-            selectedContent = slide.content
-            return slide
+            slideContent = squareContentFactory.create(generator: &generator)
         case .image:
             fatalError("Not implemented")
         }
+        let slide = Slide(content: slideContent)
+        slides.append(slide)
+        selectedSlide = slide
+        selectedContent = slide.content
+
+        return slide
     }
 
     func updateSelectedContent(color: SMColor) {

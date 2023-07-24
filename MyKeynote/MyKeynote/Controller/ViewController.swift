@@ -23,11 +23,16 @@ class ViewController: UIViewController {
 
     private let colorPickerView = UIColorPickerViewController()
 
-    init(factory: SlideFactoryProtocol = SlideFactory()) {
-        self.slideManager = SlideManager(factory: factory)
+    init(generator: RandomNumberGenerator = SystemRandomNumberGenerator(),
+         squareContentFactory: SquareContentFactory = SquareContentFactory()
+    ) {
+        self.slideManager = SlideManager(
+            generator: generator,
+            squareContentFactory: squareContentFactory
+        )
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

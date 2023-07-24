@@ -10,15 +10,15 @@ import Foundation
 protocol SlideContentFactory: AnyObject {
     associatedtype Content: SlideContent
 
-    static func create(generator: inout RandomNumberGenerator) -> Content
+    func create(generator: inout RandomNumberGenerator) -> Content
 }
 
 final class SquareContentFactory: SlideContentFactory {
     typealias Content = SquareContent
 
-    private static let maxWidth = 300
+    private let maxWidth = 300
 
-    static func create(generator: inout RandomNumberGenerator) -> Content {
+    func create(generator: inout RandomNumberGenerator) -> Content {
         return Content(
             side: Int.random(in: 100..<maxWidth, using: &generator),
             color: SMColor.random(using: &generator),
