@@ -19,7 +19,7 @@ final class NavigatorView: UIView {
         configureUI()
     }
 
-    func configureUI() {
+    private func configureUI() {
         backgroundColor = .systemGray5
     }
 }

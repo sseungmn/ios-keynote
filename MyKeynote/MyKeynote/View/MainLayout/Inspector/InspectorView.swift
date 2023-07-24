@@ -9,13 +9,12 @@ import UIKit
 import OSLog
 
 protocol InspectorDelegate {
-
     func colorPickerButtonDidTap(_ sender: UIButton)
     func alphaStepperValueDidChange(_ sender: UIStepper)
 }
 
 final class InspectorView: UIView {
-
+    
     // TODO: TitledContainer로 분리해 TitleLabel 프로퍼티 없애기
     private let backgroundColorTitleLabel: UILabel = {
         var label = UILabel()

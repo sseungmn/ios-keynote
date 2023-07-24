@@ -28,15 +28,6 @@ final class SlideManager {
         self.generator = generator
         self.squareContentFactory = squareContentFactory
     }
-
-    var slideCount: Int {
-        return slides.count
-    }
-
-    subscript(_ index: Int) -> any Slidable {
-        assert(0 <= index && index < slideCount)
-        return slides[index]
-    }
 }
 
 extension SlideManager {
@@ -50,6 +41,15 @@ extension SlideManager {
 
 // MARK: - API
 extension SlideManager {
+    var slideCount: Int {
+        return slides.count
+    }
+
+    subscript(_ index: Int) -> any Slidable {
+        assert(0 <= index && index < slideCount)
+        return slides[index]
+    }
+
     func createSlide(of contentType: SlideContentType) -> Slidable {
         var slideContent: SlideContent
         switch contentType {

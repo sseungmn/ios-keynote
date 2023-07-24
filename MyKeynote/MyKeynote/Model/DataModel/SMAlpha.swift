@@ -8,7 +8,6 @@
 import Foundation
 
 enum SMAlpha: Int, CaseIterable {
-    
     case zero = 0
     case one
     case two

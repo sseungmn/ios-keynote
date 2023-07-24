@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIColor {
-
     var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         let ciColor = CIColor(color: self)
 

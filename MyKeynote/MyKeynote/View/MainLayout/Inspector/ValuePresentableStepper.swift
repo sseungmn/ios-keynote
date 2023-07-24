@@ -74,7 +74,6 @@ extension ValuePresentableStepper: LayoutConfigurable {
 
 // MARK: Setting
 extension ValuePresentableStepper {
-
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         stepper.addTarget(target, action: action, for: controlEvents)
     }
@@ -88,7 +87,6 @@ extension ValuePresentableStepper {
 
 // MARK: Update
 extension ValuePresentableStepper {
-
     func updateValue(_ value: Double) {
         setValueLabelText("\(value)")
         stepper.value = value

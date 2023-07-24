@@ -9,7 +9,6 @@ import UIKit
 import OSLog
 
 extension SMColor {
-
     var uiColor: UIColor {
         return UIColor(
             red: CGFloat(red) / 255.0,

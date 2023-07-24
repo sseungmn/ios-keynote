@@ -8,11 +8,6 @@
 import UIKit
 import OSLog
 
-//protocol SelectedSlide {
-//    func selectedSlideAlphaDidChange()
-//    func selectedSlideColorDidChange()
-//}
-
 class ViewController: UIViewController {
 
     let slideManager: SlideManager

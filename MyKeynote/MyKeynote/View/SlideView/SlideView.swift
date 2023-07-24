@@ -8,7 +8,6 @@
 import UIKit
 
 protocol SlideViewDelegate {
-
     func slideViewDidTap(_ isSlideContentArea: Bool)
 }
 
@@ -27,7 +26,7 @@ final class SlideView: UIView {
         configureUI()
     }
 
-    func configureUI() {
+    private func configureUI() {
         backgroundColor = .white
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(slideViewDidTap(_:)))
@@ -44,7 +43,6 @@ final class SlideView: UIView {
 
 extension SlideView: LayoutConfigurable {
     func configureLayout() {
-
     }
 }
 

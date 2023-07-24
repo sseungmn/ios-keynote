@@ -72,7 +72,6 @@ extension MainView {
 
 // MARK: Setting
 extension MainView {
-
     func settingStepperValueRange(min: Double, max: Double, step: Double) {
         inspectorView.settingStepperValueRange(min: min, max: max, step: step)
     }
@@ -80,7 +79,6 @@ extension MainView {
 
 // MARK: Update
 extension MainView {
-
     func addSlideView(_ slideView: SlideView) {
         slideViews.append(slideView)
         addSubview(slideView)

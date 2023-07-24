@@ -14,6 +14,7 @@ protocol SlideContentFactory: AnyObject {
 }
 
 final class SquareContentFactory: SlideContentFactory {
+    
     typealias Content = SquareContent
 
     private let maxWidth = 300

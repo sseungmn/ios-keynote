@@ -8,7 +8,6 @@
 import Foundation
 
 extension SMSize {
-
     var cgSize: CGSize {
         return CGSize(width: width, height: height)
     }

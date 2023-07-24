@@ -8,15 +8,17 @@
 import Foundation
 
 protocol Slidable {
-
     var identifier: SMUUID { get }
     var content: SlideContent { get set }
+    
     init(content: SlideContent)
 }
 
 final class Slide: Slidable {
+
     let identifier: SMUUID = SMUUID()
     var content: SlideContent
+
     init(content: SlideContent) {
         self.content = content
     }

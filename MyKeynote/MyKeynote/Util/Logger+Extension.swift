@@ -9,7 +9,6 @@ import Foundation
 import OSLog
 
 extension Logger {
-
     enum LogType {
         case info
         case error
