@@ -35,5 +35,6 @@ class BackgroundColorChangeableButton: UIButton {
     func resetUI() {
         backgroundColor = .systemGray4
         setTitle("", for: .normal)
+        isEnabled = false
     }
 }

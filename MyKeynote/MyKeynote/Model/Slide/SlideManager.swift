@@ -7,6 +7,10 @@
 
 import Foundation
 
+extension Notification.Name {
+    static let ContentDidSelect = Notification.Name("ContentDidSelect")
+}
+
 final class SlideManager {
 
     enum SlideContentType {
@@ -39,6 +43,14 @@ final class SlideManager {
     }
 }
 
+extension SlideManager {
+    private func select(slide: any Slidable) {
+        selectedSlide = slide
+        selectedContent = slide.content
+        NotificationCenter.default.post(name: .ContentDidSelect, object: slide.content)
+    }
+}
+
 // MARK: - API
 extension SlideManager {
     func createSlide(of contentType: SlideContentType) -> Slidable {
@@ -51,8 +63,7 @@ extension SlideManager {
         }
         let slide = Slide(content: slideContent)
         slides.append(slide)
-        selectedSlide = slide
-        selectedContent = slide.content
+        select(slide: slide)
 
         return slide
     }

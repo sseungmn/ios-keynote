@@ -115,4 +115,12 @@ extension StatusView {
     func updateStatus(alpha: Double) {
         alphaStepper.updateValue(alpha)
     }
+
+    func updateStatus(colorEnabled: Bool) {
+        colorPickerButton.isEnabled = colorEnabled
+    }
+
+    func updateStatus(alphaEnabled: Bool) {
+        alphaStepper.isEnabled = alphaEnabled
+    }
 }

@@ -103,4 +103,12 @@ extension MainView {
     func updateSelectedSlideContentView(alpha: Double) {
         selectedSlideView?.updateContentView(alpha: alpha)
     }
+
+    func updateSelectedSlideStatus(colorEnabled: Bool) {
+        statusView.updateStatus(colorEnabled: colorEnabled)
+    }
+
+    func updateSelectedSlideStatus(alphaEnabled: Bool) {
+        statusView.updateStatus(alphaEnabled: alphaEnabled)
+    }
 }

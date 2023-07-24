@@ -109,6 +109,7 @@ extension ViewController {
     func addObserverForSlideContent() {
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .ContentColorDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .ContentAlphaDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidSelect(_:)), name: .ContentDidSelect, object: nil)
     }
 
     @objc
@@ -132,5 +133,16 @@ extension ViewController {
         let alpha = Double(smAlpha.rawValue)
         mainView.updateSelectedSlideStatus(alpha: alpha)
         mainView.updateSelectedSlideContentView(alpha: alpha / 10.0)
+    }
+
+    @objc
+    func slideContentDidSelect(_ notification: Notification) {
+        if notification.object is AlphaChangeable {
+            mainView.updateSelectedSlideStatus(alphaEnabled: true)
+        }
+
+        if notification.object is ColorChangeable {
+            mainView.updateSelectedSlideStatus(colorEnabled: true)
+        }
     }
 }

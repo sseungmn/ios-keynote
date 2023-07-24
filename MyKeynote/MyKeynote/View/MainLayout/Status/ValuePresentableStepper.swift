@@ -19,10 +19,16 @@ final class ValuePresentableStepper: UIView {
 
     private let stepper = UIStepper()
 
+    var isEnabled: Bool = false {
+        didSet {
+            valueLabel.isEnabled = isEnabled
+            stepper.isEnabled = isEnabled
+        }
+    }
+
     private let inset: CGFloat = 5
     private let spacing: CGFloat = 5
     private let labelInset: CGFloat = 5
-
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +43,7 @@ final class ValuePresentableStepper: UIView {
     private func configureUI() {
         addSubview(valueLabel)
         addSubview(stepper)
+        resetUI()
     }
 
     private func setValueLabelText(_ text: String) {
@@ -67,6 +74,7 @@ extension ValuePresentableStepper: LayoutConfigurable {
 
 // MARK: Setting
 extension ValuePresentableStepper {
+
     func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         stepper.addTarget(target, action: action, for: controlEvents)
     }
@@ -80,8 +88,14 @@ extension ValuePresentableStepper {
 
 // MARK: Update
 extension ValuePresentableStepper {
+
     func updateValue(_ value: Double) {
         setValueLabelText("\(value)")
         stepper.value = value
+    }
+
+    func resetUI() {
+        setValueLabelText("")
+        isEnabled = false
     }
 }
