@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SMColor {
+struct SMColor: Equatable {
     
     var red: UInt8
     var green: UInt8
