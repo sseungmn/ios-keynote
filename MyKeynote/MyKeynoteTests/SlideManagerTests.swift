@@ -58,4 +58,16 @@ final class SlideManagerTests: XCTestCase {
 
         XCTAssertIdentical(slide.content as? SquareContent, slideManager[0].content as? SquareContent)
     }
+
+    func test_create여러개했을때_manager의subscription이제대로동작하는지() throws {
+        let first = slideManager.createSlide(of: .square)
+        let second = slideManager.createSlide(of: .square)
+        let third = slideManager.createSlide(of: .square)
+
+        XCTAssertEqual(slideManager.slideCount, 3)
+        XCTAssertIdentical(first.content as? SquareContent, slideManager[0].content as? SquareContent)
+        XCTAssertIdentical(second.content as? SquareContent, slideManager[1].content as? SquareContent)
+        XCTAssertIdentical(third.content as? SquareContent, slideManager[2].content as? SquareContent)
+    }
+
 }
