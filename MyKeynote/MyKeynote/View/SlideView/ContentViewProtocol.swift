@@ -7,22 +7,21 @@
 
 import UIKit
 
-typealias ContentViewProtocol = UIView & ViewSelectable & ViewAlphaChangeable
+typealias ContentViewProtocol = UIView & ViewFocusable & ViewAlphaChangeable
 
 // MARK: ViewSelectable
-protocol ViewSelectable: UIView {
+protocol ViewFocusable: UIView {
 
-    func select()
-    func unselect()
+    func focus()
+    func defocus()
 }
 
-extension ViewSelectable {
+extension ViewFocusable {
 
-    func select() {
+    func focus() {
         layer.borderWidth = 3.0
     }
-
-    func unselect() {
+    func defocus() {
         layer.borderWidth = 0.0
     }
 }

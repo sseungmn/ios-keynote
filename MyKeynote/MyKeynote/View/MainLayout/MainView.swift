@@ -90,25 +90,32 @@ extension MainView {
         slideView.configureLayout()
     }
 
-    func updateSelectedSlideInspector(color: UIColor) {
+    func focusSelectedContent() {
+        selectedSlideView?.focusContentView()
+    }
+    func defocusSelectedContent() {
+        selectedSlideView?.defocusContentView()
+    }
+
+    func updateSelectedContentInspector(color: UIColor) {
         inspectorView.updateInspector(color: color)
     }
-    func updateSelectedSlideContentView(color: UIColor) {
+    func updateSelectedContentView(color: UIColor) {
         selectedSlideView?.updateContentView(color: color)
     }
 
-    func updateSelectedSlideInspector(alpha: Double) {
+    func updateSelectedContentInspector(alpha: Double) {
         inspectorView.updateInspector(alpha: alpha)
     }
-    func updateSelectedSlideContentView(alpha: Double) {
+    func updateSelectedContentView(alpha: Double) {
         selectedSlideView?.updateContentView(alpha: alpha)
     }
 
-    func updateSelectedSlideInspector(colorEnabled: Bool) {
-        inspectorView.updateInspector(colorEnabled: colorEnabled)
+    func disenableColorInspector() {
+        inspectorView.disenableColor()
     }
 
-    func updateSelectedSlideInspector(alphaEnabled: Bool) {
-        inspectorView.updateInspector(alphaEnabled: alphaEnabled)
+    func disenableAlphaInspector() {
+        inspectorView.disenableAlpha()
     }
 }

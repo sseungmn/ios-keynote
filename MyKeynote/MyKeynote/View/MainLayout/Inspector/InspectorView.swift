@@ -109,18 +109,22 @@ extension InspectorView {
 // MARK: Update
 extension InspectorView {
     func updateInspector(color: UIColor) {
+        colorPickerButton.isEnabled = true
         colorPickerButton.backgroundColor = color
     }
 
     func updateInspector(alpha: Double) {
+        alphaStepper.isEnabled = true
         alphaStepper.updateValue(alpha)
     }
 
-    func updateInspector(colorEnabled: Bool) {
-        colorPickerButton.isEnabled = colorEnabled
+    func disenableColor() {
+        colorPickerButton.isEnabled = false
+        colorPickerButton.resetUI()
     }
 
-    func updateInspector(alphaEnabled: Bool) {
-        alphaStepper.isEnabled = alphaEnabled
+    func disenableAlpha() {
+        alphaStepper.isEnabled = false
+        alphaStepper.resetUI()
     }
 }

@@ -8,22 +8,30 @@
 import Foundation
 
 // MARK: - SlideContent Trait Protocol
+protocol Focusable: AnyObject {
+    var isFocused: Bool { get }
+    func focus()
+    func defocus()
+}
+
 protocol AlphaChangeable: AnyObject {
-    var alpha: SMAlpha { get set }
+    var alpha: SMAlpha { get }
+    func updateAlpha(_ alpha: SMAlpha)
 }
 
 protocol ColorChangeable: AnyObject {
-    var color: SMColor { get set }
+    var color: SMColor { get }
+    func updateColor(_ color: SMColor)
 }
 
-protocol SlideContent: AlphaChangeable, CustomStringConvertible {
+protocol SlideContent: Focusable, AlphaChangeable, CustomStringConvertible {
 
-    var alpha: SMAlpha { get set }
 }
 
 // MARK: Notification
 extension Notification.Name {
+    static let ContentDidFocus = Notification.Name("ContentDidFocus")
+    static let ContentDidDefocus = Notification.Name("ContentDidDefocus")
     static let ContentAlphaDidChange = Notification.Name("ContentColorDidChange")
     static let ContentColorDidChange = Notification.Name("ContentAlphaDidChange")
 }
-

@@ -72,7 +72,7 @@ class ViewController: UIViewController {
         slideView.setContentView(rectView)
         rectView.frame.size = CGSize(width: 100, height: 100)
         rectView.center = CGPoint(x: slideView.frame.width / 2 , y: slideView.frame.height / 2)
-        rectView.select()
+        slideView.delegate = self
 
         let rectA = slideManager.createSlide(of: .square)
     }
@@ -104,12 +104,19 @@ extension ViewController: UIColorPickerViewControllerDelegate {
     }
 }
 
+extension ViewController: SlideViewDelegate {
+    func slideViewDidTap(_ isSlideContentArea: Bool) {
+        slideManager.updateSelectedContent(isFocused: isSlideContentArea)
+    }
+}
+
 // MARK: - Model -> Controller -> View
 extension ViewController {
     func addObserverForSlideContent() {
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .ContentColorDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .ContentAlphaDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidSelect(_:)), name: .ContentDidSelect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .ContentDidFocus, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .ContentDidDefocus, object: nil)
     }
 
     @objc
@@ -120,8 +127,8 @@ extension ViewController {
         }
         let vividColor = rawColor.withAlphaComponent(1.0)
         colorPickerView.selectedColor = vividColor
-        mainView.updateSelectedSlideInspector(color: vividColor)
-        mainView.updateSelectedSlideContentView(color: rawColor)
+        mainView.updateSelectedContentInspector(color: vividColor)
+        mainView.updateSelectedContentView(color: rawColor)
     }
 
     @objc
@@ -131,18 +138,28 @@ extension ViewController {
             return
         }
         let alpha = Double(smAlpha.rawValue)
-        mainView.updateSelectedSlideInspector(alpha: alpha)
-        mainView.updateSelectedSlideContentView(alpha: alpha / 10.0)
+        mainView.updateSelectedContentInspector(alpha: alpha)
+        mainView.updateSelectedContentView(alpha: alpha / 10.0)
     }
 
     @objc
-    func slideContentDidSelect(_ notification: Notification) {
-        if notification.object is AlphaChangeable {
-            mainView.updateSelectedSlideInspector(alphaEnabled: true)
+    func slideContentDidFocus(_ notification: Notification) {
+        mainView.focusSelectedContent()
+        if let smAlpha = (notification.object as? AlphaChangeable)?.alpha {
+            let alpha = Double(smAlpha.rawValue)
+            mainView.updateSelectedContentInspector(alpha: alpha)
         }
 
-        if notification.object is ColorChangeable {
-            mainView.updateSelectedSlideInspector(colorEnabled: true)
+        if let color = (notification.object as? ColorChangeable)?.color.uiColor {
+            let vividColor = color.withAlphaComponent(1.0)
+            mainView.updateSelectedContentInspector(color: vividColor)
         }
+    }
+
+    @objc
+    func slideContentDidDefocus(_ notification: Notification) {
+        mainView.defocusSelectedContent()
+        mainView.disenableAlphaInspector()
+        mainView.disenableColorInspector()
     }
 }

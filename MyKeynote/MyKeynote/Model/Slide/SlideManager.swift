@@ -7,10 +7,6 @@
 
 import Foundation
 
-extension Notification.Name {
-    static let ContentDidSelect = Notification.Name("ContentDidSelect")
-}
-
 final class SlideManager {
 
     enum SlideContentType {
@@ -47,7 +43,8 @@ extension SlideManager {
     private func select(slide: any Slidable) {
         selectedSlide = slide
         selectedContent = slide.content
-        NotificationCenter.default.post(name: .ContentDidSelect, object: slide.content)
+        slide.content.focus()
+        NotificationCenter.default.post(name: .ContentDidFocus, object: slide.content)
     }
 }
 
@@ -70,13 +67,20 @@ extension SlideManager {
 
     func updateSelectedContent(color: SMColor) {
         if let content = selectedContent as? ColorChangeable {
-            content.color = color
+            content.updateColor(color)
         }
     }
 
     func updateSelectedContent(alpha: SMAlpha) {
         if let content = selectedContent as? AlphaChangeable {
-            content.alpha = alpha
+            content.updateAlpha(alpha)
+        }
+    }
+
+    func updateSelectedContent(isFocused: Bool) {
+        if let content = selectedContent as? Focusable {
+            if isFocused { content.focus() }
+            else { content.defocus() }
         }
     }
 }
