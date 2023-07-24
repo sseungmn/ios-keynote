@@ -26,6 +26,15 @@ final class SlideManager {
     private var selectedSlide: (any Slidable)?
     private(set) var selectedContent: SlideContent?
 
+    var slideCount: Int {
+        return slides.count
+    }
+
+    subscript(_ index: Int) -> any Slidable {
+        assert(0 <= index && index < slideCount)
+        return slides[index]
+    }
+
     init(factory: SlideFactoryProtocol) {
         self.factory = factory
     }
@@ -34,7 +43,6 @@ final class SlideManager {
 // MARK: - API
 extension SlideManager {
     func createSlide(of contentType: SlideContentType) -> any Slidable {
-//        var slide: any Slidable
         switch contentType {
         case .square:
             let slide = factory.create(of: SquareContentFactory.self)
