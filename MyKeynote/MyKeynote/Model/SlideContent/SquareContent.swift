@@ -16,13 +16,13 @@ final class SquareContent: SlideContent, ColorChangeable {
     var side: Int
     var color: SMColor {
         didSet {
-            NotificationCenter.default.post(name: .ContentColorDidChange, object: self)
+            NotificationCenter.default.post(name: .ContentColorDidChange, object: color)
         }
     }
 
     var alpha: SMAlpha {
         didSet {
-            NotificationCenter.default.post(name: .ContentAlphaDidChange, object: self)
+            NotificationCenter.default.post(name: .ContentAlphaDidChange, object: alpha)
         }
     }
 
@@ -30,7 +30,7 @@ final class SquareContent: SlideContent, ColorChangeable {
         self.side = side
         self.color = color
         self.alpha = alpha
-        NotificationCenter.default.post(name: .ContentAlphaDidChange, object: self)
-        NotificationCenter.default.post(name: .ContentColorDidChange, object: self)
+        NotificationCenter.default.post(name: .ContentAlphaDidChange, object: alpha)
+        NotificationCenter.default.post(name: .ContentColorDidChange, object: color)
     }
 }

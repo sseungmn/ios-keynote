@@ -114,7 +114,7 @@ extension ViewController {
 
     @objc
     func slideContentColorDidChange(_ notification: Notification) {
-        guard let rawColor = (notification.object as? ColorChangeable)?.color.uiColor else {
+        guard let rawColor = (notification.object as? SMColor)?.uiColor else {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
@@ -126,7 +126,7 @@ extension ViewController {
 
     @objc
     func slideContentAlphaDidChange(_ notification: Notification) {
-        guard let smAlpha = (notification.object as? AlphaChangeable)?.alpha else {
+        guard let smAlpha = (notification.object as? SMAlpha) else {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
