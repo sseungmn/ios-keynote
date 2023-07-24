@@ -79,7 +79,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: - View -> Controller -> Model
-extension ViewController: StatusDelegate {
+extension ViewController: InspectorDelegate {
     func alphaStepperValueDidChange(_ sender: UIStepper) {
         guard let smAlpha = SMAlpha(sender.value) else {
             Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
@@ -120,7 +120,7 @@ extension ViewController {
         }
         let vividColor = rawColor.withAlphaComponent(1.0)
         colorPickerView.selectedColor = vividColor
-        mainView.updateSelectedSlideStatus(color: vividColor)
+        mainView.updateSelectedSlideInspector(color: vividColor)
         mainView.updateSelectedSlideContentView(color: rawColor)
     }
 
@@ -131,18 +131,18 @@ extension ViewController {
             return
         }
         let alpha = Double(smAlpha.rawValue)
-        mainView.updateSelectedSlideStatus(alpha: alpha)
+        mainView.updateSelectedSlideInspector(alpha: alpha)
         mainView.updateSelectedSlideContentView(alpha: alpha / 10.0)
     }
 
     @objc
     func slideContentDidSelect(_ notification: Notification) {
         if notification.object is AlphaChangeable {
-            mainView.updateSelectedSlideStatus(alphaEnabled: true)
+            mainView.updateSelectedSlideInspector(alphaEnabled: true)
         }
 
         if notification.object is ColorChangeable {
-            mainView.updateSelectedSlideStatus(colorEnabled: true)
+            mainView.updateSelectedSlideInspector(colorEnabled: true)
         }
     }
 }

@@ -10,13 +10,13 @@ import OSLog
 
 final class MainView: UIView {
 
-    private let statusBarAreaCoverView: UIView = {
+    private let inspectorBarAreaCoverView: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray
         return view
     }()
     private let navigationView = NavigatorView()
-    private let statusView = StatusView()
+    private let inspectorView = InspectorView()
 
     private var slideViews = [SlideView]()
     var selectedSlideView: SlideView?
@@ -35,15 +35,15 @@ final class MainView: UIView {
     private func configureUI() {
         backgroundColor = .systemGray2
 
-        addSubview(statusBarAreaCoverView)
+        addSubview(inspectorBarAreaCoverView)
         addSubview(navigationView)
-        addSubview(statusView)
+        addSubview(inspectorView)
     }
 }
 
 extension MainView: LayoutConfigurable {
     func configureLayout() {
-        statusBarAreaCoverView.frame = CGRect(origin: .zero,
+        inspectorBarAreaCoverView.frame = CGRect(origin: .zero,
                                               size: CGSize(width: bounds.width, height: safeAreaInsets.top))
         let sideBarWidth = bounds.width / 7
         navigationView.frame = CGRect(origin: CGPoint(x: safeAreaInsets.left, y: safeAreaInsets.top),
@@ -56,15 +56,15 @@ extension MainView: LayoutConfigurable {
                                   size: CGSize(width: bounds.width - 2 * sideBarWidth, height: bounds.height - 2 * canvasViewMinY))
         selectedSlideView?.configureLayout()
 
-        statusView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: safeAreaInsets.top),
+        inspectorView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: safeAreaInsets.top),
                                   size: CGSize(width: sideBarWidth, height: bounds.height))
-        statusView.configureLayout()
+        inspectorView.configureLayout()
     }
 }
 
 extension MainView {
-    func configureDelegate<T: StatusDelegate>(_ delegator: T) {
-        statusView.configureDelegate(delegator)
+    func configureDelegate<T: InspectorDelegate>(_ delegator: T) {
+        inspectorView.configureDelegate(delegator)
     }
 }
 
@@ -74,7 +74,7 @@ extension MainView {
 extension MainView {
 
     func settingStepperValueRange(min: Double, max: Double, step: Double) {
-        statusView.settingStepperValueRange(min: min, max: max, step: step)
+        inspectorView.settingStepperValueRange(min: min, max: max, step: step)
     }
 }
 
@@ -90,25 +90,25 @@ extension MainView {
         slideView.configureLayout()
     }
 
-    func updateSelectedSlideStatus(color: UIColor) {
-        statusView.updateStatus(color: color)
+    func updateSelectedSlideInspector(color: UIColor) {
+        inspectorView.updateInspector(color: color)
     }
     func updateSelectedSlideContentView(color: UIColor) {
         selectedSlideView?.updateContentView(color: color)
     }
 
-    func updateSelectedSlideStatus(alpha: Double) {
-        statusView.updateStatus(alpha: alpha)
+    func updateSelectedSlideInspector(alpha: Double) {
+        inspectorView.updateInspector(alpha: alpha)
     }
     func updateSelectedSlideContentView(alpha: Double) {
         selectedSlideView?.updateContentView(alpha: alpha)
     }
 
-    func updateSelectedSlideStatus(colorEnabled: Bool) {
-        statusView.updateStatus(colorEnabled: colorEnabled)
+    func updateSelectedSlideInspector(colorEnabled: Bool) {
+        inspectorView.updateInspector(colorEnabled: colorEnabled)
     }
 
-    func updateSelectedSlideStatus(alphaEnabled: Bool) {
-        statusView.updateStatus(alphaEnabled: alphaEnabled)
+    func updateSelectedSlideInspector(alphaEnabled: Bool) {
+        inspectorView.updateInspector(alphaEnabled: alphaEnabled)
     }
 }

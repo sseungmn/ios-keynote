@@ -36,7 +36,7 @@
 - [x] 왼쪽 네비게이터, 중앙 작업화면, 오른쪽 정보화면을 나눠서 구현.
   - [x] 정보 화면에 배경색 버튼, 투명도 Stepper 구현.
 - [ ] View를 Tap했을 때 해당 Model의 정보가 보여지는 것
-    - [ ] Model의 정보가 StatusView에 전달되는 클로저/델리게이트 설계
+    - [ ] Model의 정보가 InspectorView에 전달되는 클로저/델리게이트 설계
     - [x] View의 Tap Gesture와 Model 정보 전달 기능과 연결
     
 ### 07월 23일 (일)
@@ -56,7 +56,7 @@
     <img width="500" src="https://github.com/sseungmn/ios-keynote/assets/46219689/26e19da9-2637-4e8f-a68f-065ee69ecc23">
     <img width="500" src="https://github.com/sseungmn/ios-keynote/assets/46219689/4c84fd7f-5816-4997-8381-a9788dd639f9">
     </details>
-    - [x] 선택된 Content의 종류에 따라서, Status 구성목록을 변경(활성/비활성)
+    - [x] 선택된 Content의 종류에 따라서, Inspector 구성목록을 변경(활성/비활성)
     <details>
     <summary>스크린샷</summary>
 

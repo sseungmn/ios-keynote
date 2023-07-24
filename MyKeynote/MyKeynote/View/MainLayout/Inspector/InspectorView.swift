@@ -1,5 +1,5 @@
 //
-//  StatusView.swift
+//  InspectorView.swift
 //  MyKeynote
 //
 //  Created by SEUNGMIN OH on 2023/07/19.
@@ -8,13 +8,13 @@
 import UIKit
 import OSLog
 
-protocol StatusDelegate {
+protocol InspectorDelegate {
 
     func colorPickerButtonDidTap(_ sender: UIButton)
     func alphaStepperValueDidChange(_ sender: UIStepper)
 }
 
-final class StatusView: UIView {
+final class InspectorView: UIView {
 
     // TODO: TitledContainer로 분리해 TitleLabel 프로퍼티 없애기
     private let backgroundColorTitleLabel: UILabel = {
@@ -35,7 +35,7 @@ final class StatusView: UIView {
 
     private let alphaStepper = ValuePresentableStepper()
 
-    var delegate: StatusDelegate?
+    var delegate: InspectorDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,7 +72,7 @@ final class StatusView: UIView {
     }
 }
 
-extension StatusView: LayoutConfigurable {
+extension InspectorView: LayoutConfigurable {
     func configureLayout() {
         let inset: CGFloat = 5
         let spacing: CGFloat = 10
@@ -96,8 +96,8 @@ extension StatusView: LayoutConfigurable {
 // MARK: - API
 
 // MARK: Setting
-extension StatusView {
-    func configureDelegate<T: StatusDelegate>(_ delegator: T) {
+extension InspectorView {
+    func configureDelegate<T: InspectorDelegate>(_ delegator: T) {
         delegate = delegator
     }
 
@@ -107,20 +107,20 @@ extension StatusView {
 }
 
 // MARK: Update
-extension StatusView {
-    func updateStatus(color: UIColor) {
+extension InspectorView {
+    func updateInspector(color: UIColor) {
         colorPickerButton.backgroundColor = color
     }
 
-    func updateStatus(alpha: Double) {
+    func updateInspector(alpha: Double) {
         alphaStepper.updateValue(alpha)
     }
 
-    func updateStatus(colorEnabled: Bool) {
+    func updateInspector(colorEnabled: Bool) {
         colorPickerButton.isEnabled = colorEnabled
     }
 
-    func updateStatus(alphaEnabled: Bool) {
+    func updateInspector(alphaEnabled: Bool) {
         alphaStepper.isEnabled = alphaEnabled
     }
 }
