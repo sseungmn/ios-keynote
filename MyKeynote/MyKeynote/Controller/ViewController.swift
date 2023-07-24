@@ -117,15 +117,10 @@ extension ViewController {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
-        guard let smAlpha = (notification.object as? AlphaChangeable)?.alpha else {
-            Logger.track(message: "Notification Object conversion Error", type: .error)
-            return
-        }
-        let alpha = Double(smAlpha.rawValue) / 10.0
-        let color = rawColor.withAlphaComponent(alpha)
-        colorPickerView.selectedColor = color
-        mainView.updateSelectedSlideStatus(color: color)
-        mainView.updateSelectedSlideContentView(color: color)
+        let vividColor = rawColor.withAlphaComponent(1.0)
+        colorPickerView.selectedColor = vividColor
+        mainView.updateSelectedSlideStatus(color: vividColor)
+        mainView.updateSelectedSlideContentView(color: rawColor)
     }
 
     @objc
