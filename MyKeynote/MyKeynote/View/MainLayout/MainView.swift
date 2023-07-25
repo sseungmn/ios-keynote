@@ -81,6 +81,7 @@ extension MainView {
 
 // MARK: Update
 extension MainView {
+    // MARK: NavigatorView
     func addSlideView(_ slideView: SlideView) {
         slideViews.append(slideView)
         addSubview(slideView)
@@ -89,7 +90,11 @@ extension MainView {
         slideView.frame = slideViewFrame
         slideView.configureLayout()
     }
+    func reloadNavigatorTableView() {
+        navigatorView.reloadTableView()
+    }
 
+    // MARK: ContentView
     func focusSelectedContent() {
         selectedSlideView?.focusContentView()
     }
@@ -97,24 +102,25 @@ extension MainView {
         selectedSlideView?.defocusContentView()
     }
 
-    func updateSelectedContentInspector(color: UIColor) {
-        inspectorView.updateInspector(color: color)
-    }
     func updateSelectedContentView(color: UIColor) {
         selectedSlideView?.updateContentView(color: color)
-    }
-
-    func updateSelectedContentInspector(alpha: Double) {
-        inspectorView.updateInspector(alpha: alpha)
     }
     func updateSelectedContentView(alpha: Double) {
         selectedSlideView?.updateContentView(alpha: alpha)
     }
 
+    // MARK: InspectorView
+
+    func updateSelectedContentInspector(color: UIColor) {
+        inspectorView.updateInspector(color: color)
+    }
+    func updateSelectedContentInspector(alpha: Double) {
+        inspectorView.updateInspector(alpha: alpha)
+    }
+
     func disenableColorInspector() {
         inspectorView.disenableColor()
     }
-
     func disenableAlphaInspector() {
         inspectorView.disenableAlpha()
     }

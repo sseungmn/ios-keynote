@@ -127,6 +127,7 @@ extension ViewController: NavigatorDelegate {
             squareSlideView.updateSize(size)
         }
 
+        mainView.reloadNavigatorTableView()
     }
 }
 

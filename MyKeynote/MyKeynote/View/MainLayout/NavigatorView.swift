@@ -67,4 +67,8 @@ extension NavigatorView {
         tableView.dataSource = viewController
         self.delegate = viewController
     }
+
+    func reloadTableView() {
+        tableView.reloadData()
+    }
 }
