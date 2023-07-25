@@ -57,9 +57,8 @@ extension SlideManager {
         return slides.count
     }
     
-    subscript(_ index: Int) -> any Slidable {
-        assert(0 <= index && index < slideCount)
-        return slides[index]
+    subscript(_ index: Int) -> (any Slidable)? {
+        return 0..<slideCount ~= index ? slides[index] : nil
     }
 }
 
