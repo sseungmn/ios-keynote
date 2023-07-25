@@ -38,7 +38,7 @@ final class SlideManagerTests: XCTestCase {
     }
 
     func test_manager의create메서드에서_ContentFactory에따라제대로값이생성되는지() throws {
-        let slide = slideManager.createSlide(of: .square)
+        let slide = slideManager.createSquareContentSlide()
 
         let content = slide.content as? SquareContent
         XCTAssertNotNil(content)
@@ -48,26 +48,26 @@ final class SlideManagerTests: XCTestCase {
     }
 
     func test_create했을때_manager에제대로저장되는지() throws {
-        let slide = slideManager.createSlide(of: .square)
+        let slide = slideManager.createSquareContentSlide()
 
         XCTAssertEqual(slideManager.slideCount, 1)
     }
 
     func test_create했을때_manager의subscription이제대로동작하는지() throws {
-        let slide = slideManager.createSlide(of: .square)
+        let slide = slideManager.createSquareContentSlide()
 
-        XCTAssertIdentical(slide.content as? SquareContent, slideManager[0].content as? SquareContent)
+        XCTAssertIdentical(slide.content as? SquareContent, slideManager[0]?.content as? SquareContent)
     }
 
     func test_create여러개했을때_manager의subscription이제대로동작하는지() throws {
-        let first = slideManager.createSlide(of: .square)
-        let second = slideManager.createSlide(of: .square)
-        let third = slideManager.createSlide(of: .square)
+        let first = slideManager.createSquareContentSlide()
+        let second = slideManager.createSquareContentSlide()
+        let third = slideManager.createSquareContentSlide()
 
         XCTAssertEqual(slideManager.slideCount, 3)
-        XCTAssertIdentical(first.content as? SquareContent, slideManager[0].content as? SquareContent)
-        XCTAssertIdentical(second.content as? SquareContent, slideManager[1].content as? SquareContent)
-        XCTAssertIdentical(third.content as? SquareContent, slideManager[2].content as? SquareContent)
+        XCTAssertIdentical(first.content as? SquareContent, slideManager[0]?.content as? SquareContent)
+        XCTAssertIdentical(second.content as? SquareContent, slideManager[1]?.content as? SquareContent)
+        XCTAssertIdentical(third.content as? SquareContent, slideManager[2]?.content as? SquareContent)
     }
 
 }
