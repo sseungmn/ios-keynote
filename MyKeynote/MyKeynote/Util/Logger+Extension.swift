@@ -43,7 +43,7 @@ extension Logger {
     ) -> String {
         var text = "\(fileID):\(function):\(line)"
         if let message {
-            text += "- \(message)"
+            text += " - \(message)"
         }
         return text
     }

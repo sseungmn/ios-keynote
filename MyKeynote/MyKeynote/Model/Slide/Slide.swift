@@ -26,6 +26,6 @@ final class Slide: Slidable {
 
 extension Slide: CustomStringConvertible {
     var description: String {
-        return "(\(identifier)), \(content)"
+        return "Slide(\(identifier)), \(content)"
     }
 }
