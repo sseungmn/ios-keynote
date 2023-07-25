@@ -7,26 +7,25 @@
 
 import Foundation
 
-class Slide {
+protocol Slidable {
+    var identifier: SMUUID { get }
+    var content: SlideContent { get set }
+    
+    init(content: SlideContent)
+}
 
-    class var ratio: CGFloat { return 0 }
+final class Slide: Slidable {
 
-    private let identifier = SMUUID()
-    private let name: String
-    private let size: SMSize
-    private let color: SMColor
-    private let alpha: SMAlpha
+    let identifier: SMUUID = SMUUID()
+    var content: SlideContent
 
-    required init(name: String, width: Int, color: SMColor, alpha: SMAlpha) {
-        self.name = name
-        self.size = SMSize(width: width, ratio: Self.ratio)
-        self.color = color
-        self.alpha = alpha
+    init(content: SlideContent) {
+        self.content = content
     }
 }
 
 extension Slide: CustomStringConvertible {
     var description: String {
-        return "\(name) (\(identifier)), \(size), \(color), \(alpha)"
+        return "(\(identifier)), \(content)"
     }
 }

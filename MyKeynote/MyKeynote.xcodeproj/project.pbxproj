@@ -7,23 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510FED32A68201600649E1B /* ValuePresentableStepper.swift */; };
 		B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */; };
 		B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */; };
 		B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C602A64D146009C7F18 /* ViewController.swift */; };
 		B59A0C662A64D149009C7F18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59A0C652A64D149009C7F18 /* Assets.xcassets */; };
 		B59A0C692A64D149009C7F18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59A0C672A64D149009C7F18 /* LaunchScreen.storyboard */; };
-		B59A0C742A64D149009C7F18 /* MyKeynoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C732A64D149009C7F18 /* MyKeynoteTests.swift */; };
-		B59A0C7E2A64D149009C7F18 /* MyKeynoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C7D2A64D149009C7F18 /* MyKeynoteUITests.swift */; };
-		B59A0C802A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C7F2A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift */; };
 		B59A0C912A64D9DA009C7F18 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C902A64D9DA009C7F18 /* Slide.swift */; };
 		B59A0C932A64DECF009C7F18 /* SMColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C922A64DECF009C7F18 /* SMColor.swift */; };
 		B59A0C952A668B74009C7F18 /* SMUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C942A668B74009C7F18 /* SMUUID.swift */; };
 		B59A0CB92A66FEB6009C7F18 /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CB82A66FEB6009C7F18 /* Logger+Extension.swift */; };
+		B59A0CBB2A670203009C7F18 /* SMColor+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CBA2A670203009C7F18 /* SMColor+UIColor.swift */; };
+		B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CBE2A670A6B009C7F18 /* SMAlpha+CGFloat.swift */; };
+		B59A0CC12A670AF2009C7F18 /* SMSize+CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC02A670AF2009C7F18 /* SMSize+CGSize.swift */; };
+		B59A0CC32A677928009C7F18 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC22A677928009C7F18 /* MainView.swift */; };
+		B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */; };
+		B59A0CC72A677CFB009C7F18 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC62A677CFB009C7F18 /* InspectorView.swift */; };
+		B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */; };
+		B59A0CCB2A679FB4009C7F18 /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCA2A679FB4009C7F18 /* SlideView.swift */; };
+		B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */; };
+		B5CCB6CC2A6D0978009771DC /* SlideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CB2A6D0978009771DC /* SlideContent.swift */; };
+		B5CCB6D02A6D24B2009771DC /* SlideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */; };
+		B5CCB6D32A6D83FF009771DC /* SquareContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D22A6D83FF009771DC /* SquareContent.swift */; };
+		B5CCB6D72A6D8447009771DC /* SlideContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */; };
+		B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D82A6D860E009771DC /* SquareContentView.swift */; };
+		B5CCB6DB2A6D862F009771DC /* ContentViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */; };
+		B5CCB6DD2A6E0F24009771DC /* SlideManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */; };
+		B5CCB6DE2A6E1063009771DC /* SlideContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */; };
+		B5CCB6DF2A6E1076009771DC /* SquareContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6D22A6D83FF009771DC /* SquareContent.swift */; };
+		B5CCB6E02A6E10C5009771DC /* SMColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C922A64DECF009C7F18 /* SMColor.swift */; };
+		B5CCB6E12A6E10DA009771DC /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
+		B5CCB6E22A6E7D80009771DC /* SlideContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CCB6CB2A6D0978009771DC /* SlideContent.swift */; };
+		B5CCB6E32A6E7D89009771DC /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C902A64D9DA009C7F18 /* Slide.swift */; };
+		B5CCB6E42A6E7D91009771DC /* SMUUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C942A668B74009C7F18 /* SMUUID.swift */; };
+		B5CCB6E52A6E7DE2009771DC /* SlideManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C732A64D149009C7F18 /* SlideManagerTests.swift */; };
 		B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */; };
-		B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */; };
 		B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
-		B5D7D3A52A65FF880073B882 /* RectangleSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */; };
-		B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A62A66043E0073B882 /* SlideFactory.swift */; };
+		B5F4CD692A68472200CD226F /* BackgroundColorChangeableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,16 +54,10 @@
 			remoteGlobalIDString = B59A0C582A64D146009C7F18;
 			remoteInfo = MyKeynote;
 		};
-		B59A0C7A2A64D149009C7F18 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B59A0C512A64D146009C7F18 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B59A0C582A64D146009C7F18;
-			remoteInfo = MyKeynote;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B510FED32A68201600649E1B /* ValuePresentableStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePresentableStepper.swift; sourceTree = "<group>"; };
 		B59A0C592A64D146009C7F18 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,20 +66,30 @@
 		B59A0C682A64D149009C7F18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B59A0C6A2A64D149009C7F18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B59A0C6F2A64D149009C7F18 /* MyKeynoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyKeynoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B59A0C732A64D149009C7F18 /* MyKeynoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteTests.swift; sourceTree = "<group>"; };
-		B59A0C792A64D149009C7F18 /* MyKeynoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyKeynoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B59A0C7D2A64D149009C7F18 /* MyKeynoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteUITests.swift; sourceTree = "<group>"; };
-		B59A0C7F2A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyKeynoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B59A0C732A64D149009C7F18 /* SlideManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideManagerTests.swift; sourceTree = "<group>"; };
 		B59A0C8E2A64D635009C7F18 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "../../../../../문서 - MacBook Pro 16 SM/Workspace/Softeer/ios-keynote/README.md"; sourceTree = "<group>"; };
 		B59A0C902A64D9DA009C7F18 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		B59A0C922A64DECF009C7F18 /* SMColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMColor.swift; sourceTree = "<group>"; };
 		B59A0C942A668B74009C7F18 /* SMUUID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMUUID.swift; sourceTree = "<group>"; };
 		B59A0CB82A66FEB6009C7F18 /* Logger+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Extension.swift"; sourceTree = "<group>"; };
+		B59A0CBA2A670203009C7F18 /* SMColor+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMColor+UIColor.swift"; sourceTree = "<group>"; };
+		B59A0CBE2A670A6B009C7F18 /* SMAlpha+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMAlpha+CGFloat.swift"; sourceTree = "<group>"; };
+		B59A0CC02A670AF2009C7F18 /* SMSize+CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SMSize+CGSize.swift"; sourceTree = "<group>"; };
+		B59A0CC22A677928009C7F18 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConfigurable.swift; sourceTree = "<group>"; };
+		B59A0CC62A677CFB009C7F18 /* InspectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
+		B59A0CCA2A679FB4009C7F18 /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
+		B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B5CCB6CB2A6D0978009771DC /* SlideContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContent.swift; sourceTree = "<group>"; };
+		B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideManager.swift; sourceTree = "<group>"; };
+		B5CCB6D22A6D83FF009771DC /* SquareContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareContent.swift; sourceTree = "<group>"; };
+		B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideContentFactory.swift; sourceTree = "<group>"; };
+		B5CCB6D82A6D860E009771DC /* SquareContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareContentView.swift; sourceTree = "<group>"; };
+		B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewProtocol.swift; sourceTree = "<group>"; };
 		B5D7D39E2A64F7B70073B882 /* SMAlpha.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMAlpha.swift; sourceTree = "<group>"; };
-		B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareSlide.swift; sourceTree = "<group>"; };
 		B5D7D3A22A6500B40073B882 /* SMSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSize.swift; sourceTree = "<group>"; };
-		B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleSlide.swift; sourceTree = "<group>"; };
-		B5D7D3A62A66043E0073B882 /* SlideFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideFactory.swift; sourceTree = "<group>"; };
+		B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorChangeableButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,23 +107,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B59A0C762A64D149009C7F18 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B510FED22A681FDA00649E1B /* Inspector */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0CC62A677CFB009C7F18 /* InspectorView.swift */,
+				B510FED32A68201600649E1B /* ValuePresentableStepper.swift */,
+				B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */,
+			);
+			path = Inspector;
+			sourceTree = "<group>";
+		};
 		B59A0C502A64D146009C7F18 = {
 			isa = PBXGroup;
 			children = (
 				B59A0C8E2A64D635009C7F18 /* README.md */,
 				B59A0C5B2A64D146009C7F18 /* MyKeynote */,
 				B59A0C722A64D149009C7F18 /* MyKeynoteTests */,
-				B59A0C7C2A64D149009C7F18 /* MyKeynoteUITests */,
 				B59A0C5A2A64D146009C7F18 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,7 +135,6 @@
 			children = (
 				B59A0C592A64D146009C7F18 /* MyKeynote.app */,
 				B59A0C6F2A64D149009C7F18 /* MyKeynoteTests.xctest */,
-				B59A0C792A64D149009C7F18 /* MyKeynoteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,18 +155,9 @@
 		B59A0C722A64D149009C7F18 /* MyKeynoteTests */ = {
 			isa = PBXGroup;
 			children = (
-				B59A0C732A64D149009C7F18 /* MyKeynoteTests.swift */,
+				B59A0C732A64D149009C7F18 /* SlideManagerTests.swift */,
 			);
 			path = MyKeynoteTests;
-			sourceTree = "<group>";
-		};
-		B59A0C7C2A64D149009C7F18 /* MyKeynoteUITests */ = {
-			isa = PBXGroup;
-			children = (
-				B59A0C7D2A64D149009C7F18 /* MyKeynoteUITests.swift */,
-				B59A0C7F2A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift */,
-			);
-			path = MyKeynoteUITests;
 			sourceTree = "<group>";
 		};
 		B59A0C8C2A64D579009C7F18 /* App */ = {
@@ -168,6 +184,7 @@
 			children = (
 				B5D7D39D2A64F7AB0073B882 /* DataModel */,
 				B59A0CB42A66FE18009C7F18 /* Slide */,
+				B5CCB6D42A6D8411009771DC /* SlideContent */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,9 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
-				B5D7D3A02A64FF9B0073B882 /* SquareSlide.swift */,
-				B5D7D3A42A65FF880073B882 /* RectangleSlide.swift */,
-				B5D7D3A62A66043E0073B882 /* SlideFactory.swift */,
+				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
 			);
 			path = Slide;
 			sourceTree = "<group>";
@@ -187,6 +202,10 @@
 			isa = PBXGroup;
 			children = (
 				B59A0CB82A66FEB6009C7F18 /* Logger+Extension.swift */,
+				B59A0CCC2A67EA62009C7F18 /* UIColor+Extension.swift */,
+				B59A0CBA2A670203009C7F18 /* SMColor+UIColor.swift */,
+				B59A0CBE2A670A6B009C7F18 /* SMAlpha+CGFloat.swift */,
+				B59A0CC02A670AF2009C7F18 /* SMSize+CGSize.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -194,6 +213,8 @@
 		B59A0CB62A66FE51009C7F18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B5CCB6CD2A6D0E9C009771DC /* MainLayout */,
+				B5CCB6CE2A6D0EB3009771DC /* SlideView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -204,6 +225,37 @@
 				B59A0C602A64D146009C7F18 /* ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		B5CCB6CD2A6D0E9C009771DC /* MainLayout */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */,
+				B59A0CC22A677928009C7F18 /* MainView.swift */,
+				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
+				B510FED22A681FDA00649E1B /* Inspector */,
+			);
+			path = MainLayout;
+			sourceTree = "<group>";
+		};
+		B5CCB6CE2A6D0EB3009771DC /* SlideView */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0CCA2A679FB4009C7F18 /* SlideView.swift */,
+				B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */,
+				B5CCB6D82A6D860E009771DC /* SquareContentView.swift */,
+			);
+			path = SlideView;
+			sourceTree = "<group>";
+		};
+		B5CCB6D42A6D8411009771DC /* SlideContent */ = {
+			isa = PBXGroup;
+			children = (
+				B5CCB6CB2A6D0978009771DC /* SlideContent.swift */,
+				B5CCB6D22A6D83FF009771DC /* SquareContent.swift */,
+				B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */,
+			);
+			path = SlideContent;
 			sourceTree = "<group>";
 		};
 		B5D7D39D2A64F7AB0073B882 /* DataModel */ = {
@@ -255,24 +307,6 @@
 			productReference = B59A0C6F2A64D149009C7F18 /* MyKeynoteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B59A0C782A64D149009C7F18 /* MyKeynoteUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B59A0C892A64D149009C7F18 /* Build configuration list for PBXNativeTarget "MyKeynoteUITests" */;
-			buildPhases = (
-				B59A0C752A64D149009C7F18 /* Sources */,
-				B59A0C762A64D149009C7F18 /* Frameworks */,
-				B59A0C772A64D149009C7F18 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B59A0C7B2A64D149009C7F18 /* PBXTargetDependency */,
-			);
-			name = MyKeynoteUITests;
-			productName = MyKeynoteUITests;
-			productReference = B59A0C792A64D149009C7F18 /* MyKeynoteUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -287,10 +321,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					B59A0C6E2A64D149009C7F18 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = B59A0C582A64D146009C7F18;
-					};
-					B59A0C782A64D149009C7F18 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = B59A0C582A64D146009C7F18;
 					};
@@ -311,7 +341,6 @@
 			targets = (
 				B59A0C582A64D146009C7F18 /* MyKeynote */,
 				B59A0C6E2A64D149009C7F18 /* MyKeynoteTests */,
-				B59A0C782A64D149009C7F18 /* MyKeynoteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -333,13 +362,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B59A0C772A64D149009C7F18 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -347,17 +369,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D7D3A72A66043E0073B882 /* SlideFactory.swift in Sources */,
+				B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */,
+				B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */,
+				B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */,
+				B59A0CCB2A679FB4009C7F18 /* SlideView.swift in Sources */,
+				B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */,
+				B59A0CC72A677CFB009C7F18 /* InspectorView.swift in Sources */,
+				B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */,
 				B59A0CB92A66FEB6009C7F18 /* Logger+Extension.swift in Sources */,
+				B5CCB6D72A6D8447009771DC /* SlideContentFactory.swift in Sources */,
 				B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */,
-				B5D7D3A52A65FF880073B882 /* RectangleSlide.swift in Sources */,
+				B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */,
 				B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */,
+				B5CCB6DB2A6D862F009771DC /* ContentViewProtocol.swift in Sources */,
+				B59A0CBB2A670203009C7F18 /* SMColor+UIColor.swift in Sources */,
 				B5D7D3A32A6500B40073B882 /* SMSize.swift in Sources */,
 				B59A0C932A64DECF009C7F18 /* SMColor.swift in Sources */,
+				B59A0CC32A677928009C7F18 /* MainView.swift in Sources */,
+				B5F4CD692A68472200CD226F /* BackgroundColorChangeableButton.swift in Sources */,
 				B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */,
-				B5D7D3A12A64FF9B0073B882 /* SquareSlide.swift in Sources */,
+				B5CCB6CC2A6D0978009771DC /* SlideContent.swift in Sources */,
+				B5CCB6D32A6D83FF009771DC /* SquareContent.swift in Sources */,
 				B5D7D39F2A64F7B70073B882 /* SMAlpha.swift in Sources */,
+				B5CCB6D02A6D24B2009771DC /* SlideManager.swift in Sources */,
 				B59A0C952A668B74009C7F18 /* SMUUID.swift in Sources */,
+				B59A0CC12A670AF2009C7F18 /* SMSize+CGSize.swift in Sources */,
 				B59A0C912A64D9DA009C7F18 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,16 +402,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59A0C742A64D149009C7F18 /* MyKeynoteTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B59A0C752A64D149009C7F18 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B59A0C802A64D149009C7F18 /* MyKeynoteUITestsLaunchTests.swift in Sources */,
-				B59A0C7E2A64D149009C7F18 /* MyKeynoteUITests.swift in Sources */,
+				B5CCB6DE2A6E1063009771DC /* SlideContentFactory.swift in Sources */,
+				B5CCB6E22A6E7D80009771DC /* SlideContent.swift in Sources */,
+				B5CCB6E52A6E7DE2009771DC /* SlideManagerTests.swift in Sources */,
+				B5CCB6E02A6E10C5009771DC /* SMColor.swift in Sources */,
+				B5CCB6DF2A6E1076009771DC /* SquareContent.swift in Sources */,
+				B5CCB6E32A6E7D89009771DC /* Slide.swift in Sources */,
+				B5CCB6E12A6E10DA009771DC /* SMAlpha.swift in Sources */,
+				B5CCB6E42A6E7D91009771DC /* SMUUID.swift in Sources */,
+				B5CCB6DD2A6E0F24009771DC /* SlideManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,11 +421,6 @@
 			isa = PBXTargetDependency;
 			target = B59A0C582A64D146009C7F18 /* MyKeynote */;
 			targetProxy = B59A0C702A64D149009C7F18 /* PBXContainerItemProxy */;
-		};
-		B59A0C7B2A64D149009C7F18 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B59A0C582A64D146009C7F18 /* MyKeynote */;
-			targetProxy = B59A0C7A2A64D149009C7F18 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -629,42 +659,6 @@
 			};
 			name = Release;
 		};
-		B59A0C8A2A64D149009C7F18 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AVZ9493N69;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.minios.MyKeynoteUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyKeynote;
-			};
-			name = Debug;
-		};
-		B59A0C8B2A64D149009C7F18 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AVZ9493N69;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.minios.MyKeynoteUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MyKeynote;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -691,15 +685,6 @@
 			buildConfigurations = (
 				B59A0C872A64D149009C7F18 /* Debug */,
 				B59A0C882A64D149009C7F18 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B59A0C892A64D149009C7F18 /* Build configuration list for PBXNativeTarget "MyKeynoteUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B59A0C8A2A64D149009C7F18 /* Debug */,
-				B59A0C8B2A64D149009C7F18 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

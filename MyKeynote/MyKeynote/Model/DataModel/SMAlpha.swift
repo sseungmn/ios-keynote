@@ -8,8 +8,8 @@
 import Foundation
 
 enum SMAlpha: Int, CaseIterable {
-    
-    case one = 1
+    case zero = 0
+    case one
     case two
     case three
     case four
@@ -29,15 +29,51 @@ enum SMAlpha: Int, CaseIterable {
         self = Self(rawValue: Int.random(in: 1...count, using: &generator)) ?? .one
     }
 
-    static func random(using generator: inout RandomNumberGenerator) -> Self {
-        let count = Self.allCases.count
-        let rawValue = Int.random(in: 1...count, using: &generator)
-        return Self(rawValue: rawValue) ?? .one
+    static var min: Self {
+        return .zero
     }
+
+    static var max: Self {
+        return .ten
+    }
+
+    static func random(using generator: inout RandomNumberGenerator) -> Self {
+        return Self.allCases.randomElement(using: &generator) ?? .zero
+    }
+}
+
+extension SMAlpha: Comparable {
+    static func < (lhs: SMAlpha, rhs: SMAlpha) -> Bool {
+        return lhs.rawValue < rhs.rawValue
+    }
+}
+
+extension SMAlpha: Strideable {
+    static var stepValue: Int {
+        return Stride(1)
+    }
+
+    func distance(to other: SMAlpha) -> Int {
+        return Stride(other.rawValue) - Stride(rawValue)
+    }
+    
+    func advanced(by n: Int) -> SMAlpha {
+        let index = Stride(rawValue) + n
+        if let result = Self(rawValue: index) {
+            return result
+        } else if index < 0 {
+            return .zero
+        } else {
+            return .ten
+        }
+    }
+    
+    typealias Stride = Int
+
 }
 
 extension SMAlpha: CustomStringConvertible {
     var description: String {
-        return "Alpha: \(rawValue)"
+        return "\(rawValue)"
     }
 }
