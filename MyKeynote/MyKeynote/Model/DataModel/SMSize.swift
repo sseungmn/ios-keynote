@@ -9,31 +9,25 @@ import Foundation
 
 struct SMSize {
     
-    var ratio: Double?
+    private(set) var width: Int
+    private(set) var height: Int
 
-    var width: Int {
-        didSet {
-            guard let ratio else { return }
-            self.height = Int(Double(width) * ratio)
-        }
-    }
-
-    var height: Int
-
-    init(width: Int, ratio: Double) {
-        self.width = width
-        self.height = Int(Double(width) * ratio)
-        self.ratio = ratio
+    init(side: Int) {
+        self.width = side
+        self.height = side
     }
 
     init(width: Int, height: Int) {
         self.width = width
         self.height = height
     }
+}
 
-    static func random(in range: ClosedRange<Int>, using generator: inout RandomNumberGenerator, ratio: CGFloat) -> Self {
-        let width = Int.random(in: range, using: &generator)
-        return SMSize(width: width, ratio: ratio)
+extension SMSize {
+    static func random(in range: Range<Int>, using generator: inout RandomNumberGenerator) -> Self {
+        return Self(width: Int.random(in: range, using: &generator),
+                    height: Int.random(in: range, using: &generator)
+        )
     }
 }
 

@@ -28,4 +28,6 @@ protocol ColorChangeable: AnyObject {
 }
 
 protocol SlideContent: Focusable, AlphaChangeable, CustomStringConvertible {
+
+    var size: SMSize { get }
 }

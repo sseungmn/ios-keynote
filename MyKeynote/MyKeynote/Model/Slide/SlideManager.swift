@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OSLog
 
 final class SlideManager {
 
@@ -66,6 +67,7 @@ extension SlideManager {
 extension SlideManager {
     func createSquareContentSlide() -> Slidable {
         let slideContent = squareContentFactory.create(generator: &generator)
+        Logger.track(message: "\(slideContent)")
         let slide = Slide(content: slideContent)
         slides.append(slide)
         select(slide: slide)

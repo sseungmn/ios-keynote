@@ -9,7 +9,7 @@ import Foundation
 
 final class SquareContent: SlideContent, ColorChangeable {
 
-    private(set) var side: Int
+    private(set) var size: SMSize
 
     private(set) var isFocused: Bool = false {
         didSet {
@@ -34,7 +34,7 @@ final class SquareContent: SlideContent, ColorChangeable {
     }
     
     init(side: Int, color: SMColor, alpha: SMAlpha) {
-        self.side = side
+        self.size = SMSize(side: side)
         self.color = color
         self.alpha = alpha
         postDidFocusNotification()
@@ -80,6 +80,6 @@ extension SquareContent {
 // MARK: CustomStringConvertible
 extension SquareContent {
     var description: String {
-        return "Side: \(side), Color: \(color)"
+        return "Side: \(size.width), Color: \(color), Alpha: \(alpha)"
     }
 }
