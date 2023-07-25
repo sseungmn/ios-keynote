@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510FED32A68201600649E1B /* ValuePresentableStepper.swift */; };
 		B52A23F92A6FBA9700408259 /* Notification+Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */; };
+		B52A23FA2A6FBD9E00408259 /* Notification+Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */; };
 		B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */; };
 		B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */; };
 		B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C602A64D146009C7F18 /* ViewController.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		B510FED32A68201600649E1B /* ValuePresentableStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePresentableStepper.swift; sourceTree = "<group>"; };
 		B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Namespace.swift"; sourceTree = "<group>"; };
+		B52A23FB2A6FBDD400408259 /* MyKeynote.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MyKeynote.xctestplan; sourceTree = "<group>"; };
 		B59A0C592A64D146009C7F18 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		B59A0C502A64D146009C7F18 = {
 			isa = PBXGroup;
 			children = (
+				B52A23FB2A6FBDD400408259 /* MyKeynote.xctestplan */,
 				B59A0C8E2A64D635009C7F18 /* README.md */,
 				B59A0C5B2A64D146009C7F18 /* MyKeynote */,
 				B59A0C722A64D149009C7F18 /* MyKeynoteTests */,
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52A23FA2A6FBD9E00408259 /* Notification+Namespace.swift in Sources */,
 				B5CCB6DE2A6E1063009771DC /* SlideContentFactory.swift in Sources */,
 				B5CCB6E22A6E7D80009771DC /* SlideContent.swift in Sources */,
 				B5CCB6E52A6E7DE2009771DC /* SlideManagerTests.swift in Sources */,
