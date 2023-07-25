@@ -9,11 +9,6 @@ import Foundation
 
 final class SlideManager {
 
-    enum SlideContentType {
-        case square
-        case image
-    }
-
     private var generator: RandomNumberGenerator
     private let squareContentFactory: any SlideContentFactory
 
@@ -56,30 +51,36 @@ extension SlideManager {
 }
 
 // MARK: - API
+// MARK: Getter
 extension SlideManager {
     var slideCount: Int {
         return slides.count
     }
-
+    
     subscript(_ index: Int) -> any Slidable {
         assert(0 <= index && index < slideCount)
         return slides[index]
     }
+}
 
-    func createSlide(of contentType: SlideContentType) -> Slidable {
-        var slideContent: SlideContent
-        switch contentType {
-        case .square:
-            slideContent = squareContentFactory.create(generator: &generator)
-        case .image:
-            fatalError("Not implemented")
-        }
+// MARK: Create
+extension SlideManager {
+    func createSquareContentSlide() -> Slidable {
+        let slideContent = squareContentFactory.create(generator: &generator)
         let slide = Slide(content: slideContent)
         slides.append(slide)
         select(slide: slide)
 
         return slide
     }
+
+    func createImageContentSide() -> Slidable {
+        fatalError("Not Implemented")
+    }
+}
+
+// MARK: Update
+extension SlideManager {
 
     func updateSelectedContent(color: SMColor) {
         if let content = selectedContent as? ColorChangeable {

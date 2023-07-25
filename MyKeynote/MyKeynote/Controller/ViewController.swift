@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         rectView.center = CGPoint(x: slideView.frame.width / 2 , y: slideView.frame.height / 2)
         slideView.delegate = self
 
-        let rectA = slideManager.createSlide(of: .square)
+        let rectA = slideManager.createSquareContentSlide()
     }
 }
 
