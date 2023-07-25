@@ -19,14 +19,11 @@ enum SMAlpha: Int, CaseIterable {
     case eight
     case nine
     case ten
+}
 
-    var count: Int {
+extension SMAlpha {
+    static var count: Int {
         return Self.allCases.count
-    }
-
-    init(using generator: inout RandomNumberGenerator) {
-        let count = Self.allCases.count
-        self = Self(rawValue: Int.random(in: 1...count, using: &generator)) ?? .one
     }
 
     static var min: Self {
@@ -38,7 +35,8 @@ enum SMAlpha: Int, CaseIterable {
     }
 
     static func random(using generator: inout RandomNumberGenerator) -> Self {
-        return Self.allCases.randomElement(using: &generator) ?? .zero
+        let count = Self.allCases.count
+        return Self(rawValue: Int.random(in: 1...count, using: &generator)) ?? .ten
     }
 }
 
