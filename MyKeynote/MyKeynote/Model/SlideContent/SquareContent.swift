@@ -9,41 +9,53 @@ import Foundation
 
 final class SquareContent: SlideContent, ColorChangeable {
 
-    var description: String {
-        return "Side: \(side), Color: \(color)"
-    }
-
     private(set) var side: Int
 
     private(set) var isFocused: Bool = false {
         didSet {
             if isFocused {
-                NotificationCenter.default.post(name: .ContentDidFocus, object: self)
+                postDidFocusNotification()
             } else {
-                NotificationCenter.default.post(name: .ContentDidDefocus, object: nil)
+                postDidDefocusNotification()
             }
         }
     }
-
+    
     private(set) var color: SMColor {
         didSet {
-            NotificationCenter.default.post(name: .ContentColorDidChange, object: color)
+            postDidColorChangeNotification()
         }
     }
-
+    
     private(set) var alpha: SMAlpha {
         didSet {
-            NotificationCenter.default.post(name: .ContentAlphaDidChange, object: alpha)
+            postDidAlphaChangeNotification()
         }
     }
-
+    
     init(side: Int, color: SMColor, alpha: SMAlpha) {
         self.side = side
         self.color = color
         self.alpha = alpha
-        NotificationCenter.default.post(name: .ContentDidFocus, object: self)
-        NotificationCenter.default.post(name: .ContentAlphaDidChange, object: alpha)
-        NotificationCenter.default.post(name: .ContentColorDidChange, object: color)
+        postDidFocusNotification()
+        postDidAlphaChangeNotification()
+        postDidColorChangeNotification()
+    }
+}
+
+// MARK: Notification
+extension SquareContent {
+    private func postDidFocusNotification() {
+        NotificationCenter.default.post(name: .ContentDidFocus, object: self, userInfo: ["color": color, "alpha": alpha])
+    }
+    private func postDidDefocusNotification() {
+        NotificationCenter.default.post(name: .ContentDidDefocus, object: self)
+    }
+    private func postDidAlphaChangeNotification() {
+        NotificationCenter.default.post(name: .ContentAlphaDidChange, object: self, userInfo: ["alpha": alpha])
+    }
+    private func postDidColorChangeNotification() {
+        NotificationCenter.default.post(name: .ContentColorDidChange, object: self, userInfo: ["color": color])
     }
 }
 
@@ -62,5 +74,12 @@ extension SquareContent {
     
     func updateAlpha(_ alpha: SMAlpha) {
         self.alpha = alpha
+    }
+}
+
+// MARK: CustomStringConvertible
+extension SquareContent {
+    var description: String {
+        return "Side: \(side), Color: \(color)"
     }
 }

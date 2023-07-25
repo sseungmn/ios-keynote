@@ -116,19 +116,23 @@ extension ViewController {
 
     @objc
     func slideContentColorDidChange(_ notification: Notification) {
-        guard let rawColor = (notification.object as? SMColor)?.uiColor else {
+        guard let smColor = notification.userInfo?["color"] as? SMColor else {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
-        let vividColor = rawColor.withAlphaComponent(1.0)
-        colorPickerView.selectedColor = vividColor
-        mainView.updateSelectedContentInspector(color: vividColor)
-        mainView.updateSelectedContentView(color: rawColor)
+        let color = smColor.uiColor
+        colorPickerView.selectedColor = color
+        mainView.updateSelectedContentInspector(color: color)
+        mainView.updateSelectedContentView(color: color)
+
+        let initialAlpha = Double(SMAlpha.max.rawValue)
+        mainView.updateSelectedContentView(alpha: initialAlpha)
+        mainView.updateSelectedContentInspector(alpha: initialAlpha)
     }
 
     @objc
     func slideContentAlphaDidChange(_ notification: Notification) {
-        guard let smAlpha = (notification.object as? SMAlpha) else {
+        guard let smAlpha = notification.userInfo?["alpha"] as? SMAlpha else {
             Logger.track(message: "Notification Object conversion Error", type: .error)
             return
         }
@@ -140,14 +144,15 @@ extension ViewController {
     @objc
     func slideContentDidFocus(_ notification: Notification) {
         mainView.focusSelectedContent()
-        if let smAlpha = (notification.object as? AlphaChangeable)?.alpha {
-            let alpha = Double(smAlpha.rawValue)
-            mainView.updateSelectedContentInspector(alpha: alpha)
+        if let smColor = notification.userInfo?["color"] as? SMColor {
+            let color = smColor.uiColor
+            mainView.updateSelectedContentView(color: color)
+            mainView.updateSelectedContentInspector(color: color)
         }
-
-        if let color = (notification.object as? ColorChangeable)?.color.uiColor {
-            let vividColor = color.withAlphaComponent(1.0)
-            mainView.updateSelectedContentInspector(color: vividColor)
+        if let smAlpha = notification.userInfo?["alpha"] as? SMAlpha {
+            let alpha = Double(smAlpha.rawValue)
+            mainView.updateSelectedContentView(alpha: alpha)
+            mainView.updateSelectedContentInspector(alpha: alpha)
         }
     }
 

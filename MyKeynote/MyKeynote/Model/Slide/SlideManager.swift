@@ -34,8 +34,24 @@ extension SlideManager {
     private func select(slide: any Slidable) {
         selectedSlide = slide
         selectedContent = slide.content
-        slide.content.focus()
-        NotificationCenter.default.post(name: .ContentDidFocus, object: slide.content)
+        focus(on: slide.content)
+    }
+
+    private func focus(on slideContent: SlideContent) {
+        slideContent.focus()
+        postDidFocusNotification(for: slideContent)
+    }
+}
+
+// MARK: Notification
+extension SlideManager {
+    private func postDidFocusNotification(for slideContent: SlideContent) {
+        NotificationCenter.default.post(
+            name: .ContentDidFocus,
+            object: self,
+            userInfo: ["color": (slideContent as? ColorChangeable)?.color,
+                       "alpha": (slideContent as? AlphaChangeable)?.alpha]
+        )
     }
 }
 
