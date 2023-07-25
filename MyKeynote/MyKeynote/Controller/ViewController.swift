@@ -108,10 +108,10 @@ extension ViewController: SlideViewDelegate {
 // MARK: - Model -> Controller -> View
 extension ViewController {
     func addObserverForSlideContent() {
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .ContentColorDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .ContentAlphaDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .ContentDidFocus, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .ContentDidDefocus, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .Content.ColorDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .Content.AlphaDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .Content.DidFocus, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .Content.DidDefocus, object: nil)
     }
 
     @objc

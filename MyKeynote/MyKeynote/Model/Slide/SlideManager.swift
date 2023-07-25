@@ -42,7 +42,7 @@ extension SlideManager {
 extension SlideManager {
     private func postDidFocusNotification(for slideContent: SlideContent) {
         NotificationCenter.default.post(
-            name: .ContentDidFocus,
+            name: .Content.DidFocus,
             object: self,
             userInfo: ["color": (slideContent as? ColorChangeable)?.color,
                        "alpha": (slideContent as? AlphaChangeable)?.alpha]

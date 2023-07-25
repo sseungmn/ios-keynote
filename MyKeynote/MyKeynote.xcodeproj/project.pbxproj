@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510FED32A68201600649E1B /* ValuePresentableStepper.swift */; };
+		B52A23F92A6FBA9700408259 /* Notification+Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */; };
 		B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */; };
 		B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */; };
 		B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C602A64D146009C7F18 /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		B510FED32A68201600649E1B /* ValuePresentableStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePresentableStepper.swift; sourceTree = "<group>"; };
+		B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Namespace.swift"; sourceTree = "<group>"; };
 		B59A0C592A64D146009C7F18 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		B59A0C8F2A64D9AD009C7F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */,
 				B5D7D39D2A64F7AB0073B882 /* DataModel */,
 				B59A0CB42A66FE18009C7F18 /* Slide */,
 				B5CCB6D42A6D8411009771DC /* SlideContent */,
@@ -377,6 +380,7 @@
 				B59A0CC72A677CFB009C7F18 /* InspectorView.swift in Sources */,
 				B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */,
 				B59A0CB92A66FEB6009C7F18 /* Logger+Extension.swift in Sources */,
+				B52A23F92A6FBA9700408259 /* Notification+Namespace.swift in Sources */,
 				B5CCB6D72A6D8447009771DC /* SlideContentFactory.swift in Sources */,
 				B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */,
 				B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */,

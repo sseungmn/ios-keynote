@@ -29,11 +29,3 @@ protocol ColorChangeable: AnyObject {
 
 protocol SlideContent: Focusable, AlphaChangeable, CustomStringConvertible {
 }
-
-// MARK: Notification
-extension Notification.Name {
-    static let ContentDidFocus = Notification.Name("ContentDidFocus")
-    static let ContentDidDefocus = Notification.Name("ContentDidDefocus")
-    static let ContentAlphaDidChange = Notification.Name("ContentColorDidChange")
-    static let ContentColorDidChange = Notification.Name("ContentAlphaDidChange")
-}
