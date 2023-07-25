@@ -42,7 +42,7 @@ final class SlideManagerTests: XCTestCase {
 
         let content = slide.content as? SquareContent
         XCTAssertNotNil(content)
-        XCTAssertEqual(content?.side, 200)
+        XCTAssertEqual(content?.size.width, 200)
         XCTAssertEqual(content?.color, .black)
         XCTAssertEqual(content?.alpha, .ten)
     }
