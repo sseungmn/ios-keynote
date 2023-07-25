@@ -16,7 +16,11 @@ class ViewController: UIViewController {
         return view as? MainView ?? MainView()
     }
 
-    private let colorPickerView = UIColorPickerViewController()
+    private let colorPickerView: UIColorPickerViewController = {
+        let viewController = UIColorPickerViewController()
+        viewController.supportsAlpha = false
+        return viewController
+    }()
 
     init(generator: RandomNumberGenerator = SystemRandomNumberGenerator(),
          squareContentFactory: SquareContentFactory = SquareContentFactory()
@@ -50,30 +54,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        colorPickerView.delegate = self
-        colorPickerView.supportsAlpha = false
-
+        configureDelegate()
         addObserverForSlideContent()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc
-    func viewDidTap() {
-        let slideView = SlideView(frame: .zero)
-        mainView.addSlideView(slideView)
-
-        let rectView = SquareContentView()
-        slideView.setContentView(rectView)
-        rectView.frame.size = CGSize(width: 100, height: 100)
-        rectView.center = CGPoint(x: slideView.frame.width / 2 , y: slideView.frame.height / 2)
-        slideView.delegate = self
-
-        let rectA = slideManager.createSquareContentSlide()
     }
 }
 
 // MARK: - View -> Controller -> Model
+extension ViewController {
+    private func configureDelegate() {
+        colorPickerView.delegate = self
+        mainView.configureDelegate(self)
+    }
+}
+
 extension ViewController: InspectorDelegate {
     func alphaStepperValueDidChange(_ sender: UIStepper) {
         guard let smAlpha = SMAlpha(sender.value) else {
@@ -102,6 +95,38 @@ extension ViewController: UIColorPickerViewControllerDelegate {
 extension ViewController: SlideViewDelegate {
     func slideViewDidTap(_ isSlideContentArea: Bool) {
         slideManager.updateSelectedContent(isFocused: isSlideContentArea)
+    }
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return slideManager.slideCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .darkGray
+        return cell
+    }
+}
+
+extension ViewController: NavigatorDelegate {
+    func addSlideButtonDidTap(_ sender: UIButton) {
+        let slideView = SlideView()
+        let squareSlideView = SquareContentView()
+        slideView.setContentView(squareSlideView)
+        slideView.delegate = self
+        mainView.addSlideView(slideView)
+
+        slideManager.createSquareContentSlide { [squareSlideView]  (squareContent) in
+            let alpha = Double(squareContent.alpha.rawValue)
+            let color = squareContent.color.uiColor
+            let size = squareContent.size.cgSize
+            squareSlideView.updateAlpha(alpha)
+            squareSlideView.updateColor(color)
+            squareSlideView.updateSize(size)
+        }
+
     }
 }
 

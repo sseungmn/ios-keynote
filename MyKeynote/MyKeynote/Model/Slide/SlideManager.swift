@@ -11,7 +11,7 @@ import OSLog
 final class SlideManager {
 
     private var generator: RandomNumberGenerator
-    private let squareContentFactory: any SlideContentFactory
+    private let squareContentFactory: any SquareContentFactoryProtocol
 
     private var slides: [any Slidable] = []
     private var selectedSlide: (any Slidable)?
@@ -19,7 +19,7 @@ final class SlideManager {
 
     init(
         generator: RandomNumberGenerator,
-        squareContentFactory: any SlideContentFactory
+        squareContentFactory: any SquareContentFactoryProtocol
     ) {
         self.generator = generator
         self.squareContentFactory = squareContentFactory
@@ -65,14 +65,13 @@ extension SlideManager {
 
 // MARK: Create
 extension SlideManager {
-    func createSquareContentSlide() -> Slidable {
-        let slideContent = squareContentFactory.create(generator: &generator)
-        let slide = Slide(content: slideContent)
+    func createSquareContentSlide(_ completion: @escaping (SquareContent) -> Void) {
+        let squareContent = squareContentFactory.create(generator: &generator)
+        let slide = Slide(content: squareContent)
         Logger.track(message: "\(slide)")
         slides.append(slide)
         select(slide: slide)
-
-        return slide
+        completion(squareContent)
     }
 
     func createImageContentSide() -> Slidable {

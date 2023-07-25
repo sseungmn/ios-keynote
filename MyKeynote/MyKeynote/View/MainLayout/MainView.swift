@@ -14,7 +14,7 @@ final class MainView: UIView {
         view.backgroundColor = .darkGray
         return view
     }()
-    private let navigationView = NavigatorView()
+    private let navigatorView = NavigatorView()
     private let inspectorView = InspectorView()
 
     private var slideViews = [SlideView]()
@@ -35,7 +35,7 @@ final class MainView: UIView {
         backgroundColor = .systemGray2
 
         addSubview(inspectorBarAreaCoverView)
-        addSubview(navigationView)
+        addSubview(navigatorView)
         addSubview(inspectorView)
     }
 }
@@ -45,9 +45,9 @@ extension MainView: LayoutConfigurable {
         inspectorBarAreaCoverView.frame = CGRect(origin: .zero,
                                               size: CGSize(width: bounds.width, height: safeAreaInsets.top))
         let sideBarWidth = bounds.width / 7
-        navigationView.frame = CGRect(origin: CGPoint(x: safeAreaInsets.left, y: safeAreaInsets.top),
-                                      size: CGSize(width: sideBarWidth, height: bounds.height))
-        navigationView.configureLayout()
+        navigatorView.frame = CGRect(origin: CGPoint(x: safeAreaInsets.left, y: safeAreaInsets.top),
+                                      size: CGSize(width: sideBarWidth, height: bounds.height - safeAreaInsets.top))
+        navigatorView.configureLayout()
 
         let canvasViewHeight = (bounds.width - 2 * sideBarWidth) * (3/4)
         let canvasViewMinY = (bounds.height - canvasViewHeight) / 2
@@ -56,14 +56,17 @@ extension MainView: LayoutConfigurable {
         selectedSlideView?.configureLayout()
 
         inspectorView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: safeAreaInsets.top),
-                                  size: CGSize(width: sideBarWidth, height: bounds.height))
+                                     size: CGSize(width: sideBarWidth, height: bounds.height - safeAreaInsets.top))
         inspectorView.configureLayout()
     }
 }
 
 extension MainView {
-    func configureDelegate<T: InspectorDelegate>(_ delegator: T) {
-        inspectorView.configureDelegate(delegator)
+    func configureDelegate<T>(_ viewController: T)
+    where T: UITableViewDelegate & UITableViewDataSource & NavigatorDelegate & InspectorDelegate
+    {
+        navigatorView.configureDelegate(viewController)
+        inspectorView.configureDelegate(viewController)
     }
 }
 
