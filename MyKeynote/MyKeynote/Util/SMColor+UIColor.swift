@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import OSLog
 
 extension SMColor {
     var uiColor: UIColor {

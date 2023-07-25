@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import OSLog
 
 final class ValuePresentableStepper: UIView {
 
