@@ -14,4 +14,8 @@ extension Notification.Name {
         static let AlphaDidChange = Notification.Name("ContentColorDidChange")
         static let ColorDidChange = Notification.Name("ContentAlphaDidChange")
     }
+    enum Slide {
+        static let DidCreate = Notification.Name("SlideDidCreate")
+        static let DidSelect = Notification.Name("SlideDidSelect")
+    }
 }

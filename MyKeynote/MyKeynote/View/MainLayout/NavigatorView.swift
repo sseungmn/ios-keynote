@@ -71,4 +71,10 @@ extension NavigatorView {
     func reloadTableView() {
         tableView.reloadData()
     }
+
+    func selectTableView(at index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+        tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
+    }
 }

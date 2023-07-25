@@ -86,12 +86,16 @@ extension MainView {
         slideViews.append(slideView)
         addSubview(slideView)
 
-        selectedSlideView = slideView
         slideView.frame = slideViewFrame
         slideView.configureLayout()
     }
+
     func reloadNavigatorTableView() {
         navigatorView.reloadTableView()
+    }
+
+    func selectNavigatorTableView(at index: Int) {
+        navigatorView.selectTableView(at: index)
     }
 
     // MARK: ContentView
@@ -110,7 +114,6 @@ extension MainView {
     }
 
     // MARK: InspectorView
-
     func updateSelectedContentInspector(color: UIColor) {
         inspectorView.updateInspector(color: color)
     }
@@ -123,5 +126,12 @@ extension MainView {
     }
     func disenableAlphaInspector() {
         inspectorView.disenableAlpha()
+    }
+
+    // MARK: Slide
+    func selectSlideView(at index: Int) {
+        selectedSlideView?.isHidden = true
+        selectedSlideView = slideViews[index]
+        selectedSlideView?.isHidden = false
     }
 }

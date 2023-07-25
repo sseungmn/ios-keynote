@@ -60,6 +60,8 @@ class ViewController: UIViewController {
 }
 
 // MARK: - View -> Controller -> Model
+
+// MARK: InspectorView
 extension ViewController {
     private func configureDelegate() {
         colorPickerView.delegate = self
@@ -92,12 +94,14 @@ extension ViewController: UIColorPickerViewControllerDelegate {
     }
 }
 
+// MARK: SlideView
 extension ViewController: SlideViewDelegate {
     func slideViewDidTap(_ isSlideContentArea: Bool) {
         slideManager.updateSelectedContent(isFocused: isSlideContentArea)
     }
 }
 
+// MARK: NavigatorView
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return slideManager.slideCount
@@ -108,26 +112,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .darkGray
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        slideManager.selectSlide(at: indexPath.row)
+    }
 }
 
 extension ViewController: NavigatorDelegate {
     func addSlideButtonDidTap(_ sender: UIButton) {
-        let slideView = SlideView()
-        let squareSlideView = SquareContentView()
-        slideView.setContentView(squareSlideView)
-        slideView.delegate = self
-        mainView.addSlideView(slideView)
-
-        slideManager.createSquareContentSlide { [squareSlideView]  (squareContent) in
-            let alpha = Double(squareContent.alpha.rawValue)
-            let color = squareContent.color.uiColor
-            let size = squareContent.size.cgSize
-            squareSlideView.updateAlpha(alpha)
-            squareSlideView.updateColor(color)
-            squareSlideView.updateSize(size)
-        }
-
-        mainView.reloadNavigatorTableView()
+        slideManager.createSquareContentSlide()
     }
 }
 
@@ -138,6 +131,8 @@ extension ViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .Content.AlphaDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .Content.DidFocus, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .Content.DidDefocus, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideDidCreate(_:)), name: .Slide.DidCreate, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideDidSelect(_:)), name: .Slide.DidSelect, object: nil)
     }
 
     @objc
@@ -187,5 +182,35 @@ extension ViewController {
         mainView.defocusSelectedContent()
         mainView.disenableAlphaInspector()
         mainView.disenableColorInspector()
+    }
+
+    @objc
+    func slideDidCreate(_ notification: Notification) {
+        guard let slide = notification.userInfo?["slide"] as? Slide,
+            let content = slide.content as? SquareContent
+        else {
+            Logger.track(message: "Notification Object conversion Error", type: .error)
+            return
+        }
+
+        let contentView = SquareContentView()
+        let slideView = SlideView(contentView: contentView)
+        slideView.delegate = self
+        mainView.addSlideView(slideView)
+        mainView.reloadNavigatorTableView()
+        mainView.selectNavigatorTableView(at: slideManager.slideCount - 1)
+
+        contentView.updateSize(content.size.cgSize)
+        contentView.updateAlpha(content.alpha.cgFloat)
+        contentView.updateColor(content.color.uiColor)
+    }
+
+    @objc
+    func slideDidSelect(_ notification: Notification) {
+        guard let index = notification.userInfo?["index"] as? Int else {
+            Logger.track(message: "Notification Object conversion Error", type: .error)
+            return
+        }
+        mainView.selectSlideView(at: index)
     }
 }
