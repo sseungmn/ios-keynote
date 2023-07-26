@@ -62,9 +62,12 @@ extension NavigatorView: LayoutConfigurable {
 
 // MARK: - API
 extension NavigatorView {
-    func configureDelegate(_ viewController: UITableViewDelegate & UITableViewDataSource & NavigatorDelegate) {
+    func configureDelegate(_ viewController: UITableViewDelegate & UITableViewDataSource & UITableViewDragDelegate & UITableViewDropDelegate & NavigatorDelegate) {
         tableView.delegate = viewController
         tableView.dataSource = viewController
+        tableView.dragDelegate = viewController
+        tableView.dropDelegate = viewController
+        tableView.dragInteractionEnabled = true
         self.delegate = viewController
     }
 

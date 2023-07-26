@@ -110,7 +110,16 @@ extension SlideManager {
         selectedContent?.focus()
         postDidFocusNotification(for: selectedContent!)
     }
+
+    func moveSlide(at sourceIndex: Int, to destinationIndex: Int) {
+        guard sourceIndex != destinationIndex else { return }
+
+        let slide = slides[sourceIndex]
+        slides.remove(at: sourceIndex)
+        slides.insert(slide, at: destinationIndex)
+    }
 }
+
 extension SlideManager {
     private func select(slide: any Slidable) {
         selectedSlide = slide
@@ -122,5 +131,6 @@ extension SlideManager {
         slideContent.focus()
         postDidFocusNotification(for: slideContent)
     }
+
 }
 

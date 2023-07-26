@@ -63,7 +63,7 @@ extension MainView: LayoutConfigurable {
 
 extension MainView {
     func configureDelegate<T>(_ viewController: T)
-    where T: UITableViewDelegate & UITableViewDataSource & NavigatorDelegate & InspectorDelegate
+    where T: UITableViewDelegate & UITableViewDataSource & UITableViewDragDelegate & UITableViewDropDelegate & NavigatorDelegate & InspectorDelegate
     {
         navigatorView.configureDelegate(viewController)
         inspectorView.configureDelegate(viewController)
