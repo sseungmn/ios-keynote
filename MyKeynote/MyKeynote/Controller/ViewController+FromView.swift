@@ -67,13 +67,30 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if let oldIndexPath = tableView.indexPathForSelectedRow {
+            if oldIndexPath == indexPath {
+                mainView.deselectNavigatorTableView(at: indexPath.row)
+                return nil
+            } else {
+                return indexPath
+            }
+        }
+        return indexPath
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         slideManager.selectSlide(at: indexPath.row)
+    }
+
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        slideManager.deselectSlide()
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         slideManager.moveSlide(at: sourceIndexPath.row, to: destinationIndexPath.row)
     }
+
 }
 
 extension ViewController: UITableViewDragDelegate {

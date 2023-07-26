@@ -94,4 +94,10 @@ extension NavigatorView {
         tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
         tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
     }
+
+    func deselectTableView(at index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.delegate?.tableView?(tableView, didDeselectRowAt: indexPath)
+    }
 }

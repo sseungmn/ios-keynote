@@ -110,11 +110,15 @@ extension MainView {
         navigatorView.selectTableView(at: index)
     }
 
+    func deselectNavigatorTableView(at index: Int) {
+        navigatorView.deselectTableView(at: index)
+    }
+
     // MARK: ContentView
-    func focusSelectedContent() {
+    func focusSelectedContentView() {
         selectedSlideView?.focusContentView()
     }
-    func defocusSelectedContent() {
+    func defocusContentView() {
         selectedSlideView?.defocusContentView()
     }
 
@@ -145,5 +149,10 @@ extension MainView {
         selectedSlideView?.isHidden = true
         selectedSlideView = slideViews[index]
         selectedSlideView?.isHidden = false
+    }
+
+    func deselectSlideView() {
+        selectedSlideView?.isHidden = true
+        selectedSlideView = nil
     }
 }

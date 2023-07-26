@@ -44,12 +44,26 @@ extension SlideManager {
         )
     }
 
+    private func postDidDeselectNotification() {
+        NotificationCenter.default.post(
+            name: .Slide.DidDeselect,
+            object: self
+        )
+    }
+
     private func postDidFocusNotification(for slideContent: SlideContent) {
         NotificationCenter.default.post(
             name: .Content.DidFocus,
             object: self,
             userInfo: ["color": (slideContent as? ColorChangeable)?.color,
                        "alpha": (slideContent as? AlphaChangeable)?.alpha]
+        )
+    }
+
+    private func postDidDefocusNotification() {
+        NotificationCenter.default.post(
+            name: .Content.DidDefocus,
+            object: self
         )
     }
 }
@@ -88,27 +102,37 @@ extension SlideManager {
             content.updateColor(color)
         }
     }
-
+    
     func updateSelectedContent(alpha: SMAlpha) {
         if let content = selectedContent as? AlphaChangeable {
             content.updateAlpha(alpha)
         }
     }
-
+    
     func updateSelectedContent(isFocused: Bool) {
         if let content = selectedContent as? Focusable {
             if isFocused { content.focus() }
             else { content.defocus() }
         }
     }
+}
 
+extension SlideManager {
     func selectSlide(at index: Int) {
         selectedSlide = slides[index]
-        selectedContent = slides[index].content
         postDidSelectNotification(for: index)
 
+        selectedContent = slides[index].content
         selectedContent?.focus()
         postDidFocusNotification(for: selectedContent!)
+    }
+
+    func deselectSlide() {
+        selectedSlide = nil
+        postDidDeselectNotification()
+
+        selectedContent = nil
+        postDidDefocusNotification()
     }
 
     func moveSlide(at sourceIndex: Int, to destinationIndex: Int) {
@@ -119,18 +143,3 @@ extension SlideManager {
         slides.insert(slide, at: destinationIndex)
     }
 }
-
-extension SlideManager {
-    private func select(slide: any Slidable) {
-        selectedSlide = slide
-        selectedContent = slide.content
-        focus(on: slide.content)
-    }
-
-    private func focus(on slideContent: SlideContent) {
-        slideContent.focus()
-        postDidFocusNotification(for: slideContent)
-    }
-
-}
-

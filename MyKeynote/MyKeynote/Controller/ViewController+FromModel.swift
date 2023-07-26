@@ -12,10 +12,11 @@ extension ViewController {
     func addObserverForSlideContent() {
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .Content.ColorDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .Content.AlphaDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .Content.DidFocus, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .Content.DidDefocus, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideDidCreate(_:)), name: .Slide.DidCreate, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(slideDidSelect(_:)), name: .Slide.DidSelect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideDidDeselect(_:)), name: .Slide.DidDeselect, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .Content.DidFocus, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .Content.DidDefocus, object: nil)
     }
 
     @objc
@@ -45,27 +46,7 @@ extension ViewController {
         mainView.updateSelectedContentView(alpha: alpha / 10.0)
     }
 
-    @objc
-    func slideContentDidFocus(_ notification: Notification) {
-        mainView.focusSelectedContent()
-        if let smColor = notification.userInfo?["color"] as? SMColor {
-            let color = smColor.uiColor
-            mainView.updateSelectedContentView(color: color)
-            mainView.updateSelectedContentInspector(color: color)
-        }
-        if let smAlpha = notification.userInfo?["alpha"] as? SMAlpha {
-            let alpha = Double(smAlpha.rawValue)
-            mainView.updateSelectedContentView(alpha: alpha)
-            mainView.updateSelectedContentInspector(alpha: alpha)
-        }
-    }
 
-    @objc
-    func slideContentDidDefocus(_ notification: Notification) {
-        mainView.defocusSelectedContent()
-        mainView.disenableAlphaInspector()
-        mainView.disenableColorInspector()
-    }
 
     @objc
     func slideDidCreate(_ notification: Notification) {
@@ -95,5 +76,33 @@ extension ViewController {
             return
         }
         mainView.selectSlideView(at: index)
+    }
+
+    @objc
+    func slideDidDeselect(_ notification: Notification) {
+        mainView.deselectSlideView()
+        mainView.defocusContentView()
+    }
+
+    @objc
+    func slideContentDidFocus(_ notification: Notification) {
+        mainView.focusSelectedContentView()
+        if let smColor = notification.userInfo?["color"] as? SMColor {
+            let color = smColor.uiColor
+            mainView.updateSelectedContentView(color: color)
+            mainView.updateSelectedContentInspector(color: color)
+        }
+        if let smAlpha = notification.userInfo?["alpha"] as? SMAlpha {
+            let alpha = Double(smAlpha.rawValue)
+            mainView.updateSelectedContentView(alpha: alpha)
+            mainView.updateSelectedContentInspector(alpha: alpha)
+        }
+    }
+
+    @objc
+    func slideContentDidDefocus(_ notification: Notification) {
+        mainView.defocusContentView()
+        mainView.disenableAlphaInspector()
+        mainView.disenableColorInspector()
     }
 }

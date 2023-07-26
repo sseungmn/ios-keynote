@@ -17,5 +17,6 @@ extension Notification.Name {
     enum Slide {
         static let DidCreate = Notification.Name("SlideDidCreate")
         static let DidSelect = Notification.Name("SlideDidSelect")
+        static let DidDeselect = Notification.Name("SlideDidDeselect")
     }
 }
