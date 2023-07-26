@@ -82,6 +82,10 @@ extension NavigatorView {
         tableView.dropDelegate = delegator
         tableView.dragInteractionEnabled = true
     }
+
+    func registerTableViewCell(_ aClass: AnyClass?, forCellReuseIdentifier: String) {
+        tableView.register(aClass, forCellReuseIdentifier: forCellReuseIdentifier)
+    }
 }
 
 extension NavigatorView {
@@ -91,13 +95,13 @@ extension NavigatorView {
 
     func selectTableView(at index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
-        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
+        tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
         tableView.delegate?.tableView?(tableView, didSelectRowAt: indexPath)
     }
 
     func deselectTableView(at index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: false)
         tableView.delegate?.tableView?(tableView, didDeselectRowAt: indexPath)
     }
 }

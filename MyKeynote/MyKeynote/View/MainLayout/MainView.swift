@@ -89,6 +89,10 @@ extension MainView {
     where T: UITableViewDragDelegate & UITableViewDropDelegate {
         navigatorView.settingTableViewDragNDropDelegate(delegator)
     }
+
+    func registerNavigatorTableViewCell(_ aClass: AnyClass?, forCellReuseIdentifier: String) {
+        navigatorView.registerTableViewCell(aClass, forCellReuseIdentifier: forCellReuseIdentifier)
+    }
 }
 
 // MARK: Update

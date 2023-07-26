@@ -20,6 +20,13 @@ extension ViewController {
         colorPickerView.delegate = self
         mainView.settingInspectorViewDelegate(self)
     }
+
+    func registerCell() {
+        mainView.registerNavigatorTableViewCell(
+            SlideNavigatorTableViewCell.self,
+            forCellReuseIdentifier: SlideNavigatorTableViewCell.identifier
+        )
+    }
 }
 
 // MARK: InspectorView
@@ -36,7 +43,7 @@ extension ViewController: InspectorViewDelegate {
         colorPickerView.modalPresentationStyle = .popover
         colorPickerView.modalTransitionStyle = .crossDissolve
         colorPickerView.popoverPresentationController?.sourceView = sender
-        present(colorPickerView, animated: true)
+        present(colorPickerView, animated: false)
     }
 }
 
@@ -61,9 +68,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return slideManager.slideCount
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return SlideNavigatorTableViewCell.intrinsicContentHeight
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = .darkGray
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SlideNavigatorTableViewCell.identifier, for: indexPath) as? SlideNavigatorTableViewCell else {
+            Logger.track(message: "Cell 변환 실패")
+            return SlideNavigatorTableViewCell()
+        }
+        cell.frame.size.width = tableView.frame.width
+        cell.frame.size.height = SlideNavigatorTableViewCell.intrinsicContentHeight
+        cell.configure(title: "\(indexPath.row + 1)", image: UIImage(systemName: "rectangle.inset.filled"))
+        cell.configureLayout()
         return cell
     }
 
@@ -89,6 +106,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         slideManager.moveSlide(at: sourceIndexPath.row, to: destinationIndexPath.row)
+        mainView.reloadNavigatorTableView()
     }
 
 }

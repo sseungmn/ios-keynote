@@ -54,6 +54,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         settingDelegate()
+        registerCell()
         addObserverForSlideContent()
     }
 }
