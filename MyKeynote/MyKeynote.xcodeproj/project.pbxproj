@@ -13,6 +13,8 @@
 		B52A23FC2A6FC87500408259 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
 		B52A23FD2A6FC88D00408259 /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CB82A66FEB6009C7F18 /* Logger+Extension.swift */; };
 		B52A23FF2A6FEF8100408259 /* SquareContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23FE2A6FEF8100408259 /* SquareContentFactory.swift */; };
+		B52A24042A70C02100408259 /* ViewController+FromModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A24032A70C02100408259 /* ViewController+FromModel.swift */; };
+		B52A24062A70C02E00408259 /* ViewController+FromView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A24052A70C02E00408259 /* ViewController+FromView.swift */; };
 		B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */; };
 		B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */; };
 		B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C602A64D146009C7F18 /* ViewController.swift */; };
@@ -66,6 +68,8 @@
 		B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Namespace.swift"; sourceTree = "<group>"; };
 		B52A23FB2A6FBDD400408259 /* MyKeynote.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MyKeynote.xctestplan; sourceTree = "<group>"; };
 		B52A23FE2A6FEF8100408259 /* SquareContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareContentFactory.swift; sourceTree = "<group>"; };
+		B52A24032A70C02100408259 /* ViewController+FromModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+FromModel.swift"; sourceTree = "<group>"; };
+		B52A24052A70C02E00408259 /* ViewController+FromView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+FromView.swift"; sourceTree = "<group>"; };
 		B59A0C592A64D146009C7F18 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C602A64D146009C7F18 /* ViewController.swift */,
+				B52A24032A70C02100408259 /* ViewController+FromModel.swift */,
+				B52A24052A70C02E00408259 /* ViewController+FromView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -389,9 +395,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */,
+				B52A24042A70C02100408259 /* ViewController+FromModel.swift in Sources */,
 				B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */,
 				B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */,
 				B59A0CCB2A679FB4009C7F18 /* SlideView.swift in Sources */,
+				B52A24062A70C02E00408259 /* ViewController+FromView.swift in Sources */,
 				B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */,
 				B59A0CC72A677CFB009C7F18 /* InspectorView.swift in Sources */,
 				B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */,
