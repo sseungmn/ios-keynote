@@ -125,6 +125,7 @@
 		B510FED22A681FDA00649E1B /* Inspector */ = {
 			isa = PBXGroup;
 			children = (
+				B59A0CC62A677CFB009C7F18 /* InspectorView.swift */,
 				B510FED32A68201600649E1B /* ValuePresentableStepper.swift */,
 				B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */,
 			);
@@ -147,6 +148,14 @@
 				B5CCB6D82A6D860E009771DC /* SquareContentView.swift */,
 			);
 			path = SlideContentView;
+			sourceTree = "<group>";
+		};
+		B54E78822A710845002D0755 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
+			);
+			path = Navigator;
 			sourceTree = "<group>";
 		};
 		B59A0C502A64D146009C7F18 = {
@@ -258,8 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				B59A0CC22A677928009C7F18 /* MainView.swift */,
-				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
-				B59A0CC62A677CFB009C7F18 /* InspectorView.swift */,
+				B54E78822A710845002D0755 /* Navigator */,
 				B510FED22A681FDA00649E1B /* Inspector */,
 			);
 			path = MainLayout;
