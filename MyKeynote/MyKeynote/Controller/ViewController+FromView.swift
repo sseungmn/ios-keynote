@@ -125,6 +125,12 @@ extension ViewController: UITableViewDropDelegate {
         return UITableViewDropProposal(operation: .cancel, intent: .unspecified)
     }
 
+    func tableView(_ tableView: UITableView, dragSessionDidEnd session: UIDragSession) {
+        if let indexPath = tableView.indexPathForRow(at: session.location(in: tableView)) {
+            mainView.selectNavigatorTableView(at: indexPath.row)
+        }
+    }
+
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
     }
 }
