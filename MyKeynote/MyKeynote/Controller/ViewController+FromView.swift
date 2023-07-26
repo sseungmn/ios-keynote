@@ -8,15 +8,22 @@
 import UIKit
 import OSLog
 
-// MARK: InspectorView
 extension ViewController {
-    func configureDelegate() {
+    func settingDelegate() {
+        // Navigator
+        mainView.settingNavigatorViewDelegate(self)
+        mainView.settingNavigatorTableViewDelegate(self)
+        mainView.settingNavigatorTableViewDataSource(self)
+        mainView.settingNavigatorTableViewDragNDropDelegate(self)
+
+        // Inspector
         colorPickerView.delegate = self
-        mainView.configureDelegate(self)
+        mainView.settingInspectorViewDelegate(self)
     }
 }
 
-extension ViewController: InspectorDelegate {
+// MARK: InspectorView
+extension ViewController: InspectorViewDelegate {
     func alphaStepperValueDidChange(_ sender: UIStepper) {
         guard let smAlpha = SMAlpha(sender.value) else {
             Logger.track(message: "alpha to SMAlpha convert Error", type: .error)
@@ -87,7 +94,7 @@ extension ViewController: UITableViewDropDelegate {
     }
 }
 
-extension ViewController: NavigatorDelegate {
+extension ViewController: NavigatorViewDelegate {
     func addSlideButtonDidTap(_ sender: UIButton) {
         slideManager.createSquareContentSlide()
     }

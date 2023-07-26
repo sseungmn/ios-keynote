@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NavigatorDelegate {
+protocol NavigatorViewDelegate {
     func addSlideButtonDidTap(_ sender: UIButton)
 }
 
@@ -22,7 +22,7 @@ final class NavigatorView: UIView {
         return button
     }()
 
-    var delegate: NavigatorDelegate?
+    var delegate: NavigatorViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -61,16 +61,30 @@ extension NavigatorView: LayoutConfigurable {
 }
 
 // MARK: - API
+
+// MARK: Setting
 extension NavigatorView {
-    func configureDelegate(_ viewController: UITableViewDelegate & UITableViewDataSource & UITableViewDragDelegate & UITableViewDropDelegate & NavigatorDelegate) {
-        tableView.delegate = viewController
-        tableView.dataSource = viewController
-        tableView.dragDelegate = viewController
-        tableView.dropDelegate = viewController
-        tableView.dragInteractionEnabled = true
-        self.delegate = viewController
+    func settingDelegate(_ delegator: NavigatorViewDelegate) {
+        self.delegate = delegator
     }
 
+    func settingTableViewDelegate(_ delegator: UITableViewDelegate) {
+        tableView.delegate = delegator
+    }
+
+    func settingTableViewDataSource(_ dataSource: UITableViewDataSource) {
+        tableView.dataSource = dataSource
+    }
+
+    func settingTableViewDragNDropDelegate<T>(_ delegator: T)
+    where T: UITableViewDragDelegate & UITableViewDropDelegate {
+        tableView.dragDelegate = delegator
+        tableView.dropDelegate = delegator
+        tableView.dragInteractionEnabled = true
+    }
+}
+
+extension NavigatorView {
     func reloadTableView() {
         tableView.reloadData()
     }

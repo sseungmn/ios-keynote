@@ -61,21 +61,33 @@ extension MainView: LayoutConfigurable {
     }
 }
 
-extension MainView {
-    func configureDelegate<T>(_ viewController: T)
-    where T: UITableViewDelegate & UITableViewDataSource & UITableViewDragDelegate & UITableViewDropDelegate & NavigatorDelegate & InspectorDelegate
-    {
-        navigatorView.configureDelegate(viewController)
-        inspectorView.configureDelegate(viewController)
-    }
-}
-
 // MARK: - API
 
 // MARK: Setting
 extension MainView {
     func settingStepperValueRange(min: Double, max: Double, step: Double) {
         inspectorView.settingStepperValueRange(min: min, max: max, step: step)
+    }
+
+    func settingInspectorViewDelegate(_ delegator: InspectorViewDelegate) {
+        inspectorView.delegate = delegator
+    }
+
+    func settingNavigatorViewDelegate(_ delegator: NavigatorViewDelegate) {
+        navigatorView.settingDelegate(delegator)
+    }
+
+    func settingNavigatorTableViewDelegate(_ delegator: UITableViewDelegate) {
+        navigatorView.settingTableViewDelegate(delegator)
+    }
+
+    func settingNavigatorTableViewDataSource(_ dataSource: UITableViewDataSource) {
+        navigatorView.settingTableViewDataSource(dataSource)
+    }
+
+    func settingNavigatorTableViewDragNDropDelegate<T>(_ delegator: T)
+    where T: UITableViewDragDelegate & UITableViewDropDelegate {
+        navigatorView.settingTableViewDragNDropDelegate(delegator)
     }
 }
 

@@ -8,7 +8,7 @@
 import UIKit
 import OSLog
 
-protocol InspectorDelegate {
+protocol InspectorViewDelegate {
     func colorPickerButtonDidTap(_ sender: UIButton)
     func alphaStepperValueDidChange(_ sender: UIStepper)
 }
@@ -34,7 +34,7 @@ final class InspectorView: UIView {
 
     private let alphaStepper = ValuePresentableStepper()
 
-    var delegate: InspectorDelegate?
+    var delegate: InspectorViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,8 +96,8 @@ extension InspectorView: LayoutConfigurable {
 
 // MARK: Setting
 extension InspectorView {
-    func configureDelegate<T: InspectorDelegate>(_ delegator: T) {
-        delegate = delegator
+    func settingDelegate(_ delegator: InspectorViewDelegate) {
+        self.delegate = delegator
     }
 
     func settingStepperValueRange(min: Double, max: Double, step: Double) {

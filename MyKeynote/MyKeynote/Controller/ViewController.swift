@@ -41,7 +41,6 @@ class ViewController: UIViewController {
 
         let mainView = MainView()
         mainView.frame = view.frame
-        mainView.configureDelegate(self)
         mainView.settingStepperValueRange(min: Double(SMAlpha.min.rawValue), max: Double(SMAlpha.max.rawValue) , step: 1.0)
         view = mainView
     }
@@ -54,7 +53,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureDelegate()
+        settingDelegate()
         addObserverForSlideContent()
     }
 }
