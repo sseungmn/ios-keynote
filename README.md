@@ -85,3 +85,29 @@
 <img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/20222d60-0fe0-4842-90d0-3a57638e5c92">
 <img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/54867a69-bab2-496b-9727-f52ec960ca91">
 </details>
+
+### 07월 26일 (수)
+- [x] Navigator
+  - [x] 슬라이드를 추가했을 때 Navigator에도 표시하기
+
+    <details>
+    <summary>슬라이드 `추가` 시퀀스 다이어그램</summary>
+    <img width="1235" alt="image" src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/50da8263-3407-4951-a915-a0f7fd3c74b8">
+    </details>
+
+  - [x] 특정 슬라이드를 클릭했을 때, 해당 슬라이드가 보여짐
+  - [x] 특정 슬라이드를 클릭했을 때, 이미 보여지고 있던 슬라이드라면, 선택 해제
+  
+    <details>
+    <summary>슬라이드 `선택` 시퀀스 다이어그램</summary>
+    <img width="619" alt="image" src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/43f27623-ca5c-43eb-81c7-ca9000c16636">
+    </details>
+
+  - [x] Long Press를 통해 슬라이드 순서를 변경할 수 있음
+    - [x] 순서가 변경되고 나서도, 선택된 상태를 유지
+    
+    <details>
+    <summary>스크린샷</summary>
+    <img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/855cade7-2d39-48a7-9f52-ae90ca2ef59c">
+    <img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/120847e5-f672-44e7-aa3e-bcba5f48482d">
+    </details>
