@@ -125,7 +125,6 @@
 		B510FED22A681FDA00649E1B /* Inspector */ = {
 			isa = PBXGroup;
 			children = (
-				B59A0CC62A677CFB009C7F18 /* InspectorView.swift */,
 				B510FED32A68201600649E1B /* ValuePresentableStepper.swift */,
 				B5F4CD682A68472200CD226F /* BackgroundColorChangeableButton.swift */,
 			);
@@ -139,6 +138,15 @@
 				B52A23FE2A6FEF8100408259 /* SquareContentFactory.swift */,
 			);
 			path = SlideContentFactory;
+			sourceTree = "<group>";
+		};
+		B52A24072A70D4C600408259 /* SlideContentView */ = {
+			isa = PBXGroup;
+			children = (
+				B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */,
+				B5CCB6D82A6D860E009771DC /* SquareContentView.swift */,
+			);
+			path = SlideContentView;
 			sourceTree = "<group>";
 		};
 		B59A0C502A64D146009C7F18 = {
@@ -165,8 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C8C2A64D579009C7F18 /* App */,
-				B59A0C8D2A64D58C009C7F18 /* Resource */,
+				B59A0C8D2A64D58C009C7F18 /* Resources */,
 				B59A0CB52A66FE30009C7F18 /* Util */,
+				B5D7D39D2A64F7AB0073B882 /* DataModel */,
 				B59A0C8F2A64D9AD009C7F18 /* Model */,
 				B59A0CB62A66FE51009C7F18 /* View */,
 				B59A0CB72A66FE63009C7F18 /* Controller */,
@@ -191,35 +200,26 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		B59A0C8D2A64D58C009C7F18 /* Resource */ = {
+		B59A0C8D2A64D58C009C7F18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B59A0C672A64D149009C7F18 /* LaunchScreen.storyboard */,
 				B59A0C652A64D149009C7F18 /* Assets.xcassets */,
 				B59A0C6A2A64D149009C7F18 /* Info.plist */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B59A0C8F2A64D9AD009C7F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */,
-				B5D7D39D2A64F7AB0073B882 /* DataModel */,
-				B59A0CB42A66FE18009C7F18 /* Slide */,
+				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
+				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
 				B5CCB6D42A6D8411009771DC /* SlideContent */,
 				B52A24002A6FEFC400408259 /* SlideContentFactory */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B59A0CB42A66FE18009C7F18 /* Slide */ = {
-			isa = PBXGroup;
-			children = (
-				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
-				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
-			);
-			path = Slide;
 			sourceTree = "<group>";
 		};
 		B59A0CB52A66FE30009C7F18 /* Util */ = {
@@ -237,6 +237,7 @@
 		B59A0CB62A66FE51009C7F18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */,
 				B5CCB6CD2A6D0E9C009771DC /* MainLayout */,
 				B5CCB6CE2A6D0EB3009771DC /* SlideView */,
 			);
@@ -256,9 +257,9 @@
 		B5CCB6CD2A6D0E9C009771DC /* MainLayout */ = {
 			isa = PBXGroup;
 			children = (
-				B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */,
 				B59A0CC22A677928009C7F18 /* MainView.swift */,
 				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
+				B59A0CC62A677CFB009C7F18 /* InspectorView.swift */,
 				B510FED22A681FDA00649E1B /* Inspector */,
 			);
 			path = MainLayout;
@@ -268,8 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				B59A0CCA2A679FB4009C7F18 /* SlideView.swift */,
-				B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */,
-				B5CCB6D82A6D860E009771DC /* SquareContentView.swift */,
+				B52A24072A70D4C600408259 /* SlideContentView */,
 			);
 			path = SlideView;
 			sourceTree = "<group>";
@@ -596,7 +596,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AVZ9493N69;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyKeynote/Resource/Info.plist;
+				INFOPLIST_FILE = MyKeynote/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -628,7 +628,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AVZ9493N69;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyKeynote/Resource/Info.plist;
+				INFOPLIST_FILE = MyKeynote/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
