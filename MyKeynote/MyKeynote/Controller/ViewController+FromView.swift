@@ -67,11 +67,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return slideManager.slideCount
     }
-
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return SlideNavigatorTableViewCell.intrinsicContentHeight
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SlideNavigatorTableViewCell.identifier, for: indexPath) as? SlideNavigatorTableViewCell else {
             Logger.track(message: "Cell 변환 실패")
@@ -83,7 +83,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configureLayout()
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let oldIndexPath = tableView.indexPathForSelectedRow {
             if oldIndexPath == indexPath {
@@ -95,20 +95,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return indexPath
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         slideManager.selectSlide(at: indexPath.row)
     }
-
+    
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         slideManager.deselectSlide()
     }
-
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        guard sourceIndexPath != destinationIndexPath else { return }
         slideManager.moveSlide(at: sourceIndexPath.row, to: destinationIndexPath.row)
         mainView.reloadNavigatorTableView()
     }
-
 }
 
 extension ViewController: UITableViewDragDelegate {

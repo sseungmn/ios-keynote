@@ -13,7 +13,12 @@ protocol NavigatorViewDelegate: NSObject {
 
 final class NavigatorView: UIView {
 
-    private let tableView = UITableView()
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.bounces = false
+        return tableView
+    }()
+
     private let addSlideButton: UIButton = {
         let button = UIButton()
         button.setImage(.init(systemName: "plus"), for: .normal)
