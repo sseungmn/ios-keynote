@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NavigatorViewDelegate {
+protocol NavigatorViewDelegate: NSObject {
     func addSlideButtonDidTap(_ sender: UIButton)
 }
 
@@ -22,7 +22,7 @@ final class NavigatorView: UIView {
         return button
     }()
 
-    var delegate: NavigatorViewDelegate?
+    weak var delegate: NavigatorViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

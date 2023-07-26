@@ -8,7 +8,7 @@
 import UIKit
 import OSLog
 
-protocol InspectorViewDelegate {
+protocol InspectorViewDelegate: NSObject {
     func colorPickerButtonDidTap(_ sender: UIButton)
     func alphaStepperValueDidChange(_ sender: UIStepper)
 }
@@ -34,7 +34,7 @@ final class InspectorView: UIView {
 
     private let alphaStepper = ValuePresentableStepper()
 
-    var delegate: InspectorViewDelegate?
+    weak var delegate: InspectorViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

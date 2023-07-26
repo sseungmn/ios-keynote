@@ -7,14 +7,15 @@
 
 import UIKit
 
-protocol SlideViewDelegate {
+protocol SlideViewDelegate: NSObject {
     func slideViewDidTap(_ isSlideContentArea: Bool)
 }
 
 final class SlideView: UIView {
 
     var contentView: ContentViewProtocol
-    var delegate: SlideViewDelegate?
+    
+    weak var delegate: SlideViewDelegate?
 
     init(contentView: ContentViewProtocol) {
         self.contentView = contentView
