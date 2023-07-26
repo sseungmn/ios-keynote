@@ -81,7 +81,6 @@ extension ViewController {
     @objc
     func slideDidDeselect(_ notification: Notification) {
         mainView.deselectSlideView()
-        mainView.defocusContentView()
     }
 
     @objc
