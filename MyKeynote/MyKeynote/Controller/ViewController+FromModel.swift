@@ -9,16 +9,6 @@ import UIKit
 import OSLog
 
 extension ViewController {
-    func addObserverForSlideContent() {
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentColorDidChange(_:)), name: .Content.ColorDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentAlphaDidChange(_:)), name: .Content.AlphaDidChange, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideDidCreate(_:)), name: .Slide.DidCreate, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideDidSelect(_:)), name: .Slide.DidSelect, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideDidDeselect(_:)), name: .Slide.DidDeselect, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidFocus(_:)), name: .Content.DidFocus, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(slideContentDidDefocus(_:)), name: .Content.DidDefocus, object: nil)
-    }
-
     @objc
     func slideContentColorDidChange(_ notification: Notification) {
         guard let smColor = notification.userInfo?["color"] as? SMColor else {
@@ -104,5 +94,50 @@ extension ViewController {
         mainView.defocusContentView()
         mainView.disenableAlphaInspector()
         mainView.disenableColorInspector()
+    }
+
+    func addObserverForSlideContent() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideContentColorDidChange(_:)),
+            name: .Content.ColorDidChange,
+            object: SlideContent.self
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideContentAlphaDidChange(_:)),
+            name: .Content.AlphaDidChange,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideDidCreate(_:)),
+            name: .Slide.DidCreate,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideDidSelect(_:)),
+            name: .Slide.DidSelect,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideDidDeselect(_:)),
+            name: .Slide.DidDeselect,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideContentDidFocus(_:)),
+            name: .Content.DidFocus,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(slideContentDidDefocus(_:)),
+            name: .Content.DidDefocus,
+            object: nil
+        )
     }
 }

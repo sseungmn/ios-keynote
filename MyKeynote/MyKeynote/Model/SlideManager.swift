@@ -26,48 +26,6 @@ final class SlideManager {
     }
 }
 
-// MARK: Notification
-extension SlideManager {
-    private func postDidCreateNotification(for slide: Slide) {
-        NotificationCenter.default.post(
-            name: .Slide.DidCreate,
-            object: self,
-            userInfo: ["slide": slide]
-        )
-    }
-
-    private func postDidSelectNotification(for index: Int) {
-        NotificationCenter.default.post(
-            name: .Slide.DidSelect,
-            object: self,
-            userInfo: ["index": index]
-        )
-    }
-
-    private func postDidDeselectNotification() {
-        NotificationCenter.default.post(
-            name: .Slide.DidDeselect,
-            object: self
-        )
-    }
-
-    private func postDidFocusNotification(for slideContent: SlideContent) {
-        NotificationCenter.default.post(
-            name: .Content.DidFocus,
-            object: self,
-            userInfo: ["color": (slideContent as? ColorChangeable)?.color,
-                       "alpha": (slideContent as? AlphaChangeable)?.alpha]
-        )
-    }
-
-    private func postDidDefocusNotification() {
-        NotificationCenter.default.post(
-            name: .Content.DidDefocus,
-            object: self
-        )
-    }
-}
-
 // MARK: - API
 // MARK: Getter
 extension SlideManager {
@@ -141,5 +99,47 @@ extension SlideManager {
         let slide = slides[sourceIndex]
         slides.remove(at: sourceIndex)
         slides.insert(slide, at: destinationIndex)
+    }
+}
+
+// MARK: - Notification
+extension SlideManager {
+    private func postDidCreateNotification(for slide: Slide) {
+        NotificationCenter.default.post(
+            name: .Slide.DidCreate,
+            object: self,
+            userInfo: ["slide": slide]
+        )
+    }
+
+    private func postDidSelectNotification(for index: Int) {
+        NotificationCenter.default.post(
+            name: .Slide.DidSelect,
+            object: self,
+            userInfo: ["index": index]
+        )
+    }
+
+    private func postDidDeselectNotification() {
+        NotificationCenter.default.post(
+            name: .Slide.DidDeselect,
+            object: self
+        )
+    }
+
+    private func postDidFocusNotification(for slideContent: SlideContent) {
+        NotificationCenter.default.post(
+            name: .Content.DidFocus,
+            object: self,
+            userInfo: ["color": (slideContent as? ColorChangeable)?.color,
+                       "alpha": (slideContent as? AlphaChangeable)?.alpha]
+        )
+    }
+
+    private func postDidDefocusNotification() {
+        NotificationCenter.default.post(
+            name: .Content.DidDefocus,
+            object: self
+        )
     }
 }

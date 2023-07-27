@@ -43,22 +43,6 @@ final class SquareContent: SlideContent, ColorChangeable {
     }
 }
 
-// MARK: Notification
-extension SquareContent {
-    private func postDidFocusNotification() {
-        NotificationCenter.default.post(name: .Content.DidFocus, object: self, userInfo: ["color": color, "alpha": alpha])
-    }
-    private func postDidDefocusNotification() {
-        NotificationCenter.default.post(name: .Content.DidDefocus, object: self)
-    }
-    private func postDidAlphaChangeNotification() {
-        NotificationCenter.default.post(name: .Content.AlphaDidChange, object: self, userInfo: ["alpha": alpha])
-    }
-    private func postDidColorChangeNotification() {
-        NotificationCenter.default.post(name: .Content.ColorDidChange, object: self, userInfo: ["color": color])
-    }
-}
-
 // MARK: - API
 extension SquareContent {
     func focus() {
@@ -81,5 +65,36 @@ extension SquareContent {
 extension SquareContent {
     var description: String {
         return "Side: \(size.width), Color: \(color), Alpha: \(alpha)"
+    }
+}
+
+// MARK: - Notification
+extension SquareContent {
+    private func postDidFocusNotification() {
+        NotificationCenter.default.post(
+            name: .Content.DidFocus,
+            object: self,
+            userInfo: ["color": color, "alpha": alpha]
+        )
+    }
+    private func postDidDefocusNotification() {
+        NotificationCenter.default.post(
+            name: .Content.DidDefocus,
+            object: self
+        )
+    }
+    private func postDidAlphaChangeNotification() {
+        NotificationCenter.default.post(
+            name: .Content.AlphaDidChange,
+            object: self,
+            userInfo: ["alpha": alpha]
+        )
+    }
+    private func postDidColorChangeNotification() {
+        NotificationCenter.default.post(
+            name: .Content.ColorDidChange,
+            object: self,
+            userInfo: ["color": color]
+        )
     }
 }
