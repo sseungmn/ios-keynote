@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import OSLog
 
 final class MainView: UIView {
 
@@ -15,7 +14,7 @@ final class MainView: UIView {
         view.backgroundColor = .darkGray
         return view
     }()
-    private let navigationView = NavigatorView()
+    private let navigatorView = NavigatorView()
     private let inspectorView = InspectorView()
 
     private var slideViews = [SlideView]()
@@ -36,7 +35,7 @@ final class MainView: UIView {
         backgroundColor = .systemGray2
 
         addSubview(inspectorBarAreaCoverView)
-        addSubview(navigationView)
+        addSubview(navigatorView)
         addSubview(inspectorView)
     }
 }
@@ -46,9 +45,9 @@ extension MainView: LayoutConfigurable {
         inspectorBarAreaCoverView.frame = CGRect(origin: .zero,
                                               size: CGSize(width: bounds.width, height: safeAreaInsets.top))
         let sideBarWidth = bounds.width / 7
-        navigationView.frame = CGRect(origin: CGPoint(x: safeAreaInsets.left, y: safeAreaInsets.top),
-                                      size: CGSize(width: sideBarWidth, height: bounds.height))
-        navigationView.configureLayout()
+        navigatorView.frame = CGRect(origin: CGPoint(x: safeAreaInsets.left, y: safeAreaInsets.top),
+                                      size: CGSize(width: sideBarWidth, height: bounds.height - safeAreaInsets.top))
+        navigatorView.configureLayout()
 
         let canvasViewHeight = (bounds.width - 2 * sideBarWidth) * (3/4)
         let canvasViewMinY = (bounds.height - canvasViewHeight) / 2
@@ -57,14 +56,8 @@ extension MainView: LayoutConfigurable {
         selectedSlideView?.configureLayout()
 
         inspectorView.frame = CGRect(origin: CGPoint(x: bounds.width - sideBarWidth, y: safeAreaInsets.top),
-                                  size: CGSize(width: sideBarWidth, height: bounds.height))
+                                     size: CGSize(width: sideBarWidth, height: bounds.height - safeAreaInsets.top))
         inspectorView.configureLayout()
-    }
-}
-
-extension MainView {
-    func configureDelegate<T: InspectorDelegate>(_ delegator: T) {
-        inspectorView.configureDelegate(delegator)
     }
 }
 
@@ -75,45 +68,95 @@ extension MainView {
     func settingStepperValueRange(min: Double, max: Double, step: Double) {
         inspectorView.settingStepperValueRange(min: min, max: max, step: step)
     }
+
+    func settingInspectorViewDelegate(_ delegator: InspectorViewDelegate) {
+        inspectorView.delegate = delegator
+    }
+
+    func settingNavigatorViewDelegate(_ delegator: NavigatorViewDelegate) {
+        navigatorView.settingDelegate(delegator)
+    }
+
+    func settingNavigatorTableViewDelegate(_ delegator: UITableViewDelegate) {
+        navigatorView.settingTableViewDelegate(delegator)
+    }
+
+    func settingNavigatorTableViewDataSource(_ dataSource: UITableViewDataSource) {
+        navigatorView.settingTableViewDataSource(dataSource)
+    }
+
+    func settingNavigatorTableViewDragNDropDelegate<T>(_ delegator: T)
+    where T: UITableViewDragDelegate & UITableViewDropDelegate {
+        navigatorView.settingTableViewDragNDropDelegate(delegator)
+    }
+
+    func registerNavigatorTableViewCell(_ aClass: AnyClass?, forCellReuseIdentifier: String) {
+        navigatorView.registerTableViewCell(aClass, forCellReuseIdentifier: forCellReuseIdentifier)
+    }
 }
 
 // MARK: Update
 extension MainView {
+    // MARK: NavigatorView
     func addSlideView(_ slideView: SlideView) {
         slideViews.append(slideView)
         addSubview(slideView)
 
-        selectedSlideView = slideView
         slideView.frame = slideViewFrame
         slideView.configureLayout()
     }
 
-    func focusSelectedContent() {
+    func reloadNavigatorTableView() {
+        navigatorView.reloadTableView()
+    }
+
+    func selectNavigatorTableView(at index: Int) {
+        navigatorView.selectTableView(at: index)
+    }
+
+    func deselectNavigatorTableView(at index: Int) {
+        navigatorView.deselectTableView(at: index)
+    }
+
+    // MARK: ContentView
+    func focusSelectedContentView() {
         selectedSlideView?.focusContentView()
     }
-    func defocusSelectedContent() {
+    func defocusContentView() {
         selectedSlideView?.defocusContentView()
     }
 
-    func updateSelectedContentInspector(color: UIColor) {
-        inspectorView.updateInspector(color: color)
-    }
     func updateSelectedContentView(color: UIColor) {
         selectedSlideView?.updateContentView(color: color)
-    }
-
-    func updateSelectedContentInspector(alpha: Double) {
-        inspectorView.updateInspector(alpha: alpha)
     }
     func updateSelectedContentView(alpha: Double) {
         selectedSlideView?.updateContentView(alpha: alpha)
     }
 
+    // MARK: InspectorView
+    func updateSelectedContentInspector(color: UIColor) {
+        inspectorView.updateInspector(color: color)
+    }
+    func updateSelectedContentInspector(alpha: Double) {
+        inspectorView.updateInspector(alpha: alpha)
+    }
+
     func disenableColorInspector() {
         inspectorView.disenableColor()
     }
-
     func disenableAlphaInspector() {
         inspectorView.disenableAlpha()
+    }
+
+    // MARK: Slide
+    func selectSlideView(at index: Int) {
+        selectedSlideView?.isHidden = true
+        selectedSlideView = slideViews[index]
+        selectedSlideView?.isHidden = false
+    }
+
+    func deselectSlideView() {
+        selectedSlideView?.isHidden = true
+        selectedSlideView = nil
     }
 }

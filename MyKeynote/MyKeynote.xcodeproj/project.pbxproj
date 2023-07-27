@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B510FED32A68201600649E1B /* ValuePresentableStepper.swift */; };
+		B52A23F92A6FBA9700408259 /* Notification+Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */; };
+		B52A23FA2A6FBD9E00408259 /* Notification+Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */; };
+		B52A23FC2A6FC87500408259 /* SMSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7D3A22A6500B40073B882 /* SMSize.swift */; };
+		B52A23FD2A6FC88D00408259 /* Logger+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0CB82A66FEB6009C7F18 /* Logger+Extension.swift */; };
+		B52A23FF2A6FEF8100408259 /* SquareContentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A23FE2A6FEF8100408259 /* SquareContentFactory.swift */; };
+		B52A24042A70C02100408259 /* ViewController+FromModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A24032A70C02100408259 /* ViewController+FromModel.swift */; };
+		B52A24062A70C02E00408259 /* ViewController+FromView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52A24052A70C02E00408259 /* ViewController+FromView.swift */; };
+		B54E78842A71086E002D0755 /* SlideNavigatorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54E78832A71086E002D0755 /* SlideNavigatorTableViewCell.swift */; };
 		B59A0C5D2A64D146009C7F18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */; };
 		B59A0C5F2A64D146009C7F18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */; };
 		B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59A0C602A64D146009C7F18 /* ViewController.swift */; };
@@ -58,6 +66,12 @@
 
 /* Begin PBXFileReference section */
 		B510FED32A68201600649E1B /* ValuePresentableStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValuePresentableStepper.swift; sourceTree = "<group>"; };
+		B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Namespace.swift"; sourceTree = "<group>"; };
+		B52A23FB2A6FBDD400408259 /* MyKeynote.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = MyKeynote.xctestplan; sourceTree = "<group>"; };
+		B52A23FE2A6FEF8100408259 /* SquareContentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareContentFactory.swift; sourceTree = "<group>"; };
+		B52A24032A70C02100408259 /* ViewController+FromModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+FromModel.swift"; sourceTree = "<group>"; };
+		B52A24052A70C02E00408259 /* ViewController+FromView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+FromView.swift"; sourceTree = "<group>"; };
+		B54E78832A71086E002D0755 /* SlideNavigatorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideNavigatorTableViewCell.swift; sourceTree = "<group>"; };
 		B59A0C592A64D146009C7F18 /* MyKeynote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyKeynote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59A0C5C2A64D146009C7F18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59A0C5E2A64D146009C7F18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,9 +134,37 @@
 			path = Inspector;
 			sourceTree = "<group>";
 		};
+		B52A24002A6FEFC400408259 /* SlideContentFactory */ = {
+			isa = PBXGroup;
+			children = (
+				B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */,
+				B52A23FE2A6FEF8100408259 /* SquareContentFactory.swift */,
+			);
+			path = SlideContentFactory;
+			sourceTree = "<group>";
+		};
+		B52A24072A70D4C600408259 /* SlideContentView */ = {
+			isa = PBXGroup;
+			children = (
+				B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */,
+				B5CCB6D82A6D860E009771DC /* SquareContentView.swift */,
+			);
+			path = SlideContentView;
+			sourceTree = "<group>";
+		};
+		B54E78822A710845002D0755 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
+				B54E78832A71086E002D0755 /* SlideNavigatorTableViewCell.swift */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
 		B59A0C502A64D146009C7F18 = {
 			isa = PBXGroup;
 			children = (
+				B52A23FB2A6FBDD400408259 /* MyKeynote.xctestplan */,
 				B59A0C8E2A64D635009C7F18 /* README.md */,
 				B59A0C5B2A64D146009C7F18 /* MyKeynote */,
 				B59A0C722A64D149009C7F18 /* MyKeynoteTests */,
@@ -143,8 +185,9 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C8C2A64D579009C7F18 /* App */,
-				B59A0C8D2A64D58C009C7F18 /* Resource */,
+				B59A0C8D2A64D58C009C7F18 /* Resources */,
 				B59A0CB52A66FE30009C7F18 /* Util */,
+				B5D7D39D2A64F7AB0073B882 /* DataModel */,
 				B59A0C8F2A64D9AD009C7F18 /* Model */,
 				B59A0CB62A66FE51009C7F18 /* View */,
 				B59A0CB72A66FE63009C7F18 /* Controller */,
@@ -169,33 +212,26 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		B59A0C8D2A64D58C009C7F18 /* Resource */ = {
+		B59A0C8D2A64D58C009C7F18 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B59A0C672A64D149009C7F18 /* LaunchScreen.storyboard */,
 				B59A0C652A64D149009C7F18 /* Assets.xcassets */,
 				B59A0C6A2A64D149009C7F18 /* Info.plist */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B59A0C8F2A64D9AD009C7F18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B5D7D39D2A64F7AB0073B882 /* DataModel */,
-				B59A0CB42A66FE18009C7F18 /* Slide */,
+				B52A23F82A6FBA9700408259 /* Notification+Namespace.swift */,
+				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
+				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
 				B5CCB6D42A6D8411009771DC /* SlideContent */,
+				B52A24002A6FEFC400408259 /* SlideContentFactory */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		B59A0CB42A66FE18009C7F18 /* Slide */ = {
-			isa = PBXGroup;
-			children = (
-				B59A0C902A64D9DA009C7F18 /* Slide.swift */,
-				B5CCB6CF2A6D24B2009771DC /* SlideManager.swift */,
-			);
-			path = Slide;
 			sourceTree = "<group>";
 		};
 		B59A0CB52A66FE30009C7F18 /* Util */ = {
@@ -213,6 +249,7 @@
 		B59A0CB62A66FE51009C7F18 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */,
 				B5CCB6CD2A6D0E9C009771DC /* MainLayout */,
 				B5CCB6CE2A6D0EB3009771DC /* SlideView */,
 			);
@@ -223,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				B59A0C602A64D146009C7F18 /* ViewController.swift */,
+				B52A24032A70C02100408259 /* ViewController+FromModel.swift */,
+				B52A24052A70C02E00408259 /* ViewController+FromView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,9 +269,8 @@
 		B5CCB6CD2A6D0E9C009771DC /* MainLayout */ = {
 			isa = PBXGroup;
 			children = (
-				B59A0CC42A677A13009C7F18 /* LayoutConfigurable.swift */,
 				B59A0CC22A677928009C7F18 /* MainView.swift */,
-				B59A0CC82A677F0A009C7F18 /* NavigatorView.swift */,
+				B54E78822A710845002D0755 /* Navigator */,
 				B510FED22A681FDA00649E1B /* Inspector */,
 			);
 			path = MainLayout;
@@ -242,8 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				B59A0CCA2A679FB4009C7F18 /* SlideView.swift */,
-				B5CCB6DA2A6D862F009771DC /* ContentViewProtocol.swift */,
-				B5CCB6D82A6D860E009771DC /* SquareContentView.swift */,
+				B52A24072A70D4C600408259 /* SlideContentView */,
 			);
 			path = SlideView;
 			sourceTree = "<group>";
@@ -253,7 +290,6 @@
 			children = (
 				B5CCB6CB2A6D0978009771DC /* SlideContent.swift */,
 				B5CCB6D22A6D83FF009771DC /* SquareContent.swift */,
-				B5CCB6D62A6D8447009771DC /* SlideContentFactory.swift */,
 			);
 			path = SlideContent;
 			sourceTree = "<group>";
@@ -370,13 +406,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				B59A0CCD2A67EA62009C7F18 /* UIColor+Extension.swift in Sources */,
+				B52A24042A70C02100408259 /* ViewController+FromModel.swift in Sources */,
 				B59A0CC52A677A13009C7F18 /* LayoutConfigurable.swift in Sources */,
 				B510FED42A68201600649E1B /* ValuePresentableStepper.swift in Sources */,
 				B59A0CCB2A679FB4009C7F18 /* SlideView.swift in Sources */,
+				B52A24062A70C02E00408259 /* ViewController+FromView.swift in Sources */,
+				B54E78842A71086E002D0755 /* SlideNavigatorTableViewCell.swift in Sources */,
 				B59A0CC92A677F0A009C7F18 /* NavigatorView.swift in Sources */,
 				B59A0CC72A677CFB009C7F18 /* InspectorView.swift in Sources */,
 				B5CCB6D92A6D860E009771DC /* SquareContentView.swift in Sources */,
+				B52A23FF2A6FEF8100408259 /* SquareContentFactory.swift in Sources */,
 				B59A0CB92A66FEB6009C7F18 /* Logger+Extension.swift in Sources */,
+				B52A23F92A6FBA9700408259 /* Notification+Namespace.swift in Sources */,
 				B5CCB6D72A6D8447009771DC /* SlideContentFactory.swift in Sources */,
 				B59A0C612A64D146009C7F18 /* ViewController.swift in Sources */,
 				B59A0CBF2A670A6B009C7F18 /* SMAlpha+CGFloat.swift in Sources */,
@@ -402,7 +443,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B52A23FA2A6FBD9E00408259 /* Notification+Namespace.swift in Sources */,
+				B52A23FD2A6FC88D00408259 /* Logger+Extension.swift in Sources */,
 				B5CCB6DE2A6E1063009771DC /* SlideContentFactory.swift in Sources */,
+				B52A23FC2A6FC87500408259 /* SMSize.swift in Sources */,
 				B5CCB6E22A6E7D80009771DC /* SlideContent.swift in Sources */,
 				B5CCB6E52A6E7DE2009771DC /* SlideManagerTests.swift in Sources */,
 				B5CCB6E02A6E10C5009771DC /* SMColor.swift in Sources */,
@@ -564,7 +608,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AVZ9493N69;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyKeynote/Resource/Info.plist;
+				INFOPLIST_FILE = MyKeynote/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -596,7 +640,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AVZ9493N69;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MyKeynote/Resource/Info.plist;
+				INFOPLIST_FILE = MyKeynote/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";

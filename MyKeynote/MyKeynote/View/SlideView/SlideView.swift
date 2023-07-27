@@ -7,21 +7,25 @@
 
 import UIKit
 
-protocol SlideViewDelegate {
+protocol SlideViewDelegate: NSObject {
     func slideViewDidTap(_ isSlideContentArea: Bool)
 }
 
 final class SlideView: UIView {
 
-    var contentView: ContentViewProtocol?
-    var delegate: SlideViewDelegate?
+    var contentView: ContentViewProtocol
+    
+    weak var delegate: SlideViewDelegate?
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(contentView: ContentViewProtocol) {
+        self.contentView = contentView
+        super.init(frame: .zero)
+
         configureUI()
     }
 
     required init?(coder: NSCoder) {
+        self.contentView = SquareContentView()
         super.init(coder: coder)
         configureUI()
     }
@@ -29,13 +33,14 @@ final class SlideView: UIView {
     private func configureUI() {
         backgroundColor = .white
 
+        addSubview(contentView)
+
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(slideViewDidTap(_:)))
         addGestureRecognizer(tapGesture)
     }
 
     @objc
     private func slideViewDidTap(_ sender: UITapGestureRecognizer) {
-        guard let contentView else { return }
         let isSlideContentArea = contentView.bounds.contains(sender.location(in: contentView))
         delegate?.slideViewDidTap(isSlideContentArea)
     }
@@ -47,14 +52,6 @@ extension SlideView: LayoutConfigurable {
 }
 
 // MARK: - API
-
-// MARK: Setting
-extension SlideView {
-    func setContentView(_ contentView: ContentViewProtocol) {
-        self.contentView = contentView
-        addSubview(contentView)
-    }
-}
 
 // MARK: Update
 extension SlideView {
@@ -70,9 +67,9 @@ extension SlideView {
     }
 
     func focusContentView() {
-        contentView?.focus()
+        contentView.focus()
     }
     func defocusContentView() {
-        contentView?.defocus()
+        contentView.defocus()
     }
 }

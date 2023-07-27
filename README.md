@@ -67,3 +67,21 @@
     <img width=500; src="https://github.com/sseungmn/ios-keynote/assets/46219689/bead70dd-fd14-46fa-8572-100b08b680db">
     </details>
 
+### 07월 25일 (화)
+- [x] SlideManager, Factory관련 수정
+- [x] NavigatorView 연동
+<details>
+<summary>설계</summary>
+
+<img width="825" alt="image" src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/436059bc-a0a3-439c-b2a3-e93886899a51">
+</details>
+  - [x] 추가버튼을 눌렀을 때 NavigatorView에도 추가됨
+  - [x] Slide가 추가됐을 때 자동으로 선택된 상태로 변경됨
+  - [x] NavigatorView에서 다른 Cell을 눌렀을 때, 대응되는 Slide가 보여짐
+<details>
+<summary>스크린샷</summary>
+
+<img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/b201c977-d050-46bb-a12a-16336400843f">
+<img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/20222d60-0fe0-4842-90d0-3a57638e5c92">
+<img width=500 src="https://github.com/softeerbootcamp-2nd/ios-keynote/assets/46219689/54867a69-bab2-496b-9727-f52ec960ca91">
+</details>

@@ -7,15 +7,13 @@
 
 import Foundation
 
-extension CGFloat {
-    init(_ smAlpha: SMAlpha) {
-        self.init(smAlpha.rawValue)
-    }
-}
-
 extension SMAlpha {
     init?(_ rawValue: CGFloat) {
         guard let alpha = SMAlpha(rawValue: Int(rawValue)) else { return nil }
         self = alpha
+    }
+
+    var cgFloat: CGFloat {
+        return CGFloat(rawValue)
     }
 }

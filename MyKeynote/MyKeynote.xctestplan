@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "18E1CCCA-D1C2-4CE0-91F2-1E072BE3E6DE",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:MyKeynote.xcodeproj",
+      "identifier" : "B59A0C582A64D146009C7F18",
+      "name" : "MyKeynote"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:MyKeynote.xcodeproj",
+        "identifier" : "B59A0C6E2A64D149009C7F18",
+        "name" : "MyKeynoteTests"
+      }
+    }
+  ],
+  "version" : 1
+}

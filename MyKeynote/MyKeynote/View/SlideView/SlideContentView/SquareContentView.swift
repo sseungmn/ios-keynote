@@ -13,4 +13,10 @@ final class SquareContentView: ContentViewProtocol, ViewColorChangeable {
     var contentAlpha: CGFloat = 1.0
     var contentColor: UIColor = .white
     var borderColor: UIColor = .black
+
+    func updateSize(_ size: CGSize) {
+        self.frame.size = size
+        guard let superview else { return }
+        self.center = CGPoint(x: superview.frame.width / 2, y: superview.frame.height / 2)
+    }
 }

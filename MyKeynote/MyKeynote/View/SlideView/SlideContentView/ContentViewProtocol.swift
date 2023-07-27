@@ -7,7 +7,7 @@
 
 import UIKit
 
-typealias ContentViewProtocol = UIView & ViewFocusable & ViewAlphaChangeable
+typealias ContentViewProtocol = UIView & ViewStaticPositionable & ViewFocusable & ViewAlphaChangeable
 
 // MARK: ViewSelectable
 protocol ViewFocusable: UIView {
@@ -22,6 +22,11 @@ extension ViewFocusable {
     func defocus() {
         layer.borderWidth = 0.0
     }
+}
+
+// MARK: ViewStaticPositionable
+protocol ViewStaticPositionable: UIView {
+    func updateSize(_ size: CGSize)
 }
 
 // MARK: ViewAlphaChangeable
@@ -42,7 +47,7 @@ protocol ViewColorChangeable: ContentViewProtocol {
 extension ViewColorChangeable {
     func updateColor(_ color: UIColor) {
         contentColor = color
-        backgroundColor = contentColor.withAlphaComponent(contentAlpha)
+        backgroundColor = contentColor
         layer.borderColor = (contentColor.isDark ? UIColor.systemTeal : UIColor.black).cgColor
 
     }
